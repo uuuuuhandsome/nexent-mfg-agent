@@ -218,3 +218,20 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# ==== project ====
+# 密钥与本地环境
+*.env
+.env.*
+!.env.example
+# 大文件与模型缓存
+models/
+cache/
+*.pth
+*.bin
+# 本地数据（超过 20MB 的原始文档不入库）
+data/raw/
+# 运行产物
+logs/
+outputs/
+
