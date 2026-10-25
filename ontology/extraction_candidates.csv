@@ -1,0 +1,211 @@
+﻿kind,head,rel,tail,name,confidence,similarity,matched,decision,source,sentence
+concept,Fault:E-101,,,主轴异响,0.95,1.0,Fault,instance,fault_code_dictionary.csv,E-101 主轴异响
+concept,Fault:E-102,,,主轴振动超标,0.95,0.92,InspectionItem,instance,fault_code_dictionary.csv,E-102 主轴振动超标
+concept,Fault:E-103,,,刀库换刀卡滞,0.95,0.364,Cause,instance,fault_code_dictionary.csv,E-103 刀库换刀卡滞
+concept,Fault:E-104,,,加工表面振纹,0.95,0.92,Symptom,instance,fault_code_dictionary.csv,E-104 加工表面振纹
+concept,Fault:E-105,,,主轴温升过高,0.95,0.4,Component,instance,fault_code_dictionary.csv,E-105 主轴温升过高
+concept,Fault:E-106,,,进给轴爬行,0.95,0.286,Supplier,instance,fault_code_dictionary.csv,E-106 进给轴爬行
+concept,Fault:E-107,,,冷却液压力不足,0.95,0.92,Coolant,instance,fault_code_dictionary.csv,E-107 冷却液压力不足
+concept,Fault:E-108,,,刀库定位偏差,0.95,0.25,Tool,instance,fault_code_dictionary.csv,E-108 刀库定位偏差
+concept,Fault:H-201,,,液压压力不足,0.95,1.0,Fault,instance,fault_code_dictionary.csv,H-201 液压压力不足
+concept,Fault:H-202,,,液压油温过高,0.95,0.333,Fault,instance,fault_code_dictionary.csv,H-202 液压油温过高
+concept,Fault:H-203,,,油缸爬行,0.95,0.333,Component,instance,fault_code_dictionary.csv,H-203 油缸爬行
+concept,Fault:H-204,,,液压外泄漏,0.95,0.364,Fault,instance,fault_code_dictionary.csv,H-204 液压外泄漏
+concept,Fault:H-205,,,蓄能器压力低,0.95,0.4,Alarm,instance,fault_code_dictionary.csv,H-205 蓄能器压力低
+concept,SparePart:SP-1001,,,主轴轴承,0.95,1.0,Component,instance,bom.csv,SP-1001 主轴轴承
+concept,SparePart:SP-1002,,,主轴轴承,0.95,1.0,Component,instance,bom.csv,SP-1002 主轴轴承
+concept,SparePart:SP-1003,,,主轴冷却单元,0.95,0.444,Coolant,instance,bom.csv,SP-1003 主轴冷却单元
+concept,SparePart:SP-2001,,,刀库定位销,0.95,0.286,Tool,instance,bom.csv,SP-2001 刀库定位销
+concept,SparePart:SP-2002,,,刀套,0.95,0.5,Tool,instance,bom.csv,SP-2002 刀套
+concept,SparePart:SP-3001,,,液压油泵,0.95,0.92,Component,instance,bom.csv,SP-3001 液压油泵
+concept,SparePart:SP-3002,,,溢流阀,0.95,0.92,Cause,instance,bom.csv,SP-3002 溢流阀
+concept,SparePart:SP-4001,,,油缸密封圈,0.95,0.286,Component,instance,bom.csv,SP-4001 油缸密封圈
+concept,SparePart:SP-4002,,,蓄能器皮囊,0.95,0.25,Sensor,instance,bom.csv,SP-4002 蓄能器皮囊
+concept,SparePart:SP-5001,,,导轨滑块,0.95,0.571,Lubricant,instance,bom.csv,SP-5001 导轨滑块
+concept,SparePart:SP-5002,,,滚珠丝杠,0.95,0.0,,instance,bom.csv,SP-5002 滚珠丝杠
+concept,SparePart:SP-6001,,,冷却泵,0.95,0.667,Coolant,instance,bom.csv,SP-6001 冷却泵
+concept,SparePart:SP-7001,,,液压油滤芯,0.95,0.364,Fault,instance,bom.csv,SP-7001 液压油滤芯
+concept,ManualSection:3.2.1,,,主轴异响,0.9,1.0,Fault,instance,maintenance_manual_cnc.txt,3.2.1 主轴异响（对应故障代码 E-101）
+concept,ManualSection:3.2.2,,,主轴振动超标,0.9,0.92,InspectionItem,instance,maintenance_manual_cnc.txt,3.2.2 主轴振动超标（对应故障代码 E-102、E-104）
+concept,ManualSection:3.3.1,,,主轴温升过高,0.9,0.4,Component,instance,maintenance_manual_cnc.txt,3.3.1 主轴温升过高（对应故障代码 E-105）
+concept,ManualSection:3.4.1,,,进给轴爬行,0.9,0.286,Supplier,instance,maintenance_manual_cnc.txt,3.4.1 进给轴爬行（对应故障代码 E-106）
+concept,ManualSection:4.1.1,,,换刀卡滞,0.9,0.444,Cause,instance,maintenance_manual_cnc.txt,4.1.1 换刀卡滞（对应故障代码 E-103）
+concept,ManualSection:4.1.2,,,刀库定位偏差,0.9,0.25,Tool,instance,maintenance_manual_cnc.txt,4.1.2 刀库定位偏差（对应故障代码 E-108）
+concept,ManualSection:6.1.1,,,冷却液压力不足,0.9,0.92,Coolant,instance,maintenance_manual_cnc.txt,6.1.1 冷却液压力不足（对应故障代码 E-107）
+concept,ManualSection:5.1.1,,,系统压力不足,0.9,0.667,Fault,instance,maintenance_manual_hydraulic.txt,5.1.1 系统压力不足（对应故障代码 H-201）
+concept,ManualSection:5.2.1,,,油温过高,0.9,0.333,Component,instance,maintenance_manual_hydraulic.txt,5.2.1 油温过高（对应故障代码 H-202）
+concept,ManualSection:5.3.1,,,油缸爬行,0.9,0.333,Component,instance,maintenance_manual_hydraulic.txt,5.3.1 油缸爬行（对应故障代码 H-203）
+concept,ManualSection:5.4.1,,,液压外泄漏,0.9,0.364,Fault,instance,maintenance_manual_hydraulic.txt,5.4.1 液压外泄漏（对应故障代码 H-204）
+concept,ManualSection:5.5.1,,,蓄能器压力低,0.9,0.4,Alarm,instance,maintenance_manual_hydraulic.txt,5.5.1 蓄能器压力低（对应故障代码 H-205）
+concept,Component:主轴轴承,,,主轴轴承,0.9,1.0,Component,auto_merge,fault_code_dictionary.csv,部件：主轴轴承
+concept,Component:刀库定位销,,,刀库定位销,0.9,0.286,Tool,auto_new,fault_code_dictionary.csv,部件：刀库定位销
+concept,Component:主轴冷却单元,,,主轴冷却单元,0.9,0.444,Coolant,auto_new,fault_code_dictionary.csv,部件：主轴冷却单元
+concept,Component:导轨滑块,,,导轨滑块,0.9,0.571,Lubricant,review,fault_code_dictionary.csv,部件：导轨滑块
+concept,Component:冷却泵,,,冷却泵,0.9,0.667,Coolant,review,fault_code_dictionary.csv,部件：冷却泵
+concept,Component:液压油泵,,,液压油泵,0.9,0.92,Component,auto_merge,fault_code_dictionary.csv,部件：液压油泵
+concept,Component:冷却器,,,冷却器,0.9,0.667,Coolant,review,fault_code_dictionary.csv,部件：冷却器
+concept,Component:油缸密封圈,,,油缸密封圈,0.9,0.286,Component,auto_new,fault_code_dictionary.csv,部件：油缸密封圈
+concept,Component:蓄能器皮囊,,,蓄能器皮囊,0.9,0.25,Sensor,auto_new,fault_code_dictionary.csv,部件：蓄能器皮囊
+concept,Component:主轴轴承组,,,主轴轴承组,0.88,0.92,Component,auto_merge,equipment_structure_notes.txt,部件：主轴轴承组
+concept,Component:刀套,,,刀套,0.88,0.5,Tool,review,equipment_structure_notes.txt,部件：刀套
+concept,Component:溢流阀,,,溢流阀,0.88,0.92,Cause,auto_merge,equipment_structure_notes.txt,部件：溢流阀
+concept,Component:滚珠丝杠,,,滚珠丝杠,0.88,0.0,,auto_new,equipment_structure_notes.txt,部件：滚珠丝杠
+concept,Component:液压油滤芯,,,液压油滤芯,0.88,0.364,Fault,auto_new,equipment_structure_notes.txt,部件：液压油滤芯
+concept,Component:接触球轴承,,,接触球轴承,0.72,0.5,RepairStep,review,maintenance_manual_cnc.txt,部件：接触球轴承
+concept,Component:拉刀机构,,,拉刀机构,0.72,0.333,Tool,review,maintenance_manual_cnc.txt,部件：拉刀机构
+concept,Component:换主轴轴承,,,换主轴轴承,0.72,0.92,Component,review,maintenance_manual_cnc.txt,部件：换主轴轴承
+concept,Component:机更换轴承,,,机更换轴承,0.72,0.5,RepairStep,review,maintenance_manual_cnc.txt,部件：机更换轴承
+concept,Component:轨润滑泵,,,轨润滑泵,0.72,0.571,Lubricant,review,maintenance_manual_cnc.txt,部件：轨润滑泵
+concept,Component:换导轨滑块,,,换导轨滑块,0.72,0.5,Lubricant,review,maintenance_manual_cnc.txt,部件：换导轨滑块
+concept,Component:或滚珠丝杠,,,或滚珠丝杠,0.72,0.0,,review,maintenance_manual_cnc.txt,部件：或滚珠丝杠
+concept,Component:换刀时刀套,,,换刀时刀套,0.72,0.286,Tool,review,maintenance_manual_cnc.txt,部件：换刀时刀套
+concept,Component:定位销,,,定位销,0.72,0.167,Parameter,review,maintenance_manual_cnc.txt,部件：定位销
+concept,Component:换定位销,,,换定位销,0.72,0.154,Parameter,review,maintenance_manual_cnc.txt,部件：换定位销
+concept,Component:时更换刀套,,,时更换刀套,0.72,0.286,Tool,review,maintenance_manual_cnc.txt,部件：时更换刀套
+concept,Component:查定位销,,,查定位销,0.72,0.154,Parameter,review,maintenance_manual_cnc.txt,部件：查定位销
+concept,Component:换冷却泵,,,换冷却泵,0.72,0.571,Coolant,review,maintenance_manual_cnc.txt,部件：换冷却泵
+concept,Component:染导致阀,,,染导致阀,0.72,0.286,Lubricant,review,maintenance_manual_hydraulic.txt,部件：染导致阀
+concept,Component:检溢流阀,,,检溢流阀,0.72,0.667,Cause,review,maintenance_manual_hydraulic.txt,部件：检溢流阀
+concept,Component:先导阀,,,先导阀,0.72,0.333,Lubricant,review,maintenance_manual_hydraulic.txt,部件：先导阀
+concept,Component:洗溢流阀,,,洗溢流阀,0.72,0.667,Cause,review,maintenance_manual_hydraulic.txt,部件：洗溢流阀
+concept,Component:洗板式冷却器,,,洗板式冷却器,0.72,0.444,Coolant,review,maintenance_manual_hydraulic.txt,部件：洗板式冷却器
+concept,Component:密封圈,,,密封圈,0.72,0.0,,review,maintenance_manual_hydraulic.txt,部件：密封圈
+concept,Component:接头或阀,,,接头或阀,0.72,0.333,Tool,review,maintenance_manual_hydraulic.txt,部件：接头或阀
+concept,Component:蓄能器,,,蓄能器,0.72,0.333,Sensor,review,maintenance_manual_hydraulic.txt,部件：蓄能器
+concept,Component:充气阀,,,充气阀,0.72,0.25,Cause,review,maintenance_manual_hydraulic.txt,部件：充气阀
+concept,Component:查充气阀,,,查充气阀,0.72,0.222,Cause,review,maintenance_manual_hydraulic.txt,部件：查充气阀
+relation,Fault:E-101,causedBy,Component:主轴轴承,,0.9,,,auto_new,fault_code_dictionary.csv,E-101 主轴异响｜关联部件：主轴轴承
+relation,Fault:E-101,references,ManualSection:3.2.1,,0.9,,,auto_new,fault_code_dictionary.csv,E-101 主轴异响｜参考章节：3.2.1
+relation,Fault:E-102,causedBy,Component:主轴轴承,,0.9,,,auto_new,fault_code_dictionary.csv,E-102 主轴振动超标｜关联部件：主轴轴承
+relation,Fault:E-102,references,ManualSection:3.2.2,,0.9,,,auto_new,fault_code_dictionary.csv,E-102 主轴振动超标｜参考章节：3.2.2
+relation,Fault:E-103,causedBy,Component:刀库定位销,,0.9,,,auto_new,fault_code_dictionary.csv,E-103 刀库换刀卡滞｜关联部件：刀库定位销
+relation,Fault:E-103,references,ManualSection:4.1.1,,0.9,,,auto_new,fault_code_dictionary.csv,E-103 刀库换刀卡滞｜参考章节：4.1.1
+relation,Fault:E-104,causedBy,Component:主轴轴承,,0.9,,,auto_new,fault_code_dictionary.csv,E-104 加工表面振纹｜关联部件：主轴轴承
+relation,Fault:E-104,references,ManualSection:3.2.2,,0.9,,,auto_new,fault_code_dictionary.csv,E-104 加工表面振纹｜参考章节：3.2.2
+relation,Fault:E-105,causedBy,Component:主轴冷却单元,,0.9,,,auto_new,fault_code_dictionary.csv,E-105 主轴温升过高｜关联部件：主轴冷却单元
+relation,Fault:E-105,references,ManualSection:3.3.1,,0.9,,,auto_new,fault_code_dictionary.csv,E-105 主轴温升过高｜参考章节：3.3.1
+relation,Fault:E-106,causedBy,Component:导轨滑块,,0.9,,,review,fault_code_dictionary.csv,E-106 进给轴爬行｜关联部件：导轨滑块
+relation,Fault:E-106,references,ManualSection:3.4.1,,0.9,,,auto_new,fault_code_dictionary.csv,E-106 进给轴爬行｜参考章节：3.4.1
+relation,Fault:E-107,causedBy,Component:冷却泵,,0.9,,,review,fault_code_dictionary.csv,E-107 冷却液压力不足｜关联部件：冷却泵
+relation,Fault:E-107,references,ManualSection:6.1.1,,0.9,,,auto_new,fault_code_dictionary.csv,E-107 冷却液压力不足｜参考章节：6.1.1
+relation,Fault:E-108,causedBy,Component:刀库定位销,,0.9,,,auto_new,fault_code_dictionary.csv,E-108 刀库定位偏差｜关联部件：刀库定位销
+relation,Fault:E-108,references,ManualSection:4.1.2,,0.9,,,auto_new,fault_code_dictionary.csv,E-108 刀库定位偏差｜参考章节：4.1.2
+relation,Fault:H-201,causedBy,Component:液压油泵,,0.9,,,auto_new,fault_code_dictionary.csv,H-201 液压压力不足｜关联部件：液压油泵
+relation,Fault:H-201,references,ManualSection:5.1.1,,0.9,,,auto_new,fault_code_dictionary.csv,H-201 液压压力不足｜参考章节：5.1.1
+relation,Fault:H-202,causedBy,Component:冷却器,,0.9,,,review,fault_code_dictionary.csv,H-202 液压油温过高｜关联部件：冷却器
+relation,Fault:H-202,references,ManualSection:5.2.1,,0.9,,,auto_new,fault_code_dictionary.csv,H-202 液压油温过高｜参考章节：5.2.1
+relation,Fault:H-203,causedBy,Component:油缸密封圈,,0.9,,,auto_new,fault_code_dictionary.csv,H-203 油缸爬行｜关联部件：油缸密封圈
+relation,Fault:H-203,references,ManualSection:5.3.1,,0.9,,,auto_new,fault_code_dictionary.csv,H-203 油缸爬行｜参考章节：5.3.1
+relation,Fault:H-204,causedBy,Component:油缸密封圈,,0.9,,,auto_new,fault_code_dictionary.csv,H-204 液压外泄漏｜关联部件：油缸密封圈
+relation,Fault:H-204,references,ManualSection:5.4.1,,0.9,,,auto_new,fault_code_dictionary.csv,H-204 液压外泄漏｜参考章节：5.4.1
+relation,Fault:H-205,causedBy,Component:蓄能器皮囊,,0.9,,,auto_new,fault_code_dictionary.csv,H-205 蓄能器压力低｜关联部件：蓄能器皮囊
+relation,Fault:H-205,references,ManualSection:5.5.1,,0.9,,,auto_new,fault_code_dictionary.csv,H-205 蓄能器压力低｜参考章节：5.5.1
+relation,SparePart:SP-1001,appliesTo,Model:VMC850,,0.85,,,auto_new,bom.csv,SP-1001 适用：VMC850
+relation,SparePart:SP-1001,appliesTo,Model:VMC1160,,0.85,,,auto_new,bom.csv,SP-1001 适用：VMC1160
+relation,SparePart:SP-1002,appliesTo,Model:HMC630,,0.85,,,auto_new,bom.csv,SP-1002 适用：HMC630
+relation,SparePart:SP-1003,appliesTo,Model:VMC850,,0.85,,,auto_new,bom.csv,SP-1003 适用：VMC850
+relation,SparePart:SP-1003,appliesTo,Model:VMC1160,,0.85,,,auto_new,bom.csv,SP-1003 适用：VMC1160
+relation,SparePart:SP-1003,appliesTo,Model:HMC630,,0.85,,,auto_new,bom.csv,SP-1003 适用：HMC630
+relation,SparePart:SP-2001,appliesTo,Model:VMC850,,0.85,,,auto_new,bom.csv,SP-2001 适用：VMC850
+relation,SparePart:SP-2001,appliesTo,Model:VMC1160,,0.85,,,auto_new,bom.csv,SP-2001 适用：VMC1160
+relation,SparePart:SP-2002,appliesTo,Model:VMC850,,0.85,,,auto_new,bom.csv,SP-2002 适用：VMC850
+relation,SparePart:SP-2002,appliesTo,Model:VMC1160,,0.85,,,auto_new,bom.csv,SP-2002 适用：VMC1160
+relation,SparePart:SP-3001,appliesTo,Model:HPU-40,,0.85,,,auto_new,bom.csv,SP-3001 适用：HPU-40
+relation,SparePart:SP-3002,appliesTo,Model:HPU-40,,0.85,,,auto_new,bom.csv,SP-3002 适用：HPU-40
+relation,SparePart:SP-3002,appliesTo,Model:HPU-63,,0.85,,,auto_new,bom.csv,SP-3002 适用：HPU-63
+relation,SparePart:SP-4001,appliesTo,Model:HPU-40,,0.85,,,auto_new,bom.csv,SP-4001 适用：HPU-40
+relation,SparePart:SP-4002,appliesTo,Model:HPU-40,,0.85,,,auto_new,bom.csv,SP-4002 适用：HPU-40
+relation,SparePart:SP-4002,appliesTo,Model:HPU-63,,0.85,,,auto_new,bom.csv,SP-4002 适用：HPU-63
+relation,SparePart:SP-5001,appliesTo,Model:HMC630,,0.85,,,auto_new,bom.csv,SP-5001 适用：HMC630
+relation,SparePart:SP-5002,appliesTo,Model:HMC630,,0.85,,,auto_new,bom.csv,SP-5002 适用：HMC630
+relation,SparePart:SP-6001,appliesTo,Model:VMC850,,0.85,,,auto_new,bom.csv,SP-6001 适用：VMC850
+relation,SparePart:SP-6001,appliesTo,Model:VMC1160,,0.85,,,auto_new,bom.csv,SP-6001 适用：VMC1160
+relation,SparePart:SP-7001,appliesTo,Model:HPU-40,,0.85,,,auto_new,bom.csv,SP-7001 适用：HPU-40
+relation,SparePart:SP-7001,appliesTo,Model:HPU-63,,0.85,,,auto_new,bom.csv,SP-7001 适用：HPU-63
+relation,Component:主轴轴承组,usesPart,SparePart:SP-1001,,0.88,,,auto_new,equipment_structure_notes.txt,- 主轴轴承组 -> SP-1001（VMC 系列）/ SP-1002（HMC 系列）
+relation,Component:主轴冷却单元,usesPart,SparePart:SP-1003,,0.88,,,auto_new,equipment_structure_notes.txt,- 主轴冷却单元 -> SP-1003
+relation,Component:刀库定位销,usesPart,SparePart:SP-2001,,0.88,,,auto_new,equipment_structure_notes.txt,- 刀库定位销 -> SP-2001
+relation,Component:刀套,usesPart,SparePart:SP-2002,,0.88,,,review,equipment_structure_notes.txt,- 刀套 -> SP-2002
+relation,Component:液压油泵,usesPart,SparePart:SP-3001,,0.88,,,auto_new,equipment_structure_notes.txt,- 液压油泵 -> SP-3001
+relation,Component:溢流阀,usesPart,SparePart:SP-3002,,0.88,,,auto_new,equipment_structure_notes.txt,- 溢流阀 -> SP-3002
+relation,Component:油缸密封圈,usesPart,SparePart:SP-4001,,0.88,,,auto_new,equipment_structure_notes.txt,- 油缸密封圈 -> SP-4001
+relation,Component:蓄能器皮囊,usesPart,SparePart:SP-4002,,0.88,,,auto_new,equipment_structure_notes.txt,- 蓄能器皮囊 -> SP-4002
+relation,Component:导轨滑块,usesPart,SparePart:SP-5001,,0.88,,,review,equipment_structure_notes.txt,- 导轨滑块 -> SP-5001
+relation,Component:滚珠丝杠,usesPart,SparePart:SP-5002,,0.88,,,auto_new,equipment_structure_notes.txt,- 滚珠丝杠 -> SP-5002
+relation,Component:冷却泵,usesPart,SparePart:SP-6001,,0.88,,,review,equipment_structure_notes.txt,- 冷却泵 -> SP-6001
+relation,Component:液压油滤芯,usesPart,SparePart:SP-7001,,0.88,,,auto_new,equipment_structure_notes.txt,- 液压油滤芯 -> SP-7001
+relation,WorkOrder:WO-2024-001,resolvedBy,MaintenanceAction:更换主轴轴承并重新预紧,,0.8,,,auto_new,maintenance_work_orders.csv,WO-2024-001 措施：更换主轴轴承并重新预紧
+relation,WorkOrder:WO-2024-001,usesPart,SparePart:SP-1001,,0.85,,,auto_new,maintenance_work_orders.csv,WO-2024-001 更换：SP-1001
+relation,WorkOrder:WO-2024-002,resolvedBy,MaintenanceAction:调整进给参数并复测振动,,0.8,,,auto_new,maintenance_work_orders.csv,WO-2024-002 措施：调整进给参数并复测振动
+relation,WorkOrder:WO-2024-003,resolvedBy,MaintenanceAction:更换定位销并清洁刀套,,0.8,,,auto_new,maintenance_work_orders.csv,WO-2024-003 措施：更换定位销并清洁刀套
+relation,WorkOrder:WO-2024-003,usesPart,SparePart:SP-2001,,0.85,,,auto_new,maintenance_work_orders.csv,WO-2024-003 更换：SP-2001
+relation,WorkOrder:WO-2024-004,resolvedBy,MaintenanceAction:更换油泵并清洗溢流阀,,0.8,,,auto_new,maintenance_work_orders.csv,WO-2024-004 措施：更换油泵并清洗溢流阀
+relation,WorkOrder:WO-2024-004,usesPart,SparePart:SP-3001,,0.85,,,auto_new,maintenance_work_orders.csv,WO-2024-004 更换：SP-3001
+relation,WorkOrder:WO-2024-005,resolvedBy,MaintenanceAction:更换主轴轴承并做动平衡,,0.8,,,auto_new,maintenance_work_orders.csv,WO-2024-005 措施：更换主轴轴承并做动平衡
+relation,WorkOrder:WO-2024-005,usesPart,SparePart:SP-1002,,0.85,,,auto_new,maintenance_work_orders.csv,WO-2024-005 更换：SP-1002
+relation,WorkOrder:WO-2024-006,resolvedBy,MaintenanceAction:更换主轴轴承,,0.8,,,auto_new,maintenance_work_orders.csv,WO-2024-006 措施：更换主轴轴承
+relation,WorkOrder:WO-2024-006,usesPart,SparePart:SP-1001,,0.85,,,auto_new,maintenance_work_orders.csv,WO-2024-006 更换：SP-1001
+relation,WorkOrder:WO-2024-007,resolvedBy,MaintenanceAction:清洗冷却器并更换液压油,,0.8,,,auto_new,maintenance_work_orders.csv,WO-2024-007 措施：清洗冷却器并更换液压油
+relation,WorkOrder:WO-2024-008,resolvedBy,MaintenanceAction:降低进给速度并复检,,0.8,,,auto_new,maintenance_work_orders.csv,WO-2024-008 措施：降低进给速度并复检
+relation,WorkOrder:WO-2024-009,resolvedBy,MaintenanceAction:更换密封圈并排气,,0.8,,,auto_new,maintenance_work_orders.csv,WO-2024-009 措施：更换密封圈并排气
+relation,WorkOrder:WO-2024-009,usesPart,SparePart:SP-4001,,0.85,,,auto_new,maintenance_work_orders.csv,WO-2024-009 更换：SP-4001
+relation,WorkOrder:WO-2024-010,resolvedBy,MaintenanceAction:更换主轴轴承并复测,,0.8,,,auto_new,maintenance_work_orders.csv,WO-2024-010 措施：更换主轴轴承并复测
+relation,WorkOrder:WO-2024-010,usesPart,SparePart:SP-1002,,0.85,,,auto_new,maintenance_work_orders.csv,WO-2024-010 更换：SP-1002
+relation,WorkOrder:WO-2024-011,resolvedBy,MaintenanceAction:清洗冷却单元并检查流量,,0.8,,,auto_new,maintenance_work_orders.csv,WO-2024-011 措施：清洗冷却单元并检查流量
+relation,WorkOrder:WO-2024-011,usesPart,SparePart:SP-1003,,0.85,,,auto_new,maintenance_work_orders.csv,WO-2024-011 更换：SP-1003
+relation,WorkOrder:WO-2024-012,resolvedBy,MaintenanceAction:更换导轨滑块并调整预紧,,0.8,,,auto_new,maintenance_work_orders.csv,WO-2024-012 措施：更换导轨滑块并调整预紧
+relation,WorkOrder:WO-2024-012,usesPart,SparePart:SP-5001,,0.85,,,auto_new,maintenance_work_orders.csv,WO-2024-012 更换：SP-5001
+relation,WorkOrder:WO-2024-013,resolvedBy,MaintenanceAction:更换冷却泵,,0.8,,,auto_new,maintenance_work_orders.csv,WO-2024-013 措施：更换冷却泵
+relation,WorkOrder:WO-2024-013,usesPart,SparePart:SP-6001,,0.85,,,auto_new,maintenance_work_orders.csv,WO-2024-013 更换：SP-6001
+relation,WorkOrder:WO-2024-014,resolvedBy,MaintenanceAction:校准刀库并更换定位销,,0.8,,,auto_new,maintenance_work_orders.csv,WO-2024-014 措施：校准刀库并更换定位销
+relation,WorkOrder:WO-2024-014,usesPart,SparePart:SP-2001,,0.85,,,auto_new,maintenance_work_orders.csv,WO-2024-014 更换：SP-2001
+relation,WorkOrder:WO-2024-015,resolvedBy,MaintenanceAction:更换密封并紧固接头,,0.8,,,auto_new,maintenance_work_orders.csv,WO-2024-015 措施：更换密封并紧固接头
+relation,WorkOrder:WO-2024-015,usesPart,SparePart:SP-4001,,0.85,,,auto_new,maintenance_work_orders.csv,WO-2024-015 更换：SP-4001
+relation,WorkOrder:WO-2024-016,resolvedBy,MaintenanceAction:更换皮囊并补充氮气,,0.8,,,auto_new,maintenance_work_orders.csv,WO-2024-016 措施：更换皮囊并补充氮气
+relation,WorkOrder:WO-2024-016,usesPart,SparePart:SP-4002,,0.85,,,auto_new,maintenance_work_orders.csv,WO-2024-016 更换：SP-4002
+relation,WorkOrder:WO-2024-017,resolvedBy,MaintenanceAction:清洁刀套并更换定位销,,0.8,,,auto_new,maintenance_work_orders.csv,WO-2024-017 措施：清洁刀套并更换定位销
+relation,WorkOrder:WO-2024-017,usesPart,SparePart:SP-2001,,0.85,,,auto_new,maintenance_work_orders.csv,WO-2024-017 更换：SP-2001
+relation,WorkOrder:WO-2024-018,resolvedBy,MaintenanceAction:更换主轴轴承,,0.8,,,auto_new,maintenance_work_orders.csv,WO-2024-018 措施：更换主轴轴承
+relation,WorkOrder:WO-2024-018,usesPart,SparePart:SP-1001,,0.85,,,auto_new,maintenance_work_orders.csv,WO-2024-018 更换：SP-1001
+relation,WorkOrder:WO-2024-019,resolvedBy,MaintenanceAction:更换主轴轴承,,0.8,,,auto_new,maintenance_work_orders.csv,WO-2024-019 措施：更换主轴轴承
+relation,WorkOrder:WO-2024-019,usesPart,SparePart:SP-1002,,0.85,,,auto_new,maintenance_work_orders.csv,WO-2024-019 更换：SP-1002
+relation,WorkOrder:WO-2024-020,resolvedBy,MaintenanceAction:更换油泵并清洗溢流阀,,0.8,,,auto_new,maintenance_work_orders.csv,WO-2024-020 措施：更换油泵并清洗溢流阀
+relation,WorkOrder:WO-2024-020,usesPart,SparePart:SP-3001,,0.85,,,auto_new,maintenance_work_orders.csv,WO-2024-020 更换：SP-3001
+relation,WorkOrder:WO-2024-021,resolvedBy,MaintenanceAction:清洗冷却回路,,0.8,,,auto_new,maintenance_work_orders.csv,WO-2024-021 措施：清洗冷却回路
+relation,WorkOrder:WO-2024-022,resolvedBy,MaintenanceAction:补充润滑并调整伺服增益,,0.8,,,auto_new,maintenance_work_orders.csv,WO-2024-022 措施：补充润滑并调整伺服增益
+relation,WorkOrder:WO-2024-023,resolvedBy,MaintenanceAction:更换冷却泵,,0.8,,,auto_new,maintenance_work_orders.csv,WO-2024-023 措施：更换冷却泵
+relation,WorkOrder:WO-2024-023,usesPart,SparePart:SP-6001,,0.85,,,auto_new,maintenance_work_orders.csv,WO-2024-023 更换：SP-6001
+relation,WorkOrder:WO-2024-024,resolvedBy,MaintenanceAction:清洗冷却器并更换液压油,,0.8,,,auto_new,maintenance_work_orders.csv,WO-2024-024 措施：清洗冷却器并更换液压油
+relation,WorkOrder:WO-2024-025,resolvedBy,MaintenanceAction:降低进给并检查主轴振动,,0.8,,,auto_new,maintenance_work_orders.csv,WO-2024-025 措施：降低进给并检查主轴振动
+relation,WorkOrder:WO-2024-026,resolvedBy,MaintenanceAction:重新校准刀库,,0.8,,,auto_new,maintenance_work_orders.csv,WO-2024-026 措施：重新校准刀库
+relation,WorkOrder:WO-2024-027,resolvedBy,MaintenanceAction:更换密封圈,,0.8,,,auto_new,maintenance_work_orders.csv,WO-2024-027 措施：更换密封圈
+relation,WorkOrder:WO-2024-027,usesPart,SparePart:SP-4001,,0.85,,,auto_new,maintenance_work_orders.csv,WO-2024-027 更换：SP-4001
+relation,WorkOrder:WO-2024-028,resolvedBy,MaintenanceAction:更换刀套,,0.8,,,auto_new,maintenance_work_orders.csv,WO-2024-028 措施：更换刀套
+relation,WorkOrder:WO-2024-028,usesPart,SparePart:SP-2002,,0.85,,,auto_new,maintenance_work_orders.csv,WO-2024-028 更换：SP-2002
+relation,WorkOrder:WO-2024-029,resolvedBy,MaintenanceAction:更换主轴轴承,,0.8,,,auto_new,maintenance_work_orders.csv,WO-2024-029 措施：更换主轴轴承
+relation,WorkOrder:WO-2024-029,usesPart,SparePart:SP-1002,,0.85,,,auto_new,maintenance_work_orders.csv,WO-2024-029 更换：SP-1002
+relation,WorkOrder:WO-2024-030,resolvedBy,MaintenanceAction:紧固接头并更换密封,,0.8,,,auto_new,maintenance_work_orders.csv,WO-2024-030 措施：紧固接头并更换密封
+relation,WorkOrder:WO-2024-031,resolvedBy,MaintenanceAction:更换主轴轴承,,0.8,,,auto_new,maintenance_work_orders.csv,WO-2024-031 措施：更换主轴轴承
+relation,WorkOrder:WO-2024-031,usesPart,SparePart:SP-1001,,0.85,,,auto_new,maintenance_work_orders.csv,WO-2024-031 更换：SP-1001
+relation,WorkOrder:WO-2024-032,resolvedBy,MaintenanceAction:更换滚珠丝杠,,0.8,,,auto_new,maintenance_work_orders.csv,WO-2024-032 措施：更换滚珠丝杠
+relation,WorkOrder:WO-2024-032,usesPart,SparePart:SP-5002,,0.85,,,auto_new,maintenance_work_orders.csv,WO-2024-032 更换：SP-5002
+relation,WorkOrder:WO-2024-033,resolvedBy,MaintenanceAction:更换皮囊,,0.8,,,auto_new,maintenance_work_orders.csv,WO-2024-033 措施：更换皮囊
+relation,WorkOrder:WO-2024-033,usesPart,SparePart:SP-4002,,0.85,,,auto_new,maintenance_work_orders.csv,WO-2024-033 更换：SP-4002
+relation,WorkOrder:WO-2024-034,resolvedBy,MaintenanceAction:更换冷却泵,,0.8,,,auto_new,maintenance_work_orders.csv,WO-2024-034 措施：更换冷却泵
+relation,WorkOrder:WO-2024-034,usesPart,SparePart:SP-6001,,0.85,,,auto_new,maintenance_work_orders.csv,WO-2024-034 更换：SP-6001
+relation,WorkOrder:WO-2024-035,resolvedBy,MaintenanceAction:做动平衡并更换轴承,,0.8,,,auto_new,maintenance_work_orders.csv,WO-2024-035 措施：做动平衡并更换轴承
+relation,WorkOrder:WO-2024-035,usesPart,SparePart:SP-1002,,0.85,,,auto_new,maintenance_work_orders.csv,WO-2024-035 更换：SP-1002
+relation,WorkOrder:WO-2024-036,resolvedBy,MaintenanceAction:更换油泵,,0.8,,,auto_new,maintenance_work_orders.csv,WO-2024-036 措施：更换油泵
+relation,WorkOrder:WO-2024-036,usesPart,SparePart:SP-3001,,0.85,,,auto_new,maintenance_work_orders.csv,WO-2024-036 更换：SP-3001
+relation,ManualSection:3.2.1,describes,Fault:E-101,,0.92,,,auto_new,maintenance_manual_cnc.txt,3.2.1 主轴异响（对应故障代码 E-101）
+relation,ManualSection:3.2.2,describes,Fault:E-102,,0.92,,,auto_new,maintenance_manual_cnc.txt,3.2.2 主轴振动超标（对应故障代码 E-102、E-104）
+relation,ManualSection:3.3.1,describes,Fault:E-105,,0.92,,,auto_new,maintenance_manual_cnc.txt,3.3.1 主轴温升过高（对应故障代码 E-105）
+relation,ManualSection:3.4.1,describes,Fault:E-106,,0.92,,,auto_new,maintenance_manual_cnc.txt,3.4.1 进给轴爬行（对应故障代码 E-106）
+relation,ManualSection:4.1.1,describes,Fault:E-103,,0.92,,,auto_new,maintenance_manual_cnc.txt,4.1.1 换刀卡滞（对应故障代码 E-103）
+relation,ManualSection:4.1.2,describes,Fault:E-108,,0.92,,,auto_new,maintenance_manual_cnc.txt,4.1.2 刀库定位偏差（对应故障代码 E-108）
+relation,ManualSection:6.1.1,describes,Fault:E-107,,0.92,,,auto_new,maintenance_manual_cnc.txt,6.1.1 冷却液压力不足（对应故障代码 E-107）
+relation,ManualSection:5.1.1,describes,Fault:H-201,,0.92,,,auto_new,maintenance_manual_hydraulic.txt,5.1.1 系统压力不足（对应故障代码 H-201）
+relation,ManualSection:5.2.1,describes,Fault:H-202,,0.92,,,auto_new,maintenance_manual_hydraulic.txt,5.2.1 油温过高（对应故障代码 H-202）
+relation,ManualSection:5.3.1,describes,Fault:H-203,,0.92,,,auto_new,maintenance_manual_hydraulic.txt,5.3.1 油缸爬行（对应故障代码 H-203）
+relation,ManualSection:5.4.1,describes,Fault:H-204,,0.92,,,auto_new,maintenance_manual_hydraulic.txt,5.4.1 液压外泄漏（对应故障代码 H-204）
+relation,ManualSection:5.5.1,describes,Fault:H-205,,0.92,,,auto_new,maintenance_manual_hydraulic.txt,5.5.1 蓄能器压力低（对应故障代码 H-205）

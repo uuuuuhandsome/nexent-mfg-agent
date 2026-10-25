@@ -1,0 +1,2327 @@
+{
+  "version": "1.0",
+  "domain": "先进制造-设备运维",
+  "description": "设备故障诊断与备件溯源领域种子本体 v0.2，含 40 个概念、25 条关系与核心属性",
+  "concepts": [
+    {
+      "id": "Equipment",
+      "name": "设备",
+      "definition": "生产设备实例",
+      "examples": [
+        "CNC-03",
+        "HYD-01"
+      ],
+      "standard": "GB/T 19001 设备管理"
+    },
+    {
+      "id": "EquipmentModel",
+      "name": "设备型号",
+      "definition": "设备的具体型号",
+      "examples": [
+        "VMC1160",
+        "HPU-40"
+      ],
+      "standard": "企业设备台账规范"
+    },
+    {
+      "id": "ProductionLine",
+      "name": "产线",
+      "definition": "设备所属生产线",
+      "examples": [
+        "机加一线",
+        "机加二线"
+      ],
+      "standard": "企业产线编码规则"
+    },
+    {
+      "id": "Component",
+      "name": "部件",
+      "definition": "设备的关键组成部件",
+      "examples": [
+        "主轴轴承",
+        "油泵"
+      ],
+      "standard": "GB/T 设备分类"
+    },
+    {
+      "id": "Fault",
+      "name": "故障",
+      "definition": "设备发生的故障事件",
+      "examples": [
+        "主轴异响",
+        "液压压力不足"
+      ],
+      "standard": "企业故障代码表"
+    },
+    {
+      "id": "FaultCode",
+      "name": "故障代码",
+      "definition": "故障的唯一编码",
+      "examples": [
+        "E-101",
+        "H-201"
+      ],
+      "standard": "企业故障代码表"
+    },
+    {
+      "id": "Symptom",
+      "name": "故障现象",
+      "definition": "可观测的异常表现",
+      "examples": [
+        "周期性异响",
+        "表面振纹"
+      ],
+      "standard": "企业维修手册"
+    },
+    {
+      "id": "Cause",
+      "name": "故障原因",
+      "definition": "导致故障的原因",
+      "examples": [
+        "轴承磨损",
+        "溢流阀卡滞"
+      ],
+      "standard": "企业维修手册"
+    },
+    {
+      "id": "ManualSection",
+      "name": "手册章节",
+      "definition": "维修手册中的处置章节",
+      "examples": [
+        "3.2.1 主轴异响"
+      ],
+      "standard": "企业维修手册规范"
+    },
+    {
+      "id": "WorkOrder",
+      "name": "维修工单",
+      "definition": "历史维修记录",
+      "examples": [
+        "WO-2024-006"
+      ],
+      "standard": "企业工单管理规范"
+    },
+    {
+      "id": "SparePart",
+      "name": "备件",
+      "definition": "BOM 中的更换件",
+      "examples": [
+        "SP-1001 主轴轴承"
+      ],
+      "standard": "企业物料编码规则"
+    },
+    {
+      "id": "Inspection",
+      "name": "质检记录",
+      "definition": "设备产出批次的质检结果",
+      "examples": [
+        "QC-2024-001"
+      ],
+      "standard": "GB/T 2828 抽样检验"
+    },
+    {
+      "id": "Batch",
+      "name": "批次",
+      "definition": "生产批次",
+      "examples": [
+        "B2402-01"
+      ],
+      "standard": "企业批次管理规范"
+    },
+    {
+      "id": "Technician",
+      "name": "维修人员",
+      "definition": "执行维修的人员",
+      "examples": [
+        "张伟",
+        "李强"
+      ],
+      "standard": "企业人员管理"
+    },
+    {
+      "id": "Supplier",
+      "name": "供应商",
+      "definition": "备件供应方",
+      "examples": [
+        "哈轴",
+        "力士乐"
+      ],
+      "standard": "企业供应商管理"
+    },
+    {
+      "id": "Standard",
+      "name": "标准规范",
+      "definition": "行业或国家标准",
+      "examples": [
+        "GB/T 19001",
+        "GB/T 2828"
+      ],
+      "standard": "国家标准体系"
+    },
+    {
+      "id": "FaultSeverity",
+      "name": "故障等级",
+      "definition": "故障的严重程度分级",
+      "examples": [
+        "轻微",
+        "一般",
+        "严重",
+        "停机"
+      ],
+      "standard": "企业故障分级规范"
+    },
+    {
+      "id": "RepairType",
+      "name": "维修类型",
+      "definition": "维修的分类",
+      "examples": [
+        "日常保养",
+        "故障维修",
+        "大修"
+      ],
+      "standard": "企业维修管理规范"
+    },
+    {
+      "id": "Downtime",
+      "name": "停机时长",
+      "definition": "设备因故障停机的时间",
+      "examples": [
+        "2h",
+        "8h"
+      ],
+      "standard": "企业设备管理规范"
+    },
+    {
+      "id": "Tool",
+      "name": "刀具",
+      "definition": "加工所用刀具",
+      "examples": [
+        "立铣刀",
+        "钻头"
+      ],
+      "standard": "企业刀具管理规范"
+    },
+    {
+      "id": "Fixture",
+      "name": "工装夹具",
+      "definition": "装夹工件的夹具",
+      "examples": [
+        "三爪卡盘",
+        "专用夹具"
+      ],
+      "standard": "企业工装管理规范"
+    },
+    {
+      "id": "Coolant",
+      "name": "冷却液",
+      "definition": "加工冷却介质",
+      "examples": [
+        "乳化液",
+        "切削油"
+      ],
+      "standard": "企业工艺规范"
+    },
+    {
+      "id": "Lubricant",
+      "name": "润滑脂",
+      "definition": "设备润滑介质",
+      "examples": [
+        "锂基脂",
+        "导轨油"
+      ],
+      "standard": "企业润滑管理规范"
+    },
+    {
+      "id": "Sensor",
+      "name": "传感器",
+      "definition": "监测设备状态的传感器",
+      "examples": [
+        "振动传感器",
+        "温度传感器"
+      ],
+      "standard": "企业设备监测规范"
+    },
+    {
+      "id": "Alarm",
+      "name": "报警",
+      "definition": "设备触发的报警信息",
+      "examples": [
+        "温度报警",
+        "压力报警"
+      ],
+      "standard": "企业报警管理规范"
+    },
+    {
+      "id": "Parameter",
+      "name": "技术参数",
+      "definition": "设备的关键技术参数",
+      "examples": [
+        "额定压力16MPa",
+        "最高转速8000r/min"
+      ],
+      "standard": "企业设备档案规范"
+    },
+    {
+      "id": "InspectionItem",
+      "name": "检测项",
+      "definition": "质检的检测项目",
+      "examples": [
+        "表面粗糙度Ra",
+        "主轴振动"
+      ],
+      "standard": "GB/T 2828 抽样检验"
+    },
+    {
+      "id": "QualityStandard",
+      "name": "质量标准",
+      "definition": "检测项的合格判定标准",
+      "examples": [
+        "Ra≤1.6",
+        "振动≤2.8mm/s"
+      ],
+      "standard": "企业质量标准"
+    },
+    {
+      "id": "Process",
+      "name": "工序",
+      "definition": "加工工序",
+      "examples": [
+        "粗铣",
+        "精铣",
+        "钻孔"
+      ],
+      "standard": "企业工艺规范"
+    },
+    {
+      "id": "Part",
+      "name": "零件",
+      "definition": "被加工的零件",
+      "examples": [
+        "法兰盘",
+        "壳体"
+      ],
+      "standard": "企业零件编码规则"
+    },
+    {
+      "id": "ProductionOrder",
+      "name": "生产工单",
+      "definition": "生产任务单",
+      "examples": [
+        "PO-2024-101"
+      ],
+      "standard": "企业生产管理规范"
+    },
+    {
+      "id": "MaintenanceTeam",
+      "name": "维修班组",
+      "definition": "执行维修的班组",
+      "examples": [
+        "机修一班",
+        "机修二班"
+      ],
+      "standard": "企业班组管理"
+    },
+    {
+      "id": "SpareInventory",
+      "name": "备件库存",
+      "definition": "备件的库存记录",
+      "examples": [
+        "SP-1001 库存8"
+      ],
+      "standard": "企业仓储管理规范"
+    },
+    {
+      "id": "PurchaseOrder",
+      "name": "采购单",
+      "definition": "备件采购单据",
+      "examples": [
+        "PO-2024-301"
+      ],
+      "standard": "企业采购管理规范"
+    },
+    {
+      "id": "EquipmentStatus",
+      "name": "设备状态",
+      "definition": "设备当前运行状态",
+      "examples": [
+        "在用",
+        "停机",
+        "维修中"
+      ],
+      "standard": "企业设备管理规范"
+    },
+    {
+      "id": "FaultTree",
+      "name": "故障树",
+      "definition": "故障原因的树状分析",
+      "examples": [
+        "主轴异响故障树"
+      ],
+      "standard": "企业可靠性工程规范"
+    },
+    {
+      "id": "RepairStep",
+      "name": "维修步骤",
+      "definition": "处置的具体步骤",
+      "examples": [
+        "测振",
+        "拆轴承",
+        "复紧"
+      ],
+      "standard": "企业维修手册规范"
+    },
+    {
+      "id": "RootCause",
+      "name": "根因",
+      "definition": "故障的根本原因",
+      "examples": [
+        "润滑失效",
+        "预紧不足"
+      ],
+      "standard": "企业可靠性工程规范"
+    },
+    {
+      "id": "DocumentSource",
+      "name": "文档来源",
+      "definition": "知识来源文档",
+      "examples": [
+        "MN-CNC-2023",
+        "WO-2024-006"
+      ],
+      "standard": "企业文档管理规范"
+    },
+    {
+      "id": "TraceRecord",
+      "name": "溯源记录",
+      "definition": "决策依据的溯源信息",
+      "examples": [
+        "手册3.2.1第2条"
+      ],
+      "standard": "企业知识管理规范"
+    },
+    {
+      "id": "Component_刀库定位销",
+      "name": "刀库定位销",
+      "definition": "由半自动流水线抽取（待人工复核）",
+      "examples": [
+        "刀库定位销"
+      ],
+      "standard": "",
+      "provenance": {
+        "source": "fault_code_dictionary.csv",
+        "sentence": "部件：刀库定位销",
+        "confidence": 0.9,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "Component_主轴冷却单元",
+      "name": "主轴冷却单元",
+      "definition": "由半自动流水线抽取（待人工复核）",
+      "examples": [
+        "主轴冷却单元"
+      ],
+      "standard": "",
+      "provenance": {
+        "source": "fault_code_dictionary.csv",
+        "sentence": "部件：主轴冷却单元",
+        "confidence": 0.9,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "Component_油缸密封圈",
+      "name": "油缸密封圈",
+      "definition": "由半自动流水线抽取（待人工复核）",
+      "examples": [
+        "油缸密封圈"
+      ],
+      "standard": "",
+      "provenance": {
+        "source": "fault_code_dictionary.csv",
+        "sentence": "部件：油缸密封圈",
+        "confidence": 0.9,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "Component_蓄能器皮囊",
+      "name": "蓄能器皮囊",
+      "definition": "由半自动流水线抽取（待人工复核）",
+      "examples": [
+        "蓄能器皮囊"
+      ],
+      "standard": "",
+      "provenance": {
+        "source": "fault_code_dictionary.csv",
+        "sentence": "部件：蓄能器皮囊",
+        "confidence": 0.9,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "Component_滚珠丝杠",
+      "name": "滚珠丝杠",
+      "definition": "由半自动流水线抽取（待人工复核）",
+      "examples": [
+        "滚珠丝杠"
+      ],
+      "standard": "",
+      "provenance": {
+        "source": "equipment_structure_notes.txt",
+        "sentence": "部件：滚珠丝杠",
+        "confidence": 0.88,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "Component_液压油滤芯",
+      "name": "液压油滤芯",
+      "definition": "由半自动流水线抽取（待人工复核）",
+      "examples": [
+        "液压油滤芯"
+      ],
+      "standard": "",
+      "provenance": {
+        "source": "equipment_structure_notes.txt",
+        "sentence": "部件：液压油滤芯",
+        "confidence": 0.88,
+        "status": "auto_new"
+      }
+    }
+  ],
+  "relations": [
+    {
+      "id": "hasFault",
+      "head": "Equipment",
+      "tail": "Fault",
+      "description": "设备发生某故障"
+    },
+    {
+      "id": "causedBy",
+      "head": "Fault",
+      "tail": "Component",
+      "description": "故障由某部件引起"
+    },
+    {
+      "id": "hasSymptom",
+      "head": "Fault",
+      "tail": "Symptom",
+      "description": "故障表现为某现象"
+    },
+    {
+      "id": "hasCause",
+      "head": "Fault",
+      "tail": "Cause",
+      "description": "故障的原因为某原因"
+    },
+    {
+      "id": "references",
+      "head": "Fault",
+      "tail": "ManualSection",
+      "description": "故障对应手册处置章节"
+    },
+    {
+      "id": "usesPart",
+      "head": "ManualSection",
+      "tail": "SparePart",
+      "description": "处置需更换某备件"
+    },
+    {
+      "id": "usesPart",
+      "head": "WorkOrder",
+      "tail": "SparePart",
+      "description": "工单中更换了某备件"
+    },
+    {
+      "id": "similarTo",
+      "head": "WorkOrder",
+      "tail": "WorkOrder",
+      "description": "历史相似案例"
+    },
+    {
+      "id": "inspectedBy",
+      "head": "Equipment",
+      "tail": "Inspection",
+      "description": "设备产出批次经质检"
+    },
+    {
+      "id": "appliesTo",
+      "head": "SparePart",
+      "tail": "EquipmentModel",
+      "description": "备件适用于某型号"
+    },
+    {
+      "id": "belongsTo",
+      "head": "Equipment",
+      "tail": "ProductionLine",
+      "description": "设备属于某产线"
+    },
+    {
+      "id": "repairedBy",
+      "head": "WorkOrder",
+      "tail": "Technician",
+      "description": "工单由某维修人执行"
+    },
+    {
+      "id": "suppliedBy",
+      "head": "SparePart",
+      "tail": "Supplier",
+      "description": "备件由某供应商提供"
+    },
+    {
+      "id": "conformsTo",
+      "head": "ManualSection",
+      "tail": "Standard",
+      "description": "手册章节遵循某标准"
+    },
+    {
+      "id": "hasModel",
+      "head": "Equipment",
+      "tail": "EquipmentModel",
+      "description": "设备属于某型号"
+    },
+    {
+      "id": "hasSeverity",
+      "head": "Fault",
+      "tail": "FaultSeverity",
+      "description": "故障的严重等级"
+    },
+    {
+      "id": "hasRepairType",
+      "head": "WorkOrder",
+      "tail": "RepairType",
+      "description": "工单的维修类型"
+    },
+    {
+      "id": "causesDowntime",
+      "head": "Fault",
+      "tail": "Downtime",
+      "description": "故障导致的停机时长"
+    },
+    {
+      "id": "requiresTool",
+      "head": "ManualSection",
+      "tail": "Tool",
+      "description": "处置所需刀具"
+    },
+    {
+      "id": "usesFixture",
+      "head": "Process",
+      "tail": "Fixture",
+      "description": "工序使用某夹具"
+    },
+    {
+      "id": "hasParameter",
+      "head": "Equipment",
+      "tail": "Parameter",
+      "description": "设备的技术参数"
+    },
+    {
+      "id": "triggersAlarm",
+      "head": "Fault",
+      "tail": "Alarm",
+      "description": "故障触发某报警"
+    },
+    {
+      "id": "monitoredBy",
+      "head": "Equipment",
+      "tail": "Sensor",
+      "description": "设备由某传感器监测"
+    },
+    {
+      "id": "hasInspectionItem",
+      "head": "Inspection",
+      "tail": "InspectionItem",
+      "description": "质检的检测项"
+    },
+    {
+      "id": "conformsToQuality",
+      "head": "Inspection",
+      "tail": "QualityStandard",
+      "description": "质检遵循某质量标准"
+    },
+    {
+      "id": "belongsToProcess",
+      "head": "Part",
+      "tail": "Process",
+      "description": "零件经过某工序"
+    },
+    {
+      "id": "producesPart",
+      "head": "Equipment",
+      "tail": "Part",
+      "description": "设备加工某零件"
+    },
+    {
+      "id": "hasMaintenanceTeam",
+      "head": "WorkOrder",
+      "tail": "MaintenanceTeam",
+      "description": "工单由某班组执行"
+    },
+    {
+      "id": "hasInventory",
+      "head": "SparePart",
+      "tail": "SpareInventory",
+      "description": "备件的库存记录"
+    },
+    {
+      "id": "orderedBy",
+      "head": "SparePart",
+      "tail": "PurchaseOrder",
+      "description": "备件通过某采购单采购"
+    },
+    {
+      "id": "hasStatus",
+      "head": "Equipment",
+      "tail": "EquipmentStatus",
+      "description": "设备的当前状态"
+    },
+    {
+      "id": "hasFaultTree",
+      "head": "Fault",
+      "tail": "FaultTree",
+      "description": "故障的故障树分析"
+    },
+    {
+      "id": "hasRepairStep",
+      "head": "ManualSection",
+      "tail": "RepairStep",
+      "description": "手册章节包含维修步骤"
+    },
+    {
+      "id": "hasRootCause",
+      "head": "Fault",
+      "tail": "RootCause",
+      "description": "故障的根本原因"
+    },
+    {
+      "id": "sourcedFrom",
+      "head": "WorkOrder",
+      "tail": "DocumentSource",
+      "description": "工单的知识来源"
+    },
+    {
+      "id": "hasTrace",
+      "head": "WorkOrder",
+      "tail": "TraceRecord",
+      "description": "工单的溯源记录"
+    },
+    {
+      "id": "hasProductionOrder",
+      "head": "ProductionOrder",
+      "tail": "Part",
+      "description": "生产工单加工某零件"
+    },
+    {
+      "id": "causedBy_37",
+      "head": "Fault:E-101",
+      "tail": "Component",
+      "description": "causedBy",
+      "provenance": {
+        "source": "fault_code_dictionary.csv",
+        "sentence": "E-101 主轴异响｜关联部件：主轴轴承",
+        "confidence": 0.9,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "references_38",
+      "head": "Fault:E-101",
+      "tail": "ManualSection:3.2.1",
+      "description": "references",
+      "provenance": {
+        "source": "fault_code_dictionary.csv",
+        "sentence": "E-101 主轴异响｜参考章节：3.2.1",
+        "confidence": 0.9,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "causedBy_39",
+      "head": "Fault:E-102",
+      "tail": "Component",
+      "description": "causedBy",
+      "provenance": {
+        "source": "fault_code_dictionary.csv",
+        "sentence": "E-102 主轴振动超标｜关联部件：主轴轴承",
+        "confidence": 0.9,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "references_40",
+      "head": "Fault:E-102",
+      "tail": "ManualSection:3.2.2",
+      "description": "references",
+      "provenance": {
+        "source": "fault_code_dictionary.csv",
+        "sentence": "E-102 主轴振动超标｜参考章节：3.2.2",
+        "confidence": 0.9,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "causedBy_41",
+      "head": "Fault:E-103",
+      "tail": "Component:刀库定位销",
+      "description": "causedBy",
+      "provenance": {
+        "source": "fault_code_dictionary.csv",
+        "sentence": "E-103 刀库换刀卡滞｜关联部件：刀库定位销",
+        "confidence": 0.9,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "references_42",
+      "head": "Fault:E-103",
+      "tail": "ManualSection:4.1.1",
+      "description": "references",
+      "provenance": {
+        "source": "fault_code_dictionary.csv",
+        "sentence": "E-103 刀库换刀卡滞｜参考章节：4.1.1",
+        "confidence": 0.9,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "causedBy_43",
+      "head": "Fault:E-104",
+      "tail": "Component",
+      "description": "causedBy",
+      "provenance": {
+        "source": "fault_code_dictionary.csv",
+        "sentence": "E-104 加工表面振纹｜关联部件：主轴轴承",
+        "confidence": 0.9,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "references_44",
+      "head": "Fault:E-104",
+      "tail": "ManualSection:3.2.2",
+      "description": "references",
+      "provenance": {
+        "source": "fault_code_dictionary.csv",
+        "sentence": "E-104 加工表面振纹｜参考章节：3.2.2",
+        "confidence": 0.9,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "causedBy_45",
+      "head": "Fault:E-105",
+      "tail": "Component:主轴冷却单元",
+      "description": "causedBy",
+      "provenance": {
+        "source": "fault_code_dictionary.csv",
+        "sentence": "E-105 主轴温升过高｜关联部件：主轴冷却单元",
+        "confidence": 0.9,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "references_46",
+      "head": "Fault:E-105",
+      "tail": "ManualSection:3.3.1",
+      "description": "references",
+      "provenance": {
+        "source": "fault_code_dictionary.csv",
+        "sentence": "E-105 主轴温升过高｜参考章节：3.3.1",
+        "confidence": 0.9,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "references_47",
+      "head": "Fault:E-106",
+      "tail": "ManualSection:3.4.1",
+      "description": "references",
+      "provenance": {
+        "source": "fault_code_dictionary.csv",
+        "sentence": "E-106 进给轴爬行｜参考章节：3.4.1",
+        "confidence": 0.9,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "references_48",
+      "head": "Fault:E-107",
+      "tail": "ManualSection:6.1.1",
+      "description": "references",
+      "provenance": {
+        "source": "fault_code_dictionary.csv",
+        "sentence": "E-107 冷却液压力不足｜参考章节：6.1.1",
+        "confidence": 0.9,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "causedBy_49",
+      "head": "Fault:E-108",
+      "tail": "Component:刀库定位销",
+      "description": "causedBy",
+      "provenance": {
+        "source": "fault_code_dictionary.csv",
+        "sentence": "E-108 刀库定位偏差｜关联部件：刀库定位销",
+        "confidence": 0.9,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "references_50",
+      "head": "Fault:E-108",
+      "tail": "ManualSection:4.1.2",
+      "description": "references",
+      "provenance": {
+        "source": "fault_code_dictionary.csv",
+        "sentence": "E-108 刀库定位偏差｜参考章节：4.1.2",
+        "confidence": 0.9,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "causedBy_51",
+      "head": "Fault:H-201",
+      "tail": "Component",
+      "description": "causedBy",
+      "provenance": {
+        "source": "fault_code_dictionary.csv",
+        "sentence": "H-201 液压压力不足｜关联部件：液压油泵",
+        "confidence": 0.9,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "references_52",
+      "head": "Fault:H-201",
+      "tail": "ManualSection:5.1.1",
+      "description": "references",
+      "provenance": {
+        "source": "fault_code_dictionary.csv",
+        "sentence": "H-201 液压压力不足｜参考章节：5.1.1",
+        "confidence": 0.9,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "references_53",
+      "head": "Fault:H-202",
+      "tail": "ManualSection:5.2.1",
+      "description": "references",
+      "provenance": {
+        "source": "fault_code_dictionary.csv",
+        "sentence": "H-202 液压油温过高｜参考章节：5.2.1",
+        "confidence": 0.9,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "causedBy_54",
+      "head": "Fault:H-203",
+      "tail": "Component:油缸密封圈",
+      "description": "causedBy",
+      "provenance": {
+        "source": "fault_code_dictionary.csv",
+        "sentence": "H-203 油缸爬行｜关联部件：油缸密封圈",
+        "confidence": 0.9,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "references_55",
+      "head": "Fault:H-203",
+      "tail": "ManualSection:5.3.1",
+      "description": "references",
+      "provenance": {
+        "source": "fault_code_dictionary.csv",
+        "sentence": "H-203 油缸爬行｜参考章节：5.3.1",
+        "confidence": 0.9,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "causedBy_56",
+      "head": "Fault:H-204",
+      "tail": "Component:油缸密封圈",
+      "description": "causedBy",
+      "provenance": {
+        "source": "fault_code_dictionary.csv",
+        "sentence": "H-204 液压外泄漏｜关联部件：油缸密封圈",
+        "confidence": 0.9,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "references_57",
+      "head": "Fault:H-204",
+      "tail": "ManualSection:5.4.1",
+      "description": "references",
+      "provenance": {
+        "source": "fault_code_dictionary.csv",
+        "sentence": "H-204 液压外泄漏｜参考章节：5.4.1",
+        "confidence": 0.9,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "causedBy_58",
+      "head": "Fault:H-205",
+      "tail": "Component:蓄能器皮囊",
+      "description": "causedBy",
+      "provenance": {
+        "source": "fault_code_dictionary.csv",
+        "sentence": "H-205 蓄能器压力低｜关联部件：蓄能器皮囊",
+        "confidence": 0.9,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "references_59",
+      "head": "Fault:H-205",
+      "tail": "ManualSection:5.5.1",
+      "description": "references",
+      "provenance": {
+        "source": "fault_code_dictionary.csv",
+        "sentence": "H-205 蓄能器压力低｜参考章节：5.5.1",
+        "confidence": 0.9,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "appliesTo_60",
+      "head": "SparePart:SP-1001",
+      "tail": "Model:VMC850",
+      "description": "appliesTo",
+      "provenance": {
+        "source": "bom.csv",
+        "sentence": "SP-1001 适用：VMC850",
+        "confidence": 0.85,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "appliesTo_61",
+      "head": "SparePart:SP-1001",
+      "tail": "Model:VMC1160",
+      "description": "appliesTo",
+      "provenance": {
+        "source": "bom.csv",
+        "sentence": "SP-1001 适用：VMC1160",
+        "confidence": 0.85,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "appliesTo_62",
+      "head": "SparePart:SP-1002",
+      "tail": "Model:HMC630",
+      "description": "appliesTo",
+      "provenance": {
+        "source": "bom.csv",
+        "sentence": "SP-1002 适用：HMC630",
+        "confidence": 0.85,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "appliesTo_63",
+      "head": "SparePart:SP-1003",
+      "tail": "Model:VMC850",
+      "description": "appliesTo",
+      "provenance": {
+        "source": "bom.csv",
+        "sentence": "SP-1003 适用：VMC850",
+        "confidence": 0.85,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "appliesTo_64",
+      "head": "SparePart:SP-1003",
+      "tail": "Model:VMC1160",
+      "description": "appliesTo",
+      "provenance": {
+        "source": "bom.csv",
+        "sentence": "SP-1003 适用：VMC1160",
+        "confidence": 0.85,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "appliesTo_65",
+      "head": "SparePart:SP-1003",
+      "tail": "Model:HMC630",
+      "description": "appliesTo",
+      "provenance": {
+        "source": "bom.csv",
+        "sentence": "SP-1003 适用：HMC630",
+        "confidence": 0.85,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "appliesTo_66",
+      "head": "SparePart:SP-2001",
+      "tail": "Model:VMC850",
+      "description": "appliesTo",
+      "provenance": {
+        "source": "bom.csv",
+        "sentence": "SP-2001 适用：VMC850",
+        "confidence": 0.85,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "appliesTo_67",
+      "head": "SparePart:SP-2001",
+      "tail": "Model:VMC1160",
+      "description": "appliesTo",
+      "provenance": {
+        "source": "bom.csv",
+        "sentence": "SP-2001 适用：VMC1160",
+        "confidence": 0.85,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "appliesTo_68",
+      "head": "SparePart:SP-2002",
+      "tail": "Model:VMC850",
+      "description": "appliesTo",
+      "provenance": {
+        "source": "bom.csv",
+        "sentence": "SP-2002 适用：VMC850",
+        "confidence": 0.85,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "appliesTo_69",
+      "head": "SparePart:SP-2002",
+      "tail": "Model:VMC1160",
+      "description": "appliesTo",
+      "provenance": {
+        "source": "bom.csv",
+        "sentence": "SP-2002 适用：VMC1160",
+        "confidence": 0.85,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "appliesTo_70",
+      "head": "SparePart:SP-3001",
+      "tail": "Model:HPU-40",
+      "description": "appliesTo",
+      "provenance": {
+        "source": "bom.csv",
+        "sentence": "SP-3001 适用：HPU-40",
+        "confidence": 0.85,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "appliesTo_71",
+      "head": "SparePart:SP-3002",
+      "tail": "Model:HPU-40",
+      "description": "appliesTo",
+      "provenance": {
+        "source": "bom.csv",
+        "sentence": "SP-3002 适用：HPU-40",
+        "confidence": 0.85,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "appliesTo_72",
+      "head": "SparePart:SP-3002",
+      "tail": "Model:HPU-63",
+      "description": "appliesTo",
+      "provenance": {
+        "source": "bom.csv",
+        "sentence": "SP-3002 适用：HPU-63",
+        "confidence": 0.85,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "appliesTo_73",
+      "head": "SparePart:SP-4001",
+      "tail": "Model:HPU-40",
+      "description": "appliesTo",
+      "provenance": {
+        "source": "bom.csv",
+        "sentence": "SP-4001 适用：HPU-40",
+        "confidence": 0.85,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "appliesTo_74",
+      "head": "SparePart:SP-4002",
+      "tail": "Model:HPU-40",
+      "description": "appliesTo",
+      "provenance": {
+        "source": "bom.csv",
+        "sentence": "SP-4002 适用：HPU-40",
+        "confidence": 0.85,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "appliesTo_75",
+      "head": "SparePart:SP-4002",
+      "tail": "Model:HPU-63",
+      "description": "appliesTo",
+      "provenance": {
+        "source": "bom.csv",
+        "sentence": "SP-4002 适用：HPU-63",
+        "confidence": 0.85,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "appliesTo_76",
+      "head": "SparePart:SP-5001",
+      "tail": "Model:HMC630",
+      "description": "appliesTo",
+      "provenance": {
+        "source": "bom.csv",
+        "sentence": "SP-5001 适用：HMC630",
+        "confidence": 0.85,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "appliesTo_77",
+      "head": "SparePart:SP-5002",
+      "tail": "Model:HMC630",
+      "description": "appliesTo",
+      "provenance": {
+        "source": "bom.csv",
+        "sentence": "SP-5002 适用：HMC630",
+        "confidence": 0.85,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "appliesTo_78",
+      "head": "SparePart:SP-6001",
+      "tail": "Model:VMC850",
+      "description": "appliesTo",
+      "provenance": {
+        "source": "bom.csv",
+        "sentence": "SP-6001 适用：VMC850",
+        "confidence": 0.85,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "appliesTo_79",
+      "head": "SparePart:SP-6001",
+      "tail": "Model:VMC1160",
+      "description": "appliesTo",
+      "provenance": {
+        "source": "bom.csv",
+        "sentence": "SP-6001 适用：VMC1160",
+        "confidence": 0.85,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "appliesTo_80",
+      "head": "SparePart:SP-7001",
+      "tail": "Model:HPU-40",
+      "description": "appliesTo",
+      "provenance": {
+        "source": "bom.csv",
+        "sentence": "SP-7001 适用：HPU-40",
+        "confidence": 0.85,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "appliesTo_81",
+      "head": "SparePart:SP-7001",
+      "tail": "Model:HPU-63",
+      "description": "appliesTo",
+      "provenance": {
+        "source": "bom.csv",
+        "sentence": "SP-7001 适用：HPU-63",
+        "confidence": 0.85,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "usesPart_82",
+      "head": "Component",
+      "tail": "SparePart:SP-1001",
+      "description": "usesPart",
+      "provenance": {
+        "source": "equipment_structure_notes.txt",
+        "sentence": "- 主轴轴承组 -> SP-1001（VMC 系列）/ SP-1002（HMC 系列）",
+        "confidence": 0.88,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "usesPart_83",
+      "head": "Component:主轴冷却单元",
+      "tail": "SparePart:SP-1003",
+      "description": "usesPart",
+      "provenance": {
+        "source": "equipment_structure_notes.txt",
+        "sentence": "- 主轴冷却单元 -> SP-1003",
+        "confidence": 0.88,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "usesPart_84",
+      "head": "Component:刀库定位销",
+      "tail": "SparePart:SP-2001",
+      "description": "usesPart",
+      "provenance": {
+        "source": "equipment_structure_notes.txt",
+        "sentence": "- 刀库定位销 -> SP-2001",
+        "confidence": 0.88,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "usesPart_85",
+      "head": "Component",
+      "tail": "SparePart:SP-3001",
+      "description": "usesPart",
+      "provenance": {
+        "source": "equipment_structure_notes.txt",
+        "sentence": "- 液压油泵 -> SP-3001",
+        "confidence": 0.88,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "usesPart_86",
+      "head": "Cause",
+      "tail": "SparePart:SP-3002",
+      "description": "usesPart",
+      "provenance": {
+        "source": "equipment_structure_notes.txt",
+        "sentence": "- 溢流阀 -> SP-3002",
+        "confidence": 0.88,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "usesPart_87",
+      "head": "Component:油缸密封圈",
+      "tail": "SparePart:SP-4001",
+      "description": "usesPart",
+      "provenance": {
+        "source": "equipment_structure_notes.txt",
+        "sentence": "- 油缸密封圈 -> SP-4001",
+        "confidence": 0.88,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "usesPart_88",
+      "head": "Component:蓄能器皮囊",
+      "tail": "SparePart:SP-4002",
+      "description": "usesPart",
+      "provenance": {
+        "source": "equipment_structure_notes.txt",
+        "sentence": "- 蓄能器皮囊 -> SP-4002",
+        "confidence": 0.88,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "usesPart_89",
+      "head": "Component:滚珠丝杠",
+      "tail": "SparePart:SP-5002",
+      "description": "usesPart",
+      "provenance": {
+        "source": "equipment_structure_notes.txt",
+        "sentence": "- 滚珠丝杠 -> SP-5002",
+        "confidence": 0.88,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "usesPart_90",
+      "head": "Component:液压油滤芯",
+      "tail": "SparePart:SP-7001",
+      "description": "usesPart",
+      "provenance": {
+        "source": "equipment_structure_notes.txt",
+        "sentence": "- 液压油滤芯 -> SP-7001",
+        "confidence": 0.88,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "resolvedBy_91",
+      "head": "WorkOrder:WO-2024-001",
+      "tail": "MaintenanceAction:更换主轴轴承并重新预紧",
+      "description": "resolvedBy",
+      "provenance": {
+        "source": "maintenance_work_orders.csv",
+        "sentence": "WO-2024-001 措施：更换主轴轴承并重新预紧",
+        "confidence": 0.8,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "usesPart_92",
+      "head": "WorkOrder:WO-2024-001",
+      "tail": "SparePart:SP-1001",
+      "description": "usesPart",
+      "provenance": {
+        "source": "maintenance_work_orders.csv",
+        "sentence": "WO-2024-001 更换：SP-1001",
+        "confidence": 0.85,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "resolvedBy_93",
+      "head": "WorkOrder:WO-2024-002",
+      "tail": "MaintenanceAction:调整进给参数并复测振动",
+      "description": "resolvedBy",
+      "provenance": {
+        "source": "maintenance_work_orders.csv",
+        "sentence": "WO-2024-002 措施：调整进给参数并复测振动",
+        "confidence": 0.8,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "resolvedBy_94",
+      "head": "WorkOrder:WO-2024-003",
+      "tail": "MaintenanceAction:更换定位销并清洁刀套",
+      "description": "resolvedBy",
+      "provenance": {
+        "source": "maintenance_work_orders.csv",
+        "sentence": "WO-2024-003 措施：更换定位销并清洁刀套",
+        "confidence": 0.8,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "usesPart_95",
+      "head": "WorkOrder:WO-2024-003",
+      "tail": "SparePart:SP-2001",
+      "description": "usesPart",
+      "provenance": {
+        "source": "maintenance_work_orders.csv",
+        "sentence": "WO-2024-003 更换：SP-2001",
+        "confidence": 0.85,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "resolvedBy_96",
+      "head": "WorkOrder:WO-2024-004",
+      "tail": "MaintenanceAction:更换油泵并清洗溢流阀",
+      "description": "resolvedBy",
+      "provenance": {
+        "source": "maintenance_work_orders.csv",
+        "sentence": "WO-2024-004 措施：更换油泵并清洗溢流阀",
+        "confidence": 0.8,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "usesPart_97",
+      "head": "WorkOrder:WO-2024-004",
+      "tail": "SparePart:SP-3001",
+      "description": "usesPart",
+      "provenance": {
+        "source": "maintenance_work_orders.csv",
+        "sentence": "WO-2024-004 更换：SP-3001",
+        "confidence": 0.85,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "resolvedBy_98",
+      "head": "WorkOrder:WO-2024-005",
+      "tail": "MaintenanceAction:更换主轴轴承并做动平衡",
+      "description": "resolvedBy",
+      "provenance": {
+        "source": "maintenance_work_orders.csv",
+        "sentence": "WO-2024-005 措施：更换主轴轴承并做动平衡",
+        "confidence": 0.8,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "usesPart_99",
+      "head": "WorkOrder:WO-2024-005",
+      "tail": "SparePart:SP-1002",
+      "description": "usesPart",
+      "provenance": {
+        "source": "maintenance_work_orders.csv",
+        "sentence": "WO-2024-005 更换：SP-1002",
+        "confidence": 0.85,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "resolvedBy_100",
+      "head": "WorkOrder:WO-2024-006",
+      "tail": "MaintenanceAction:更换主轴轴承",
+      "description": "resolvedBy",
+      "provenance": {
+        "source": "maintenance_work_orders.csv",
+        "sentence": "WO-2024-006 措施：更换主轴轴承",
+        "confidence": 0.8,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "usesPart_101",
+      "head": "WorkOrder:WO-2024-006",
+      "tail": "SparePart:SP-1001",
+      "description": "usesPart",
+      "provenance": {
+        "source": "maintenance_work_orders.csv",
+        "sentence": "WO-2024-006 更换：SP-1001",
+        "confidence": 0.85,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "resolvedBy_102",
+      "head": "WorkOrder:WO-2024-007",
+      "tail": "MaintenanceAction:清洗冷却器并更换液压油",
+      "description": "resolvedBy",
+      "provenance": {
+        "source": "maintenance_work_orders.csv",
+        "sentence": "WO-2024-007 措施：清洗冷却器并更换液压油",
+        "confidence": 0.8,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "resolvedBy_103",
+      "head": "WorkOrder:WO-2024-008",
+      "tail": "MaintenanceAction:降低进给速度并复检",
+      "description": "resolvedBy",
+      "provenance": {
+        "source": "maintenance_work_orders.csv",
+        "sentence": "WO-2024-008 措施：降低进给速度并复检",
+        "confidence": 0.8,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "resolvedBy_104",
+      "head": "WorkOrder:WO-2024-009",
+      "tail": "MaintenanceAction:更换密封圈并排气",
+      "description": "resolvedBy",
+      "provenance": {
+        "source": "maintenance_work_orders.csv",
+        "sentence": "WO-2024-009 措施：更换密封圈并排气",
+        "confidence": 0.8,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "usesPart_105",
+      "head": "WorkOrder:WO-2024-009",
+      "tail": "SparePart:SP-4001",
+      "description": "usesPart",
+      "provenance": {
+        "source": "maintenance_work_orders.csv",
+        "sentence": "WO-2024-009 更换：SP-4001",
+        "confidence": 0.85,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "resolvedBy_106",
+      "head": "WorkOrder:WO-2024-010",
+      "tail": "MaintenanceAction:更换主轴轴承并复测",
+      "description": "resolvedBy",
+      "provenance": {
+        "source": "maintenance_work_orders.csv",
+        "sentence": "WO-2024-010 措施：更换主轴轴承并复测",
+        "confidence": 0.8,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "usesPart_107",
+      "head": "WorkOrder:WO-2024-010",
+      "tail": "SparePart:SP-1002",
+      "description": "usesPart",
+      "provenance": {
+        "source": "maintenance_work_orders.csv",
+        "sentence": "WO-2024-010 更换：SP-1002",
+        "confidence": 0.85,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "resolvedBy_108",
+      "head": "WorkOrder:WO-2024-011",
+      "tail": "MaintenanceAction:清洗冷却单元并检查流量",
+      "description": "resolvedBy",
+      "provenance": {
+        "source": "maintenance_work_orders.csv",
+        "sentence": "WO-2024-011 措施：清洗冷却单元并检查流量",
+        "confidence": 0.8,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "usesPart_109",
+      "head": "WorkOrder:WO-2024-011",
+      "tail": "SparePart:SP-1003",
+      "description": "usesPart",
+      "provenance": {
+        "source": "maintenance_work_orders.csv",
+        "sentence": "WO-2024-011 更换：SP-1003",
+        "confidence": 0.85,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "resolvedBy_110",
+      "head": "WorkOrder:WO-2024-012",
+      "tail": "MaintenanceAction:更换导轨滑块并调整预紧",
+      "description": "resolvedBy",
+      "provenance": {
+        "source": "maintenance_work_orders.csv",
+        "sentence": "WO-2024-012 措施：更换导轨滑块并调整预紧",
+        "confidence": 0.8,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "usesPart_111",
+      "head": "WorkOrder:WO-2024-012",
+      "tail": "SparePart:SP-5001",
+      "description": "usesPart",
+      "provenance": {
+        "source": "maintenance_work_orders.csv",
+        "sentence": "WO-2024-012 更换：SP-5001",
+        "confidence": 0.85,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "resolvedBy_112",
+      "head": "WorkOrder:WO-2024-013",
+      "tail": "MaintenanceAction:更换冷却泵",
+      "description": "resolvedBy",
+      "provenance": {
+        "source": "maintenance_work_orders.csv",
+        "sentence": "WO-2024-013 措施：更换冷却泵",
+        "confidence": 0.8,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "usesPart_113",
+      "head": "WorkOrder:WO-2024-013",
+      "tail": "SparePart:SP-6001",
+      "description": "usesPart",
+      "provenance": {
+        "source": "maintenance_work_orders.csv",
+        "sentence": "WO-2024-013 更换：SP-6001",
+        "confidence": 0.85,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "resolvedBy_114",
+      "head": "WorkOrder:WO-2024-014",
+      "tail": "MaintenanceAction:校准刀库并更换定位销",
+      "description": "resolvedBy",
+      "provenance": {
+        "source": "maintenance_work_orders.csv",
+        "sentence": "WO-2024-014 措施：校准刀库并更换定位销",
+        "confidence": 0.8,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "usesPart_115",
+      "head": "WorkOrder:WO-2024-014",
+      "tail": "SparePart:SP-2001",
+      "description": "usesPart",
+      "provenance": {
+        "source": "maintenance_work_orders.csv",
+        "sentence": "WO-2024-014 更换：SP-2001",
+        "confidence": 0.85,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "resolvedBy_116",
+      "head": "WorkOrder:WO-2024-015",
+      "tail": "MaintenanceAction:更换密封并紧固接头",
+      "description": "resolvedBy",
+      "provenance": {
+        "source": "maintenance_work_orders.csv",
+        "sentence": "WO-2024-015 措施：更换密封并紧固接头",
+        "confidence": 0.8,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "usesPart_117",
+      "head": "WorkOrder:WO-2024-015",
+      "tail": "SparePart:SP-4001",
+      "description": "usesPart",
+      "provenance": {
+        "source": "maintenance_work_orders.csv",
+        "sentence": "WO-2024-015 更换：SP-4001",
+        "confidence": 0.85,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "resolvedBy_118",
+      "head": "WorkOrder:WO-2024-016",
+      "tail": "MaintenanceAction:更换皮囊并补充氮气",
+      "description": "resolvedBy",
+      "provenance": {
+        "source": "maintenance_work_orders.csv",
+        "sentence": "WO-2024-016 措施：更换皮囊并补充氮气",
+        "confidence": 0.8,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "usesPart_119",
+      "head": "WorkOrder:WO-2024-016",
+      "tail": "SparePart:SP-4002",
+      "description": "usesPart",
+      "provenance": {
+        "source": "maintenance_work_orders.csv",
+        "sentence": "WO-2024-016 更换：SP-4002",
+        "confidence": 0.85,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "resolvedBy_120",
+      "head": "WorkOrder:WO-2024-017",
+      "tail": "MaintenanceAction:清洁刀套并更换定位销",
+      "description": "resolvedBy",
+      "provenance": {
+        "source": "maintenance_work_orders.csv",
+        "sentence": "WO-2024-017 措施：清洁刀套并更换定位销",
+        "confidence": 0.8,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "usesPart_121",
+      "head": "WorkOrder:WO-2024-017",
+      "tail": "SparePart:SP-2001",
+      "description": "usesPart",
+      "provenance": {
+        "source": "maintenance_work_orders.csv",
+        "sentence": "WO-2024-017 更换：SP-2001",
+        "confidence": 0.85,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "resolvedBy_122",
+      "head": "WorkOrder:WO-2024-018",
+      "tail": "MaintenanceAction:更换主轴轴承",
+      "description": "resolvedBy",
+      "provenance": {
+        "source": "maintenance_work_orders.csv",
+        "sentence": "WO-2024-018 措施：更换主轴轴承",
+        "confidence": 0.8,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "usesPart_123",
+      "head": "WorkOrder:WO-2024-018",
+      "tail": "SparePart:SP-1001",
+      "description": "usesPart",
+      "provenance": {
+        "source": "maintenance_work_orders.csv",
+        "sentence": "WO-2024-018 更换：SP-1001",
+        "confidence": 0.85,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "resolvedBy_124",
+      "head": "WorkOrder:WO-2024-019",
+      "tail": "MaintenanceAction:更换主轴轴承",
+      "description": "resolvedBy",
+      "provenance": {
+        "source": "maintenance_work_orders.csv",
+        "sentence": "WO-2024-019 措施：更换主轴轴承",
+        "confidence": 0.8,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "usesPart_125",
+      "head": "WorkOrder:WO-2024-019",
+      "tail": "SparePart:SP-1002",
+      "description": "usesPart",
+      "provenance": {
+        "source": "maintenance_work_orders.csv",
+        "sentence": "WO-2024-019 更换：SP-1002",
+        "confidence": 0.85,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "resolvedBy_126",
+      "head": "WorkOrder:WO-2024-020",
+      "tail": "MaintenanceAction:更换油泵并清洗溢流阀",
+      "description": "resolvedBy",
+      "provenance": {
+        "source": "maintenance_work_orders.csv",
+        "sentence": "WO-2024-020 措施：更换油泵并清洗溢流阀",
+        "confidence": 0.8,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "usesPart_127",
+      "head": "WorkOrder:WO-2024-020",
+      "tail": "SparePart:SP-3001",
+      "description": "usesPart",
+      "provenance": {
+        "source": "maintenance_work_orders.csv",
+        "sentence": "WO-2024-020 更换：SP-3001",
+        "confidence": 0.85,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "resolvedBy_128",
+      "head": "WorkOrder:WO-2024-021",
+      "tail": "MaintenanceAction:清洗冷却回路",
+      "description": "resolvedBy",
+      "provenance": {
+        "source": "maintenance_work_orders.csv",
+        "sentence": "WO-2024-021 措施：清洗冷却回路",
+        "confidence": 0.8,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "resolvedBy_129",
+      "head": "WorkOrder:WO-2024-022",
+      "tail": "MaintenanceAction:补充润滑并调整伺服增益",
+      "description": "resolvedBy",
+      "provenance": {
+        "source": "maintenance_work_orders.csv",
+        "sentence": "WO-2024-022 措施：补充润滑并调整伺服增益",
+        "confidence": 0.8,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "resolvedBy_130",
+      "head": "WorkOrder:WO-2024-023",
+      "tail": "MaintenanceAction:更换冷却泵",
+      "description": "resolvedBy",
+      "provenance": {
+        "source": "maintenance_work_orders.csv",
+        "sentence": "WO-2024-023 措施：更换冷却泵",
+        "confidence": 0.8,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "usesPart_131",
+      "head": "WorkOrder:WO-2024-023",
+      "tail": "SparePart:SP-6001",
+      "description": "usesPart",
+      "provenance": {
+        "source": "maintenance_work_orders.csv",
+        "sentence": "WO-2024-023 更换：SP-6001",
+        "confidence": 0.85,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "resolvedBy_132",
+      "head": "WorkOrder:WO-2024-024",
+      "tail": "MaintenanceAction:清洗冷却器并更换液压油",
+      "description": "resolvedBy",
+      "provenance": {
+        "source": "maintenance_work_orders.csv",
+        "sentence": "WO-2024-024 措施：清洗冷却器并更换液压油",
+        "confidence": 0.8,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "resolvedBy_133",
+      "head": "WorkOrder:WO-2024-025",
+      "tail": "MaintenanceAction:降低进给并检查主轴振动",
+      "description": "resolvedBy",
+      "provenance": {
+        "source": "maintenance_work_orders.csv",
+        "sentence": "WO-2024-025 措施：降低进给并检查主轴振动",
+        "confidence": 0.8,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "resolvedBy_134",
+      "head": "WorkOrder:WO-2024-026",
+      "tail": "MaintenanceAction:重新校准刀库",
+      "description": "resolvedBy",
+      "provenance": {
+        "source": "maintenance_work_orders.csv",
+        "sentence": "WO-2024-026 措施：重新校准刀库",
+        "confidence": 0.8,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "resolvedBy_135",
+      "head": "WorkOrder:WO-2024-027",
+      "tail": "MaintenanceAction:更换密封圈",
+      "description": "resolvedBy",
+      "provenance": {
+        "source": "maintenance_work_orders.csv",
+        "sentence": "WO-2024-027 措施：更换密封圈",
+        "confidence": 0.8,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "usesPart_136",
+      "head": "WorkOrder:WO-2024-027",
+      "tail": "SparePart:SP-4001",
+      "description": "usesPart",
+      "provenance": {
+        "source": "maintenance_work_orders.csv",
+        "sentence": "WO-2024-027 更换：SP-4001",
+        "confidence": 0.85,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "resolvedBy_137",
+      "head": "WorkOrder:WO-2024-028",
+      "tail": "MaintenanceAction:更换刀套",
+      "description": "resolvedBy",
+      "provenance": {
+        "source": "maintenance_work_orders.csv",
+        "sentence": "WO-2024-028 措施：更换刀套",
+        "confidence": 0.8,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "usesPart_138",
+      "head": "WorkOrder:WO-2024-028",
+      "tail": "SparePart:SP-2002",
+      "description": "usesPart",
+      "provenance": {
+        "source": "maintenance_work_orders.csv",
+        "sentence": "WO-2024-028 更换：SP-2002",
+        "confidence": 0.85,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "resolvedBy_139",
+      "head": "WorkOrder:WO-2024-029",
+      "tail": "MaintenanceAction:更换主轴轴承",
+      "description": "resolvedBy",
+      "provenance": {
+        "source": "maintenance_work_orders.csv",
+        "sentence": "WO-2024-029 措施：更换主轴轴承",
+        "confidence": 0.8,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "usesPart_140",
+      "head": "WorkOrder:WO-2024-029",
+      "tail": "SparePart:SP-1002",
+      "description": "usesPart",
+      "provenance": {
+        "source": "maintenance_work_orders.csv",
+        "sentence": "WO-2024-029 更换：SP-1002",
+        "confidence": 0.85,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "resolvedBy_141",
+      "head": "WorkOrder:WO-2024-030",
+      "tail": "MaintenanceAction:紧固接头并更换密封",
+      "description": "resolvedBy",
+      "provenance": {
+        "source": "maintenance_work_orders.csv",
+        "sentence": "WO-2024-030 措施：紧固接头并更换密封",
+        "confidence": 0.8,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "resolvedBy_142",
+      "head": "WorkOrder:WO-2024-031",
+      "tail": "MaintenanceAction:更换主轴轴承",
+      "description": "resolvedBy",
+      "provenance": {
+        "source": "maintenance_work_orders.csv",
+        "sentence": "WO-2024-031 措施：更换主轴轴承",
+        "confidence": 0.8,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "usesPart_143",
+      "head": "WorkOrder:WO-2024-031",
+      "tail": "SparePart:SP-1001",
+      "description": "usesPart",
+      "provenance": {
+        "source": "maintenance_work_orders.csv",
+        "sentence": "WO-2024-031 更换：SP-1001",
+        "confidence": 0.85,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "resolvedBy_144",
+      "head": "WorkOrder:WO-2024-032",
+      "tail": "MaintenanceAction:更换滚珠丝杠",
+      "description": "resolvedBy",
+      "provenance": {
+        "source": "maintenance_work_orders.csv",
+        "sentence": "WO-2024-032 措施：更换滚珠丝杠",
+        "confidence": 0.8,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "usesPart_145",
+      "head": "WorkOrder:WO-2024-032",
+      "tail": "SparePart:SP-5002",
+      "description": "usesPart",
+      "provenance": {
+        "source": "maintenance_work_orders.csv",
+        "sentence": "WO-2024-032 更换：SP-5002",
+        "confidence": 0.85,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "resolvedBy_146",
+      "head": "WorkOrder:WO-2024-033",
+      "tail": "MaintenanceAction:更换皮囊",
+      "description": "resolvedBy",
+      "provenance": {
+        "source": "maintenance_work_orders.csv",
+        "sentence": "WO-2024-033 措施：更换皮囊",
+        "confidence": 0.8,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "usesPart_147",
+      "head": "WorkOrder:WO-2024-033",
+      "tail": "SparePart:SP-4002",
+      "description": "usesPart",
+      "provenance": {
+        "source": "maintenance_work_orders.csv",
+        "sentence": "WO-2024-033 更换：SP-4002",
+        "confidence": 0.85,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "resolvedBy_148",
+      "head": "WorkOrder:WO-2024-034",
+      "tail": "MaintenanceAction:更换冷却泵",
+      "description": "resolvedBy",
+      "provenance": {
+        "source": "maintenance_work_orders.csv",
+        "sentence": "WO-2024-034 措施：更换冷却泵",
+        "confidence": 0.8,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "usesPart_149",
+      "head": "WorkOrder:WO-2024-034",
+      "tail": "SparePart:SP-6001",
+      "description": "usesPart",
+      "provenance": {
+        "source": "maintenance_work_orders.csv",
+        "sentence": "WO-2024-034 更换：SP-6001",
+        "confidence": 0.85,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "resolvedBy_150",
+      "head": "WorkOrder:WO-2024-035",
+      "tail": "MaintenanceAction:做动平衡并更换轴承",
+      "description": "resolvedBy",
+      "provenance": {
+        "source": "maintenance_work_orders.csv",
+        "sentence": "WO-2024-035 措施：做动平衡并更换轴承",
+        "confidence": 0.8,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "usesPart_151",
+      "head": "WorkOrder:WO-2024-035",
+      "tail": "SparePart:SP-1002",
+      "description": "usesPart",
+      "provenance": {
+        "source": "maintenance_work_orders.csv",
+        "sentence": "WO-2024-035 更换：SP-1002",
+        "confidence": 0.85,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "resolvedBy_152",
+      "head": "WorkOrder:WO-2024-036",
+      "tail": "MaintenanceAction:更换油泵",
+      "description": "resolvedBy",
+      "provenance": {
+        "source": "maintenance_work_orders.csv",
+        "sentence": "WO-2024-036 措施：更换油泵",
+        "confidence": 0.8,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "usesPart_153",
+      "head": "WorkOrder:WO-2024-036",
+      "tail": "SparePart:SP-3001",
+      "description": "usesPart",
+      "provenance": {
+        "source": "maintenance_work_orders.csv",
+        "sentence": "WO-2024-036 更换：SP-3001",
+        "confidence": 0.85,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "describes_154",
+      "head": "ManualSection:3.2.1",
+      "tail": "Fault:E-101",
+      "description": "describes",
+      "provenance": {
+        "source": "maintenance_manual_cnc.txt",
+        "sentence": "3.2.1 主轴异响（对应故障代码 E-101）",
+        "confidence": 0.92,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "describes_155",
+      "head": "ManualSection:3.2.2",
+      "tail": "Fault:E-102",
+      "description": "describes",
+      "provenance": {
+        "source": "maintenance_manual_cnc.txt",
+        "sentence": "3.2.2 主轴振动超标（对应故障代码 E-102、E-104）",
+        "confidence": 0.92,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "describes_156",
+      "head": "ManualSection:3.3.1",
+      "tail": "Fault:E-105",
+      "description": "describes",
+      "provenance": {
+        "source": "maintenance_manual_cnc.txt",
+        "sentence": "3.3.1 主轴温升过高（对应故障代码 E-105）",
+        "confidence": 0.92,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "describes_157",
+      "head": "ManualSection:3.4.1",
+      "tail": "Fault:E-106",
+      "description": "describes",
+      "provenance": {
+        "source": "maintenance_manual_cnc.txt",
+        "sentence": "3.4.1 进给轴爬行（对应故障代码 E-106）",
+        "confidence": 0.92,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "describes_158",
+      "head": "ManualSection:4.1.1",
+      "tail": "Fault:E-103",
+      "description": "describes",
+      "provenance": {
+        "source": "maintenance_manual_cnc.txt",
+        "sentence": "4.1.1 换刀卡滞（对应故障代码 E-103）",
+        "confidence": 0.92,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "describes_159",
+      "head": "ManualSection:4.1.2",
+      "tail": "Fault:E-108",
+      "description": "describes",
+      "provenance": {
+        "source": "maintenance_manual_cnc.txt",
+        "sentence": "4.1.2 刀库定位偏差（对应故障代码 E-108）",
+        "confidence": 0.92,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "describes_160",
+      "head": "ManualSection:6.1.1",
+      "tail": "Fault:E-107",
+      "description": "describes",
+      "provenance": {
+        "source": "maintenance_manual_cnc.txt",
+        "sentence": "6.1.1 冷却液压力不足（对应故障代码 E-107）",
+        "confidence": 0.92,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "describes_161",
+      "head": "ManualSection:5.1.1",
+      "tail": "Fault:H-201",
+      "description": "describes",
+      "provenance": {
+        "source": "maintenance_manual_hydraulic.txt",
+        "sentence": "5.1.1 系统压力不足（对应故障代码 H-201）",
+        "confidence": 0.92,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "describes_162",
+      "head": "ManualSection:5.2.1",
+      "tail": "Fault:H-202",
+      "description": "describes",
+      "provenance": {
+        "source": "maintenance_manual_hydraulic.txt",
+        "sentence": "5.2.1 油温过高（对应故障代码 H-202）",
+        "confidence": 0.92,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "describes_163",
+      "head": "ManualSection:5.3.1",
+      "tail": "Fault:H-203",
+      "description": "describes",
+      "provenance": {
+        "source": "maintenance_manual_hydraulic.txt",
+        "sentence": "5.3.1 油缸爬行（对应故障代码 H-203）",
+        "confidence": 0.92,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "describes_164",
+      "head": "ManualSection:5.4.1",
+      "tail": "Fault:H-204",
+      "description": "describes",
+      "provenance": {
+        "source": "maintenance_manual_hydraulic.txt",
+        "sentence": "5.4.1 液压外泄漏（对应故障代码 H-204）",
+        "confidence": 0.92,
+        "status": "auto_new"
+      }
+    },
+    {
+      "id": "describes_165",
+      "head": "ManualSection:5.5.1",
+      "tail": "Fault:H-205",
+      "description": "describes",
+      "provenance": {
+        "source": "maintenance_manual_hydraulic.txt",
+        "sentence": "5.5.1 蓄能器压力低（对应故障代码 H-205）",
+        "confidence": 0.92,
+        "status": "auto_new"
+      }
+    }
+  ],
+  "attributes": {
+    "Equipment": [
+      "设备编号",
+      "设备名称",
+      "型号",
+      "所属产线",
+      "投用日期",
+      "状态"
+    ],
+    "Fault": [
+      "故障代码",
+      "故障名称",
+      "故障等级",
+      "适用设备"
+    ],
+    "WorkOrder": [
+      "工单号",
+      "设备编号",
+      "故障代码",
+      "现象描述",
+      "维修措施",
+      "更换备件",
+      "工时",
+      "维修日期",
+      "维修人"
+    ],
+    "SparePart": [
+      "备件编号",
+      "备件名称",
+      "适用型号",
+      "规格",
+      "库存",
+      "单价",
+      "供应商"
+    ],
+    "Inspection": [
+      "质检单号",
+      "批次号",
+      "设备编号",
+      "检测项",
+      "标准值",
+      "实测值",
+      "判定",
+      "检测日期"
+    ],
+    "ManualSection": [
+      "章节号",
+      "章节标题",
+      "适用型号",
+      "文档编号"
+    ],
+    "Cause": [
+      "原因描述",
+      "关联部件",
+      "根因标记"
+    ],
+    "TraceRecord": [
+      "来源文档",
+      "章节/行号",
+      "原文片段"
+    ]
+  }
+}

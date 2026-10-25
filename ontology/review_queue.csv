@@ -1,0 +1,34 @@
+﻿kind,head,rel,tail,name,confidence,similarity,matched,decision,source,sentence
+concept,Component:导轨滑块,,,导轨滑块,0.9,0.571,Lubricant,review,fault_code_dictionary.csv,部件：导轨滑块
+concept,Component:冷却泵,,,冷却泵,0.9,0.667,Coolant,review,fault_code_dictionary.csv,部件：冷却泵
+concept,Component:冷却器,,,冷却器,0.9,0.667,Coolant,review,fault_code_dictionary.csv,部件：冷却器
+concept,Component:刀套,,,刀套,0.88,0.5,Tool,review,equipment_structure_notes.txt,部件：刀套
+concept,Component:接触球轴承,,,接触球轴承,0.72,0.5,RepairStep,review,maintenance_manual_cnc.txt,部件：接触球轴承
+concept,Component:拉刀机构,,,拉刀机构,0.72,0.333,Tool,review,maintenance_manual_cnc.txt,部件：拉刀机构
+concept,Component:换主轴轴承,,,换主轴轴承,0.72,0.92,Component,review,maintenance_manual_cnc.txt,部件：换主轴轴承
+concept,Component:机更换轴承,,,机更换轴承,0.72,0.5,RepairStep,review,maintenance_manual_cnc.txt,部件：机更换轴承
+concept,Component:轨润滑泵,,,轨润滑泵,0.72,0.571,Lubricant,review,maintenance_manual_cnc.txt,部件：轨润滑泵
+concept,Component:换导轨滑块,,,换导轨滑块,0.72,0.5,Lubricant,review,maintenance_manual_cnc.txt,部件：换导轨滑块
+concept,Component:或滚珠丝杠,,,或滚珠丝杠,0.72,0.0,,review,maintenance_manual_cnc.txt,部件：或滚珠丝杠
+concept,Component:换刀时刀套,,,换刀时刀套,0.72,0.286,Tool,review,maintenance_manual_cnc.txt,部件：换刀时刀套
+concept,Component:定位销,,,定位销,0.72,0.167,Parameter,review,maintenance_manual_cnc.txt,部件：定位销
+concept,Component:换定位销,,,换定位销,0.72,0.154,Parameter,review,maintenance_manual_cnc.txt,部件：换定位销
+concept,Component:时更换刀套,,,时更换刀套,0.72,0.286,Tool,review,maintenance_manual_cnc.txt,部件：时更换刀套
+concept,Component:查定位销,,,查定位销,0.72,0.154,Parameter,review,maintenance_manual_cnc.txt,部件：查定位销
+concept,Component:换冷却泵,,,换冷却泵,0.72,0.571,Coolant,review,maintenance_manual_cnc.txt,部件：换冷却泵
+concept,Component:染导致阀,,,染导致阀,0.72,0.286,Lubricant,review,maintenance_manual_hydraulic.txt,部件：染导致阀
+concept,Component:检溢流阀,,,检溢流阀,0.72,0.667,Cause,review,maintenance_manual_hydraulic.txt,部件：检溢流阀
+concept,Component:先导阀,,,先导阀,0.72,0.333,Lubricant,review,maintenance_manual_hydraulic.txt,部件：先导阀
+concept,Component:洗溢流阀,,,洗溢流阀,0.72,0.667,Cause,review,maintenance_manual_hydraulic.txt,部件：洗溢流阀
+concept,Component:洗板式冷却器,,,洗板式冷却器,0.72,0.444,Coolant,review,maintenance_manual_hydraulic.txt,部件：洗板式冷却器
+concept,Component:密封圈,,,密封圈,0.72,0.0,,review,maintenance_manual_hydraulic.txt,部件：密封圈
+concept,Component:接头或阀,,,接头或阀,0.72,0.333,Tool,review,maintenance_manual_hydraulic.txt,部件：接头或阀
+concept,Component:蓄能器,,,蓄能器,0.72,0.333,Sensor,review,maintenance_manual_hydraulic.txt,部件：蓄能器
+concept,Component:充气阀,,,充气阀,0.72,0.25,Cause,review,maintenance_manual_hydraulic.txt,部件：充气阀
+concept,Component:查充气阀,,,查充气阀,0.72,0.222,Cause,review,maintenance_manual_hydraulic.txt,部件：查充气阀
+relation,Fault:E-106,causedBy,Component:导轨滑块,,0.9,,,review,fault_code_dictionary.csv,E-106 进给轴爬行｜关联部件：导轨滑块
+relation,Fault:E-107,causedBy,Component:冷却泵,,0.9,,,review,fault_code_dictionary.csv,E-107 冷却液压力不足｜关联部件：冷却泵
+relation,Fault:H-202,causedBy,Component:冷却器,,0.9,,,review,fault_code_dictionary.csv,H-202 液压油温过高｜关联部件：冷却器
+relation,Component:刀套,usesPart,SparePart:SP-2002,,0.88,,,review,equipment_structure_notes.txt,- 刀套 -> SP-2002
+relation,Component:导轨滑块,usesPart,SparePart:SP-5001,,0.88,,,review,equipment_structure_notes.txt,- 导轨滑块 -> SP-5001
+relation,Component:冷却泵,usesPart,SparePart:SP-6001,,0.88,,,review,equipment_structure_notes.txt,- 冷却泵 -> SP-6001
