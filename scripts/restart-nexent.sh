@@ -29,7 +29,8 @@ print_status() {
     | awk -F'\t' '{printf "  %-24s %s\n", $1, $2}'
   line
   local bad
-  bad=$(docker ps -a --format '{{.Names}}\t{{.Status}}' | grep -E 'nexent-|supabase-' | grep -cE 'Exited|Restarting')
+  # 只把「真出错」算异常：Exited (0) 是一次性容器正常退出，不算
+  bad=$(docker ps -a --format '{{.Names}}\t{{.Status}}' | grep -E 'nexent-|supabase-' | grep -cE 'Restarting|Exited \([1-9][0-9]*\)')
   if [ "$bad" -gt 0 ]; then
     red "  有 $bad 个容器状态异常"
   else
