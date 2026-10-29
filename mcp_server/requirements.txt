@@ -1,0 +1,4 @@
+# vendor/ 目录已内置全部依赖，正常无需安装。
+# 若删除了 vendor/ 或换机器，执行：
+#   pip install -r requirements.txt
+mcp==1.30.0

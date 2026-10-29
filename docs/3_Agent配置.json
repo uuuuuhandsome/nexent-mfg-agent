@@ -1,0 +1,194 @@
+{
+  "_说明": "Nexent v2.7.0 智能体完整配置（由 POST /api/agent/export 导出后整理）。字段名与 POST /api/agent/update 的 AgentInfoRequest 一致，可直接用于重建该智能体。",
+  "platform": {
+    "product": "Nexent",
+    "version": "v2.7.0",
+    "deployment": "full (Docker Compose)",
+    "api_base": "http://localhost:3000/api"
+  },
+  "agent_id": 2,
+  "version": {
+    "version_no": 10,
+    "version_name": "设备运维助手-v9",
+    "status": "RELEASED",
+    "release_note": "knowledge_base_search 只传 query（禁止 top_k / index_names）；Skill 同步修正"
+  },
+  "identity": {
+    "name": "device_operations_assistant",
+    "display_name": "设备运维助手",
+    "description": "数据分析提取",
+    "author": "3127212586@qq.com",
+    "is_main_agent": true,
+    "enabled": true
+  },
+  "model": {
+    "model_ids": [
+      1
+    ],
+    "model_names": [
+      "DeepSeek V4 Pro"
+    ],
+    "business_logic_model_id": 1,
+    "business_logic_model_name": "DeepSeek V4 Pro",
+    "model_params_override": {
+      "1": {
+        "extra_params": {
+          "enable_thinking": false
+        }
+      }
+    },
+    "max_steps": 15,
+    "enable_protocol_repair_retry": true
+  },
+  "prompts": {
+    "duty_prompt": "你是先进制造车间的设备运维认知智能体，服务对象是一线设备工程师与维修班组。\n\n你的知识来源有两条，必须配合使用：\n- 4 个知识库（设备手册库、维修工单库、质检记录库、备件bom库）：厂商手册原文、历史工单、质检记录、备件 BOM 的原始文本。\n- plant-structure MCP 服务：设备台账、故障代码字典、备件库存、手册限值的结构化精确查询。\n\n典型问题类型：故障诊断与处置、备件选型与库存确认、历史维修追溯、限值判定、质检异常归因。",
+    "constraint_prompt": "【输出格式硬性要求（最高优先级）】\nA. 严禁输出任何代码。不得出现 <code> 标签、``` 代码块、python 语法、print()、函数调用写法、\n   parallel_executor 之类的伪代码。你只能通过工具接口调用工具，不要在文字里写调用过程。\nB. 不要在回答里复述工具调用的参数、JSON、标记语言。用中文自然语言说明你查了什么、得到什么结论。\nC. 回答结构固定为：结论 → 依据（含《文件名》+章节号）→ 建议动作。\n\n【工具使用规则】\n1. 涉及精确编号（设备编号 CNC-01、故障代码 E-101、备件编号 SP-1001）或精确数值与限值\n   （振动、温升、压力、间隙、力矩、库存数量、单价）时，必须先调用 plant-structure 的对应工具，\n   不得用知识库模糊召回代替。\n2. 厂商手册原文（诊断步骤、现象描述、处置措施）用 knowledge_base_search 检索。\n3. 跨文档答题顺序：get_equipment 定型号 → get_fault_code 拿手册章节 →\n   knowledge_base_search 取手册正文 → get_threshold 取限值 → get_spare_part 核库存 →\n   工单库查历史记录。\n4. 每条结论后标注出处，格式《文件名》+ 章节号；跨文档回答要分别标注每一条来源。\n5. 不同设备类别的限值不可互相套用（VMC 与 HMC 轴承型号不同，HPU-40 与 HPU-63 备件不通用）。\n6. 数据在知识库与 MCP 中都没有时，明确说\"资料中未收录\"，不要编造数值。\n7. 库存不足时要点明缺口数量，并给出替代处置建议。\n8. 调用 knowledge_base_search 时只传 query 一个参数；严禁传 index_names（会检索落空），也不要传 top_k（接口不接受，会报参数错误）。",
+    "few_shots_prompt": null
+  },
+  "knowledge_bases": [
+    {
+      "display_name": "设备手册库",
+      "index_name": "4-b57e5ca0350a4cc6b1b09960064c9b20",
+      "embedding_model": "BAAI/bge-m3",
+      "dimension": 1024
+    },
+    {
+      "display_name": "维修工单库",
+      "index_name": "5-dafb152dbbab4dc2883a2612b3c77cbc",
+      "embedding_model": "BAAI/bge-m3",
+      "dimension": 1024
+    },
+    {
+      "display_name": "质检记录库",
+      "index_name": "6-bc1f804655d64810a6e54ddb1ef90081",
+      "embedding_model": "BAAI/bge-m3",
+      "dimension": 1024
+    },
+    {
+      "display_name": "备件bom库",
+      "index_name": "3-944b96e8b15b4f428cbd466fec4bbe4d",
+      "embedding_model": "BAAI/bge-m3",
+      "dimension": 1024
+    }
+  ],
+  "mcp_servers": [
+    {
+      "mcp_server_name": "plant-structure",
+      "mcp_url": "http://host.docker.internal:8931/sse"
+    }
+  ],
+  "tools": [
+    {
+      "name": "knowledge_base_search",
+      "class_name": "KnowledgeBaseSearchTool",
+      "source": "local",
+      "mcp_server": null,
+      "params": [
+        {
+          "type": "integer",
+          "name": "top_k",
+          "description": "Maximum number of search results",
+          "description_zh": "返回搜索结果的最大数量。",
+          "default": 5,
+          "optional": true,
+          "constraints": {
+            "ge": 1,
+            "le": 100
+          }
+        },
+        {
+          "type": "array",
+          "name": "index_names",
+          "description": "The list of index names to search",
+          "description_zh": null,
+          "optional": false,
+          "default": [
+            "4-b57e5ca0350a4cc6b1b09960064c9b20",
+            "5-dafb152dbbab4dc2883a2612b3c77cbc",
+            "6-bc1f804655d64810a6e54ddb1ef90081",
+            "3-944b96e8b15b4f428cbd466fec4bbe4d"
+          ]
+        },
+        {
+          "type": "string",
+          "name": "search_mode",
+          "description": "the search mode, optional values: hybrid, accurate, semantic",
+          "description_zh": "搜索模式，可选：hybrid、accurate、semantic。",
+          "default": "hybrid",
+          "optional": true
+        },
+        {
+          "type": "boolean",
+          "name": "rerank",
+          "description": "Whether to enable reranking for search results",
+          "description_zh": null,
+          "default": true,
+          "optional": true
+        },
+        {
+          "type": "string",
+          "name": "rerank_model_name",
+          "description": "The name of the rerank model to use",
+          "description_zh": null,
+          "default": "BAAI/bge-reranker-v2-m3",
+          "optional": true
+        }
+      ],
+      "_desc": "Performs a local knowledge base search based on your query then returns the top "
+    },
+    {
+      "name": "ping",
+      "class_name": "ping",
+      "source": "mcp",
+      "mcp_server": "plant-structure",
+      "params": [],
+      "_desc": "连通性自检。返回 pong 与服务器当前时间，用于确认 MCP 已接通。"
+    },
+    {
+      "name": "list_equipment",
+      "class_name": "list_equipment",
+      "source": "mcp",
+      "mcp_server": "plant-structure",
+      "params": [],
+      "_desc": "列出在册设备台账（设备编号、名称、型号、产线、投用日期、关键部件、状态）。"
+    },
+    {
+      "name": "get_equipment",
+      "class_name": "get_equipment",
+      "source": "mcp",
+      "mcp_server": "plant-structure",
+      "params": [],
+      "_desc": "按设备编号 / 名称 / 型号 / 产线 查询设备详情，并带出关联备件与适用故障代码。"
+    },
+    {
+      "name": "get_fault_code",
+      "class_name": "get_fault_code",
+      "source": "mcp",
+      "mcp_server": "plant-structure",
+      "params": [],
+      "_desc": "按故障代码或故障名称查询标准处置，并给出对应手册章节的精确出处。"
+    },
+    {
+      "name": "get_spare_part",
+      "class_name": "get_spare_part",
+      "source": "mcp",
+      "mcp_server": "plant-structure",
+      "params": [],
+      "_desc": "按备件编号 / 名称 / 规格 / 所属总成查询备件库存与价格（来自 BOM）。"
+    },
+    {
+      "name": "get_threshold",
+      "class_name": "get_threshold",
+      "source": "mcp",
+      "mcp_server": "plant-structure",
+      "params": [],
+      "_desc": "按监测项查询维修手册里的精确限值（报警线 / 停机线 / 允差 / 力矩 / 牌号）。"
+    }
+  ],
+  "skills": {
+    "skill_names": [
+      null
+    ],
+    "note": "自定义 Skill equipment-fault-diagnosis，定义见 5_Skill定义.json"
+  }
+}
