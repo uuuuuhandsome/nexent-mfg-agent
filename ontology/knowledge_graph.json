@@ -1,0 +1,4446 @@
+{
+  "meta": {
+    "name": "设备运维知识图谱",
+    "version": "1.0",
+    "schema_version": "1.0",
+    "schema_concepts": 47,
+    "schema_relations": 167,
+    "node_count": 167,
+    "edge_count": 231,
+    "node_types": {
+      "Equipment": 12,
+      "EquipmentModel": 7,
+      "Fault": 13,
+      "Component": 14,
+      "ManualSection": 12,
+      "SparePart": 13,
+      "WorkOrder": 36,
+      "MaintenanceAction": 36,
+      "Inspection": 24
+    },
+    "relation_types": {
+      "hasModel": 12,
+      "causedBy": 13,
+      "references": 13,
+      "appliesTo": 22,
+      "hasFault": 36,
+      "belongsTo": 36,
+      "resolvedBy": 36,
+      "usesPart": 39,
+      "inspectedBy": 24
+    },
+    "provenance_rule": "每个节点与边均记录来源文档与行号/章节，支持逐条回溯"
+  },
+  "nodes": [
+    {
+      "id": "CMP-主轴冷却单元",
+      "type": "Component",
+      "name": "主轴冷却单元",
+      "attributes": {},
+      "provenance": {
+        "document": "fault_code_dictionary.csv",
+        "row": 5
+      }
+    },
+    {
+      "id": "CMP-主轴轴承",
+      "type": "Component",
+      "name": "主轴轴承",
+      "attributes": {},
+      "provenance": {
+        "document": "fault_code_dictionary.csv",
+        "row": 1
+      }
+    },
+    {
+      "id": "CMP-主轴轴承组",
+      "type": "Component",
+      "name": "主轴轴承组",
+      "attributes": {},
+      "provenance": {
+        "document": "equipment_structure_notes.txt",
+        "line": 28
+      }
+    },
+    {
+      "id": "CMP-冷却器",
+      "type": "Component",
+      "name": "冷却器",
+      "attributes": {},
+      "provenance": {
+        "document": "fault_code_dictionary.csv",
+        "row": 10
+      }
+    },
+    {
+      "id": "CMP-冷却泵",
+      "type": "Component",
+      "name": "冷却泵",
+      "attributes": {},
+      "provenance": {
+        "document": "fault_code_dictionary.csv",
+        "row": 7
+      }
+    },
+    {
+      "id": "CMP-刀套",
+      "type": "Component",
+      "name": "刀套",
+      "attributes": {},
+      "provenance": {
+        "document": "equipment_structure_notes.txt",
+        "line": 31
+      }
+    },
+    {
+      "id": "CMP-刀库定位销",
+      "type": "Component",
+      "name": "刀库定位销",
+      "attributes": {},
+      "provenance": {
+        "document": "fault_code_dictionary.csv",
+        "row": 3
+      }
+    },
+    {
+      "id": "CMP-导轨滑块",
+      "type": "Component",
+      "name": "导轨滑块",
+      "attributes": {},
+      "provenance": {
+        "document": "fault_code_dictionary.csv",
+        "row": 6
+      }
+    },
+    {
+      "id": "CMP-油缸密封圈",
+      "type": "Component",
+      "name": "油缸密封圈",
+      "attributes": {},
+      "provenance": {
+        "document": "fault_code_dictionary.csv",
+        "row": 11
+      }
+    },
+    {
+      "id": "CMP-液压油泵",
+      "type": "Component",
+      "name": "液压油泵",
+      "attributes": {},
+      "provenance": {
+        "document": "fault_code_dictionary.csv",
+        "row": 9
+      }
+    },
+    {
+      "id": "CMP-液压油滤芯",
+      "type": "Component",
+      "name": "液压油滤芯",
+      "attributes": {},
+      "provenance": {
+        "document": "equipment_structure_notes.txt",
+        "line": 39
+      }
+    },
+    {
+      "id": "CMP-溢流阀",
+      "type": "Component",
+      "name": "溢流阀",
+      "attributes": {},
+      "provenance": {
+        "document": "equipment_structure_notes.txt",
+        "line": 33
+      }
+    },
+    {
+      "id": "CMP-滚珠丝杠",
+      "type": "Component",
+      "name": "滚珠丝杠",
+      "attributes": {},
+      "provenance": {
+        "document": "equipment_structure_notes.txt",
+        "line": 37
+      }
+    },
+    {
+      "id": "CMP-蓄能器皮囊",
+      "type": "Component",
+      "name": "蓄能器皮囊",
+      "attributes": {},
+      "provenance": {
+        "document": "fault_code_dictionary.csv",
+        "row": 13
+      }
+    },
+    {
+      "id": "CLG-01",
+      "type": "Equipment",
+      "name": "冷却单元",
+      "attributes": {
+        "型号": "CU-20",
+        "产线": "机加一线",
+        "投用日期": "2019-03-15",
+        "关键部件": "冷却泵/换热器",
+        "状态": "在用"
+      },
+      "provenance": {
+        "document": "equipment_ledger.csv",
+        "row": 10
+      }
+    },
+    {
+      "id": "CLG-02",
+      "type": "Equipment",
+      "name": "冷却单元",
+      "attributes": {
+        "型号": "CU-20",
+        "产线": "机加二线",
+        "投用日期": "2020-07-20",
+        "关键部件": "冷却泵/换热器",
+        "状态": "在用"
+      },
+      "provenance": {
+        "document": "equipment_ledger.csv",
+        "row": 11
+      }
+    },
+    {
+      "id": "CNC-01",
+      "type": "Equipment",
+      "name": "立式加工中心",
+      "attributes": {
+        "型号": "VMC850",
+        "产线": "机加一线",
+        "投用日期": "2019-03-15",
+        "关键部件": "主轴/刀库/液压站",
+        "状态": "在用"
+      },
+      "provenance": {
+        "document": "equipment_ledger.csv",
+        "row": 1
+      }
+    },
+    {
+      "id": "CNC-02",
+      "type": "Equipment",
+      "name": "立式加工中心",
+      "attributes": {
+        "型号": "VMC850",
+        "产线": "机加一线",
+        "投用日期": "2019-03-15",
+        "关键部件": "主轴/刀库/液压站",
+        "状态": "在用"
+      },
+      "provenance": {
+        "document": "equipment_ledger.csv",
+        "row": 2
+      }
+    },
+    {
+      "id": "CNC-03",
+      "type": "Equipment",
+      "name": "立式加工中心",
+      "attributes": {
+        "型号": "VMC1160",
+        "产线": "机加二线",
+        "投用日期": "2020-07-20",
+        "关键部件": "主轴/刀库/液压站",
+        "状态": "在用"
+      },
+      "provenance": {
+        "document": "equipment_ledger.csv",
+        "row": 3
+      }
+    },
+    {
+      "id": "CNC-04",
+      "type": "Equipment",
+      "name": "卧式加工中心",
+      "attributes": {
+        "型号": "HMC630",
+        "产线": "机加二线",
+        "投用日期": "2018-11-02",
+        "关键部件": "主轴/转台/液压站",
+        "状态": "在用"
+      },
+      "provenance": {
+        "document": "equipment_ledger.csv",
+        "row": 4
+      }
+    },
+    {
+      "id": "CNC-05",
+      "type": "Equipment",
+      "name": "立式加工中心",
+      "attributes": {
+        "型号": "VMC1160",
+        "产线": "机加二线",
+        "投用日期": "2021-05-11",
+        "关键部件": "主轴/刀库/液压站",
+        "状态": "在用"
+      },
+      "provenance": {
+        "document": "equipment_ledger.csv",
+        "row": 5
+      }
+    },
+    {
+      "id": "CNC-06",
+      "type": "Equipment",
+      "name": "卧式加工中心",
+      "attributes": {
+        "型号": "HMC630",
+        "产线": "机加三线",
+        "投用日期": "2022-01-18",
+        "关键部件": "主轴/转台/液压站",
+        "状态": "在用"
+      },
+      "provenance": {
+        "document": "equipment_ledger.csv",
+        "row": 6
+      }
+    },
+    {
+      "id": "ELE-01",
+      "type": "Equipment",
+      "name": "电控柜",
+      "attributes": {
+        "型号": "EC-800",
+        "产线": "机加一线",
+        "投用日期": "2019-03-15",
+        "关键部件": "伺服驱动/PLC/接触器",
+        "状态": "在用"
+      },
+      "provenance": {
+        "document": "equipment_ledger.csv",
+        "row": 12
+      }
+    },
+    {
+      "id": "HYD-01",
+      "type": "Equipment",
+      "name": "液压站",
+      "attributes": {
+        "型号": "HPU-40",
+        "产线": "机加一线",
+        "投用日期": "2019-03-15",
+        "关键部件": "油泵/溢流阀/蓄能器/油缸",
+        "状态": "在用"
+      },
+      "provenance": {
+        "document": "equipment_ledger.csv",
+        "row": 7
+      }
+    },
+    {
+      "id": "HYD-02",
+      "type": "Equipment",
+      "name": "液压站",
+      "attributes": {
+        "型号": "HPU-40",
+        "产线": "机加二线",
+        "投用日期": "2020-07-20",
+        "关键部件": "油泵/溢流阀/蓄能器/油缸",
+        "状态": "在用"
+      },
+      "provenance": {
+        "document": "equipment_ledger.csv",
+        "row": 8
+      }
+    },
+    {
+      "id": "HYD-03",
+      "type": "Equipment",
+      "name": "液压站",
+      "attributes": {
+        "型号": "HPU-63",
+        "产线": "机加三线",
+        "投用日期": "2022-01-18",
+        "关键部件": "油泵/溢流阀/蓄能器/油缸",
+        "状态": "在用"
+      },
+      "provenance": {
+        "document": "equipment_ledger.csv",
+        "row": 9
+      }
+    },
+    {
+      "id": "CU-20",
+      "type": "EquipmentModel",
+      "name": "CU-20",
+      "attributes": {},
+      "provenance": {
+        "document": "equipment_ledger.csv",
+        "row": 10
+      }
+    },
+    {
+      "id": "EC-800",
+      "type": "EquipmentModel",
+      "name": "EC-800",
+      "attributes": {},
+      "provenance": {
+        "document": "equipment_ledger.csv",
+        "row": 12
+      }
+    },
+    {
+      "id": "HMC630",
+      "type": "EquipmentModel",
+      "name": "HMC630",
+      "attributes": {},
+      "provenance": {
+        "document": "equipment_ledger.csv",
+        "row": 4
+      }
+    },
+    {
+      "id": "HPU-40",
+      "type": "EquipmentModel",
+      "name": "HPU-40",
+      "attributes": {},
+      "provenance": {
+        "document": "equipment_ledger.csv",
+        "row": 7
+      }
+    },
+    {
+      "id": "HPU-63",
+      "type": "EquipmentModel",
+      "name": "HPU-63",
+      "attributes": {},
+      "provenance": {
+        "document": "equipment_ledger.csv",
+        "row": 9
+      }
+    },
+    {
+      "id": "VMC1160",
+      "type": "EquipmentModel",
+      "name": "VMC1160",
+      "attributes": {},
+      "provenance": {
+        "document": "equipment_ledger.csv",
+        "row": 3
+      }
+    },
+    {
+      "id": "VMC850",
+      "type": "EquipmentModel",
+      "name": "VMC850",
+      "attributes": {},
+      "provenance": {
+        "document": "equipment_ledger.csv",
+        "row": 1
+      }
+    },
+    {
+      "id": "E-101",
+      "type": "Fault",
+      "name": "主轴异响",
+      "attributes": {
+        "适用设备": "CNC",
+        "可能原因": "主轴轴承磨损/预紧力不足/润滑不良",
+        "建议处置": "检查轴承游隙与润滑，必要时更换"
+      },
+      "provenance": {
+        "document": "fault_code_dictionary.csv",
+        "row": 1
+      }
+    },
+    {
+      "id": "E-102",
+      "type": "Fault",
+      "name": "主轴振动超标",
+      "attributes": {
+        "适用设备": "CNC",
+        "可能原因": "轴承损伤/动平衡失效/刀具不平衡",
+        "建议处置": "测振并检查动平衡"
+      },
+      "provenance": {
+        "document": "fault_code_dictionary.csv",
+        "row": 2
+      }
+    },
+    {
+      "id": "E-103",
+      "type": "Fault",
+      "name": "刀库换刀卡滞",
+      "attributes": {
+        "适用设备": "CNC",
+        "可能原因": "刀套变形/气压不足/定位销磨损",
+        "建议处置": "检查气压与刀套"
+      },
+      "provenance": {
+        "document": "fault_code_dictionary.csv",
+        "row": 3
+      }
+    },
+    {
+      "id": "E-104",
+      "type": "Fault",
+      "name": "加工表面振纹",
+      "attributes": {
+        "适用设备": "CNC",
+        "可能原因": "主轴振动/进给参数不当/夹具刚性不足",
+        "建议处置": "降低进给并复检振动"
+      },
+      "provenance": {
+        "document": "fault_code_dictionary.csv",
+        "row": 4
+      }
+    },
+    {
+      "id": "E-105",
+      "type": "Fault",
+      "name": "主轴温升过高",
+      "attributes": {
+        "适用设备": "CNC",
+        "可能原因": "冷却液不足/冷却单元堵塞/轴承预紧过大",
+        "建议处置": "检查冷却回路与流量"
+      },
+      "provenance": {
+        "document": "fault_code_dictionary.csv",
+        "row": 5
+      }
+    },
+    {
+      "id": "E-106",
+      "type": "Fault",
+      "name": "进给轴爬行",
+      "attributes": {
+        "适用设备": "CNC",
+        "可能原因": "导轨润滑不良/丝杠预紧不足/伺服增益低",
+        "建议处置": "检查润滑与丝杠预紧"
+      },
+      "provenance": {
+        "document": "fault_code_dictionary.csv",
+        "row": 6
+      }
+    },
+    {
+      "id": "E-107",
+      "type": "Fault",
+      "name": "冷却液压力不足",
+      "attributes": {
+        "适用设备": "CNC",
+        "可能原因": "冷却泵磨损/管路堵塞/液位过低",
+        "建议处置": "检查泵与管路"
+      },
+      "provenance": {
+        "document": "fault_code_dictionary.csv",
+        "row": 7
+      }
+    },
+    {
+      "id": "E-108",
+      "type": "Fault",
+      "name": "刀库定位偏差",
+      "attributes": {
+        "适用设备": "CNC",
+        "可能原因": "定位销磨损/编码器漂移",
+        "建议处置": "校准刀库并更换定位销"
+      },
+      "provenance": {
+        "document": "fault_code_dictionary.csv",
+        "row": 8
+      }
+    },
+    {
+      "id": "H-201",
+      "type": "Fault",
+      "name": "液压压力不足",
+      "attributes": {
+        "适用设备": "HYD",
+        "可能原因": "油泵磨损/溢流阀卡滞/油液污染",
+        "建议处置": "检测泵出口压力与油液清洁度"
+      },
+      "provenance": {
+        "document": "fault_code_dictionary.csv",
+        "row": 9
+      }
+    },
+    {
+      "id": "H-202",
+      "type": "Fault",
+      "name": "液压油温过高",
+      "attributes": {
+        "适用设备": "HYD",
+        "可能原因": "冷却器堵塞/油液粘度异常/负荷过大",
+        "建议处置": "清洗冷却器并检测油质"
+      },
+      "provenance": {
+        "document": "fault_code_dictionary.csv",
+        "row": 10
+      }
+    },
+    {
+      "id": "H-203",
+      "type": "Fault",
+      "name": "油缸爬行",
+      "attributes": {
+        "适用设备": "HYD",
+        "可能原因": "密封圈磨损/混入空气/导轨润滑不良",
+        "建议处置": "排气并更换密封"
+      },
+      "provenance": {
+        "document": "fault_code_dictionary.csv",
+        "row": 11
+      }
+    },
+    {
+      "id": "H-204",
+      "type": "Fault",
+      "name": "液压外泄漏",
+      "attributes": {
+        "适用设备": "HYD",
+        "可能原因": "密封老化/接头松动/管路破损",
+        "建议处置": "紧固接头并更换密封"
+      },
+      "provenance": {
+        "document": "fault_code_dictionary.csv",
+        "row": 12
+      }
+    },
+    {
+      "id": "H-205",
+      "type": "Fault",
+      "name": "蓄能器压力低",
+      "attributes": {
+        "适用设备": "HYD",
+        "可能原因": "皮囊破损/充气压力不足",
+        "建议处置": "检测皮囊并补充氮气"
+      },
+      "provenance": {
+        "document": "fault_code_dictionary.csv",
+        "row": 13
+      }
+    },
+    {
+      "id": "QC-2024-001",
+      "type": "Inspection",
+      "name": "QC-2024-001",
+      "attributes": {
+        "批次": "B2402-01",
+        "检测项": "表面粗糙度Ra",
+        "标准值": "≤1.6",
+        "实测值": "1.9",
+        "判定": "不合格",
+        "日期": "2024-02-03"
+      },
+      "provenance": {
+        "document": "quality_inspection.csv",
+        "row": 1
+      }
+    },
+    {
+      "id": "QC-2024-002",
+      "type": "Inspection",
+      "name": "QC-2024-002",
+      "attributes": {
+        "批次": "B2402-02",
+        "检测项": "表面粗糙度Ra",
+        "标准值": "≤1.6",
+        "实测值": "1.3",
+        "判定": "合格",
+        "日期": "2024-02-04"
+      },
+      "provenance": {
+        "document": "quality_inspection.csv",
+        "row": 2
+      }
+    },
+    {
+      "id": "QC-2024-003",
+      "type": "Inspection",
+      "name": "QC-2024-003",
+      "attributes": {
+        "批次": "B2403-01",
+        "检测项": "主轴振动",
+        "标准值": "≤2.8",
+        "实测值": "4.5",
+        "判定": "不合格",
+        "日期": "2024-03-01"
+      },
+      "provenance": {
+        "document": "quality_inspection.csv",
+        "row": 3
+      }
+    },
+    {
+      "id": "QC-2024-004",
+      "type": "Inspection",
+      "name": "QC-2024-004",
+      "attributes": {
+        "批次": "B2405-01",
+        "检测项": "表面粗糙度Ra",
+        "标准值": "≤1.6",
+        "实测值": "1.8",
+        "判定": "不合格",
+        "日期": "2024-05-10"
+      },
+      "provenance": {
+        "document": "quality_inspection.csv",
+        "row": 4
+      }
+    },
+    {
+      "id": "QC-2024-005",
+      "type": "Inspection",
+      "name": "QC-2024-005",
+      "attributes": {
+        "批次": "B2405-02",
+        "检测项": "表面粗糙度Ra",
+        "标准值": "≤1.6",
+        "实测值": "1.4",
+        "判定": "合格",
+        "日期": "2024-05-11"
+      },
+      "provenance": {
+        "document": "quality_inspection.csv",
+        "row": 5
+      }
+    },
+    {
+      "id": "QC-2024-006",
+      "type": "Inspection",
+      "name": "QC-2024-006",
+      "attributes": {
+        "批次": "B2402-03",
+        "检测项": "主轴振动",
+        "标准值": "≤2.8",
+        "实测值": "2.1",
+        "判定": "合格",
+        "日期": "2024-02-20"
+      },
+      "provenance": {
+        "document": "quality_inspection.csv",
+        "row": 6
+      }
+    },
+    {
+      "id": "QC-2024-007",
+      "type": "Inspection",
+      "name": "QC-2024-007",
+      "attributes": {
+        "批次": "B2406-01",
+        "检测项": "主轴温升",
+        "标准值": "≤45",
+        "实测值": "52",
+        "判定": "不合格",
+        "日期": "2024-06-01"
+      },
+      "provenance": {
+        "document": "quality_inspection.csv",
+        "row": 7
+      }
+    },
+    {
+      "id": "QC-2024-008",
+      "type": "Inspection",
+      "name": "QC-2024-008",
+      "attributes": {
+        "批次": "B2406-02",
+        "检测项": "主轴温升",
+        "标准值": "≤45",
+        "实测值": "40",
+        "判定": "合格",
+        "日期": "2024-06-02"
+      },
+      "provenance": {
+        "document": "quality_inspection.csv",
+        "row": 8
+      }
+    },
+    {
+      "id": "QC-2024-009",
+      "type": "Inspection",
+      "name": "QC-2024-009",
+      "attributes": {
+        "批次": "B2407-01",
+        "检测项": "定位精度",
+        "标准值": "≤0.02",
+        "实测值": "0.03",
+        "判定": "不合格",
+        "日期": "2024-07-01"
+      },
+      "provenance": {
+        "document": "quality_inspection.csv",
+        "row": 9
+      }
+    },
+    {
+      "id": "QC-2024-010",
+      "type": "Inspection",
+      "name": "QC-2024-010",
+      "attributes": {
+        "批次": "B2407-02",
+        "检测项": "定位精度",
+        "标准值": "≤0.02",
+        "实测值": "0.015",
+        "判定": "合格",
+        "日期": "2024-07-02"
+      },
+      "provenance": {
+        "document": "quality_inspection.csv",
+        "row": 10
+      }
+    },
+    {
+      "id": "QC-2024-011",
+      "type": "Inspection",
+      "name": "QC-2024-011",
+      "attributes": {
+        "批次": "B2408-01",
+        "检测项": "表面粗糙度Ra",
+        "标准值": "≤1.6",
+        "实测值": "1.7",
+        "判定": "不合格",
+        "日期": "2024-08-05"
+      },
+      "provenance": {
+        "document": "quality_inspection.csv",
+        "row": 11
+      }
+    },
+    {
+      "id": "QC-2024-012",
+      "type": "Inspection",
+      "name": "QC-2024-012",
+      "attributes": {
+        "批次": "B2408-02",
+        "检测项": "表面粗糙度Ra",
+        "标准值": "≤1.6",
+        "实测值": "1.2",
+        "判定": "合格",
+        "日期": "2024-08-06"
+      },
+      "provenance": {
+        "document": "quality_inspection.csv",
+        "row": 12
+      }
+    },
+    {
+      "id": "QC-2024-013",
+      "type": "Inspection",
+      "name": "QC-2024-013",
+      "attributes": {
+        "批次": "B2409-01",
+        "检测项": "表面粗糙度Ra",
+        "标准值": "≤1.6",
+        "实测值": "1.5",
+        "判定": "合格",
+        "日期": "2024-09-10"
+      },
+      "provenance": {
+        "document": "quality_inspection.csv",
+        "row": 13
+      }
+    },
+    {
+      "id": "QC-2024-014",
+      "type": "Inspection",
+      "name": "QC-2024-014",
+      "attributes": {
+        "批次": "B2409-02",
+        "检测项": "主轴振动",
+        "标准值": "≤2.8",
+        "实测值": "3.1",
+        "判定": "不合格",
+        "日期": "2024-09-12"
+      },
+      "provenance": {
+        "document": "quality_inspection.csv",
+        "row": 14
+      }
+    },
+    {
+      "id": "QC-2024-015",
+      "type": "Inspection",
+      "name": "QC-2024-015",
+      "attributes": {
+        "批次": "B2410-01",
+        "检测项": "表面粗糙度Ra",
+        "标准值": "≤1.6",
+        "实测值": "1.6",
+        "判定": "合格",
+        "日期": "2024-10-08"
+      },
+      "provenance": {
+        "document": "quality_inspection.csv",
+        "row": 15
+      }
+    },
+    {
+      "id": "QC-2024-016",
+      "type": "Inspection",
+      "name": "QC-2024-016",
+      "attributes": {
+        "批次": "B2410-02",
+        "检测项": "主轴振动",
+        "标准值": "≤2.8",
+        "实测值": "2.4",
+        "判定": "合格",
+        "日期": "2024-10-15"
+      },
+      "provenance": {
+        "document": "quality_inspection.csv",
+        "row": 16
+      }
+    },
+    {
+      "id": "QC-2024-017",
+      "type": "Inspection",
+      "name": "QC-2024-017",
+      "attributes": {
+        "批次": "B2411-01",
+        "检测项": "主轴振动",
+        "标准值": "≤2.8",
+        "实测值": "4.9",
+        "判定": "不合格",
+        "日期": "2024-11-05"
+      },
+      "provenance": {
+        "document": "quality_inspection.csv",
+        "row": 17
+      }
+    },
+    {
+      "id": "QC-2024-018",
+      "type": "Inspection",
+      "name": "QC-2024-018",
+      "attributes": {
+        "批次": "B2411-02",
+        "检测项": "表面粗糙度Ra",
+        "标准值": "≤1.6",
+        "实测值": "1.3",
+        "判定": "合格",
+        "日期": "2024-11-12"
+      },
+      "provenance": {
+        "document": "quality_inspection.csv",
+        "row": 18
+      }
+    },
+    {
+      "id": "QC-2024-019",
+      "type": "Inspection",
+      "name": "QC-2024-019",
+      "attributes": {
+        "批次": "B2412-01",
+        "检测项": "表面粗糙度Ra",
+        "标准值": "≤1.6",
+        "实测值": "1.9",
+        "判定": "不合格",
+        "日期": "2024-12-02"
+      },
+      "provenance": {
+        "document": "quality_inspection.csv",
+        "row": 19
+      }
+    },
+    {
+      "id": "QC-2024-020",
+      "type": "Inspection",
+      "name": "QC-2024-020",
+      "attributes": {
+        "批次": "B2412-02",
+        "检测项": "定位精度",
+        "标准值": "≤0.02",
+        "实测值": "0.018",
+        "判定": "合格",
+        "日期": "2024-12-10"
+      },
+      "provenance": {
+        "document": "quality_inspection.csv",
+        "row": 20
+      }
+    },
+    {
+      "id": "QC-2025-001",
+      "type": "Inspection",
+      "name": "QC-2025-001",
+      "attributes": {
+        "批次": "B2501-01",
+        "检测项": "主轴振动",
+        "标准值": "≤2.8",
+        "实测值": "3.5",
+        "判定": "不合格",
+        "日期": "2025-01-08"
+      },
+      "provenance": {
+        "document": "quality_inspection.csv",
+        "row": 21
+      }
+    },
+    {
+      "id": "QC-2025-002",
+      "type": "Inspection",
+      "name": "QC-2025-002",
+      "attributes": {
+        "批次": "B2501-02",
+        "检测项": "表面粗糙度Ra",
+        "标准值": "≤1.6",
+        "实测值": "1.4",
+        "判定": "合格",
+        "日期": "2025-01-15"
+      },
+      "provenance": {
+        "document": "quality_inspection.csv",
+        "row": 22
+      }
+    },
+    {
+      "id": "QC-2025-003",
+      "type": "Inspection",
+      "name": "QC-2025-003",
+      "attributes": {
+        "批次": "B2502-01",
+        "检测项": "表面粗糙度Ra",
+        "标准值": "≤1.6",
+        "实测值": "1.7",
+        "判定": "不合格",
+        "日期": "2025-02-06"
+      },
+      "provenance": {
+        "document": "quality_inspection.csv",
+        "row": 23
+      }
+    },
+    {
+      "id": "QC-2025-004",
+      "type": "Inspection",
+      "name": "QC-2025-004",
+      "attributes": {
+        "批次": "B2502-02",
+        "检测项": "主轴温升",
+        "标准值": "≤45",
+        "实测值": "43",
+        "判定": "合格",
+        "日期": "2025-02-12"
+      },
+      "provenance": {
+        "document": "quality_inspection.csv",
+        "row": 24
+      }
+    },
+    {
+      "id": "ACT-WO-2024-001",
+      "type": "MaintenanceAction",
+      "name": "更换主轴轴承并重新预紧",
+      "attributes": {},
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 1
+      }
+    },
+    {
+      "id": "ACT-WO-2024-002",
+      "type": "MaintenanceAction",
+      "name": "调整进给参数并复测振动",
+      "attributes": {},
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 2
+      }
+    },
+    {
+      "id": "ACT-WO-2024-003",
+      "type": "MaintenanceAction",
+      "name": "更换定位销并清洁刀套",
+      "attributes": {},
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 3
+      }
+    },
+    {
+      "id": "ACT-WO-2024-004",
+      "type": "MaintenanceAction",
+      "name": "更换油泵并清洗溢流阀",
+      "attributes": {},
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 4
+      }
+    },
+    {
+      "id": "ACT-WO-2024-005",
+      "type": "MaintenanceAction",
+      "name": "更换主轴轴承并做动平衡",
+      "attributes": {},
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 5
+      }
+    },
+    {
+      "id": "ACT-WO-2024-006",
+      "type": "MaintenanceAction",
+      "name": "更换主轴轴承",
+      "attributes": {},
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 6
+      }
+    },
+    {
+      "id": "ACT-WO-2024-007",
+      "type": "MaintenanceAction",
+      "name": "清洗冷却器并更换液压油",
+      "attributes": {},
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 7
+      }
+    },
+    {
+      "id": "ACT-WO-2024-008",
+      "type": "MaintenanceAction",
+      "name": "降低进给速度并复检",
+      "attributes": {},
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 8
+      }
+    },
+    {
+      "id": "ACT-WO-2024-009",
+      "type": "MaintenanceAction",
+      "name": "更换密封圈并排气",
+      "attributes": {},
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 9
+      }
+    },
+    {
+      "id": "ACT-WO-2024-010",
+      "type": "MaintenanceAction",
+      "name": "更换主轴轴承并复测",
+      "attributes": {},
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 10
+      }
+    },
+    {
+      "id": "ACT-WO-2024-011",
+      "type": "MaintenanceAction",
+      "name": "清洗冷却单元并检查流量",
+      "attributes": {},
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 11
+      }
+    },
+    {
+      "id": "ACT-WO-2024-012",
+      "type": "MaintenanceAction",
+      "name": "更换导轨滑块并调整预紧",
+      "attributes": {},
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 12
+      }
+    },
+    {
+      "id": "ACT-WO-2024-013",
+      "type": "MaintenanceAction",
+      "name": "更换冷却泵",
+      "attributes": {},
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 13
+      }
+    },
+    {
+      "id": "ACT-WO-2024-014",
+      "type": "MaintenanceAction",
+      "name": "校准刀库并更换定位销",
+      "attributes": {},
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 14
+      }
+    },
+    {
+      "id": "ACT-WO-2024-015",
+      "type": "MaintenanceAction",
+      "name": "更换密封并紧固接头",
+      "attributes": {},
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 15
+      }
+    },
+    {
+      "id": "ACT-WO-2024-016",
+      "type": "MaintenanceAction",
+      "name": "更换皮囊并补充氮气",
+      "attributes": {},
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 16
+      }
+    },
+    {
+      "id": "ACT-WO-2024-017",
+      "type": "MaintenanceAction",
+      "name": "清洁刀套并更换定位销",
+      "attributes": {},
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 17
+      }
+    },
+    {
+      "id": "ACT-WO-2024-018",
+      "type": "MaintenanceAction",
+      "name": "更换主轴轴承",
+      "attributes": {},
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 18
+      }
+    },
+    {
+      "id": "ACT-WO-2024-019",
+      "type": "MaintenanceAction",
+      "name": "更换主轴轴承",
+      "attributes": {},
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 19
+      }
+    },
+    {
+      "id": "ACT-WO-2024-020",
+      "type": "MaintenanceAction",
+      "name": "更换油泵并清洗溢流阀",
+      "attributes": {},
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 20
+      }
+    },
+    {
+      "id": "ACT-WO-2024-021",
+      "type": "MaintenanceAction",
+      "name": "清洗冷却回路",
+      "attributes": {},
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 21
+      }
+    },
+    {
+      "id": "ACT-WO-2024-022",
+      "type": "MaintenanceAction",
+      "name": "补充润滑并调整伺服增益",
+      "attributes": {},
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 22
+      }
+    },
+    {
+      "id": "ACT-WO-2024-023",
+      "type": "MaintenanceAction",
+      "name": "更换冷却泵",
+      "attributes": {},
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 23
+      }
+    },
+    {
+      "id": "ACT-WO-2024-024",
+      "type": "MaintenanceAction",
+      "name": "清洗冷却器并更换液压油",
+      "attributes": {},
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 24
+      }
+    },
+    {
+      "id": "ACT-WO-2024-025",
+      "type": "MaintenanceAction",
+      "name": "降低进给并检查主轴振动",
+      "attributes": {},
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 25
+      }
+    },
+    {
+      "id": "ACT-WO-2024-026",
+      "type": "MaintenanceAction",
+      "name": "重新校准刀库",
+      "attributes": {},
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 26
+      }
+    },
+    {
+      "id": "ACT-WO-2024-027",
+      "type": "MaintenanceAction",
+      "name": "更换密封圈",
+      "attributes": {},
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 27
+      }
+    },
+    {
+      "id": "ACT-WO-2024-028",
+      "type": "MaintenanceAction",
+      "name": "更换刀套",
+      "attributes": {},
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 28
+      }
+    },
+    {
+      "id": "ACT-WO-2024-029",
+      "type": "MaintenanceAction",
+      "name": "更换主轴轴承",
+      "attributes": {},
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 29
+      }
+    },
+    {
+      "id": "ACT-WO-2024-030",
+      "type": "MaintenanceAction",
+      "name": "紧固接头并更换密封",
+      "attributes": {},
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 30
+      }
+    },
+    {
+      "id": "ACT-WO-2024-031",
+      "type": "MaintenanceAction",
+      "name": "更换主轴轴承",
+      "attributes": {},
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 31
+      }
+    },
+    {
+      "id": "ACT-WO-2024-032",
+      "type": "MaintenanceAction",
+      "name": "更换滚珠丝杠",
+      "attributes": {},
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 32
+      }
+    },
+    {
+      "id": "ACT-WO-2024-033",
+      "type": "MaintenanceAction",
+      "name": "更换皮囊",
+      "attributes": {},
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 33
+      }
+    },
+    {
+      "id": "ACT-WO-2024-034",
+      "type": "MaintenanceAction",
+      "name": "更换冷却泵",
+      "attributes": {},
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 34
+      }
+    },
+    {
+      "id": "ACT-WO-2024-035",
+      "type": "MaintenanceAction",
+      "name": "做动平衡并更换轴承",
+      "attributes": {},
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 35
+      }
+    },
+    {
+      "id": "ACT-WO-2024-036",
+      "type": "MaintenanceAction",
+      "name": "更换油泵",
+      "attributes": {},
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 36
+      }
+    },
+    {
+      "id": "SEC-3.2.1",
+      "type": "ManualSection",
+      "name": "手册 3.2.1 节",
+      "attributes": {
+        "章节号": "3.2.1"
+      },
+      "provenance": {
+        "document": "fault_code_dictionary.csv",
+        "row": 1
+      }
+    },
+    {
+      "id": "SEC-3.2.2",
+      "type": "ManualSection",
+      "name": "手册 3.2.2 节",
+      "attributes": {
+        "章节号": "3.2.2"
+      },
+      "provenance": {
+        "document": "fault_code_dictionary.csv",
+        "row": 2
+      }
+    },
+    {
+      "id": "SEC-3.3.1",
+      "type": "ManualSection",
+      "name": "手册 3.3.1 节",
+      "attributes": {
+        "章节号": "3.3.1"
+      },
+      "provenance": {
+        "document": "fault_code_dictionary.csv",
+        "row": 5
+      }
+    },
+    {
+      "id": "SEC-3.4.1",
+      "type": "ManualSection",
+      "name": "手册 3.4.1 节",
+      "attributes": {
+        "章节号": "3.4.1"
+      },
+      "provenance": {
+        "document": "fault_code_dictionary.csv",
+        "row": 6
+      }
+    },
+    {
+      "id": "SEC-4.1.1",
+      "type": "ManualSection",
+      "name": "手册 4.1.1 节",
+      "attributes": {
+        "章节号": "4.1.1"
+      },
+      "provenance": {
+        "document": "fault_code_dictionary.csv",
+        "row": 3
+      }
+    },
+    {
+      "id": "SEC-4.1.2",
+      "type": "ManualSection",
+      "name": "手册 4.1.2 节",
+      "attributes": {
+        "章节号": "4.1.2"
+      },
+      "provenance": {
+        "document": "fault_code_dictionary.csv",
+        "row": 8
+      }
+    },
+    {
+      "id": "SEC-5.1.1",
+      "type": "ManualSection",
+      "name": "手册 5.1.1 节",
+      "attributes": {
+        "章节号": "5.1.1"
+      },
+      "provenance": {
+        "document": "fault_code_dictionary.csv",
+        "row": 9
+      }
+    },
+    {
+      "id": "SEC-5.2.1",
+      "type": "ManualSection",
+      "name": "手册 5.2.1 节",
+      "attributes": {
+        "章节号": "5.2.1"
+      },
+      "provenance": {
+        "document": "fault_code_dictionary.csv",
+        "row": 10
+      }
+    },
+    {
+      "id": "SEC-5.3.1",
+      "type": "ManualSection",
+      "name": "手册 5.3.1 节",
+      "attributes": {
+        "章节号": "5.3.1"
+      },
+      "provenance": {
+        "document": "fault_code_dictionary.csv",
+        "row": 11
+      }
+    },
+    {
+      "id": "SEC-5.4.1",
+      "type": "ManualSection",
+      "name": "手册 5.4.1 节",
+      "attributes": {
+        "章节号": "5.4.1"
+      },
+      "provenance": {
+        "document": "fault_code_dictionary.csv",
+        "row": 12
+      }
+    },
+    {
+      "id": "SEC-5.5.1",
+      "type": "ManualSection",
+      "name": "手册 5.5.1 节",
+      "attributes": {
+        "章节号": "5.5.1"
+      },
+      "provenance": {
+        "document": "fault_code_dictionary.csv",
+        "row": 13
+      }
+    },
+    {
+      "id": "SEC-6.1.1",
+      "type": "ManualSection",
+      "name": "手册 6.1.1 节",
+      "attributes": {
+        "章节号": "6.1.1"
+      },
+      "provenance": {
+        "document": "fault_code_dictionary.csv",
+        "row": 7
+      }
+    },
+    {
+      "id": "SP-1001",
+      "type": "SparePart",
+      "name": "主轴轴承",
+      "attributes": {
+        "适用型号": "VMC850/VMC1160",
+        "总成": "主轴",
+        "规格": "7014C/P4",
+        "库存": "8",
+        "单价": "1850",
+        "供应商": "哈轴"
+      },
+      "provenance": {
+        "document": "bom.csv",
+        "row": 1
+      }
+    },
+    {
+      "id": "SP-1002",
+      "type": "SparePart",
+      "name": "主轴轴承",
+      "attributes": {
+        "适用型号": "HMC630",
+        "总成": "主轴",
+        "规格": "7016C/P4",
+        "库存": "5",
+        "单价": "2280",
+        "供应商": "哈轴"
+      },
+      "provenance": {
+        "document": "bom.csv",
+        "row": 2
+      }
+    },
+    {
+      "id": "SP-1003",
+      "type": "SparePart",
+      "name": "主轴冷却单元",
+      "attributes": {
+        "适用型号": "VMC850/VMC1160/HMC630",
+        "总成": "主轴",
+        "规格": "CU-20",
+        "库存": "3",
+        "单价": "5600",
+        "供应商": "自制"
+      },
+      "provenance": {
+        "document": "bom.csv",
+        "row": 3
+      }
+    },
+    {
+      "id": "SP-2001",
+      "type": "SparePart",
+      "name": "刀库定位销",
+      "attributes": {
+        "适用型号": "VMC850/VMC1160",
+        "总成": "刀库",
+        "规格": "Φ8x30",
+        "库存": "20",
+        "单价": "45",
+        "供应商": "自制"
+      },
+      "provenance": {
+        "document": "bom.csv",
+        "row": 4
+      }
+    },
+    {
+      "id": "SP-2002",
+      "type": "SparePart",
+      "name": "刀套",
+      "attributes": {
+        "适用型号": "VMC850/VMC1160",
+        "总成": "刀库",
+        "规格": "BT40",
+        "库存": "10",
+        "单价": "320",
+        "供应商": "自制"
+      },
+      "provenance": {
+        "document": "bom.csv",
+        "row": 5
+      }
+    },
+    {
+      "id": "SP-3001",
+      "type": "SparePart",
+      "name": "液压油泵",
+      "attributes": {
+        "适用型号": "HPU-40",
+        "总成": "液压站",
+        "规格": "PV2R1-8",
+        "库存": "3",
+        "单价": "3600",
+        "供应商": "力士乐"
+      },
+      "provenance": {
+        "document": "bom.csv",
+        "row": 6
+      }
+    },
+    {
+      "id": "SP-3002",
+      "type": "SparePart",
+      "name": "溢流阀",
+      "attributes": {
+        "适用型号": "HPU-40/HPU-63",
+        "总成": "液压站",
+        "规格": "DBW10",
+        "库存": "4",
+        "单价": "980",
+        "供应商": "力士乐"
+      },
+      "provenance": {
+        "document": "bom.csv",
+        "row": 7
+      }
+    },
+    {
+      "id": "SP-4001",
+      "type": "SparePart",
+      "name": "油缸密封圈",
+      "attributes": {
+        "适用型号": "HPU-40",
+        "总成": "液压站",
+        "规格": "Φ63",
+        "库存": "12",
+        "单价": "260",
+        "供应商": "派克"
+      },
+      "provenance": {
+        "document": "bom.csv",
+        "row": 8
+      }
+    },
+    {
+      "id": "SP-4002",
+      "type": "SparePart",
+      "name": "蓄能器皮囊",
+      "attributes": {
+        "适用型号": "HPU-40/HPU-63",
+        "总成": "液压站",
+        "规格": "10L",
+        "库存": "4",
+        "单价": "680",
+        "供应商": "贺德克"
+      },
+      "provenance": {
+        "document": "bom.csv",
+        "row": 9
+      }
+    },
+    {
+      "id": "SP-5001",
+      "type": "SparePart",
+      "name": "导轨滑块",
+      "attributes": {
+        "适用型号": "HMC630",
+        "总成": "进给",
+        "规格": "HGH35",
+        "库存": "6",
+        "单价": "1200",
+        "供应商": "上银"
+      },
+      "provenance": {
+        "document": "bom.csv",
+        "row": 10
+      }
+    },
+    {
+      "id": "SP-5002",
+      "type": "SparePart",
+      "name": "滚珠丝杠",
+      "attributes": {
+        "适用型号": "HMC630",
+        "总成": "进给",
+        "规格": "R40x10",
+        "库存": "2",
+        "单价": "8600",
+        "供应商": "上银"
+      },
+      "provenance": {
+        "document": "bom.csv",
+        "row": 11
+      }
+    },
+    {
+      "id": "SP-6001",
+      "type": "SparePart",
+      "name": "冷却泵",
+      "attributes": {
+        "适用型号": "VMC850/VMC1160",
+        "总成": "冷却",
+        "规格": "CP-20",
+        "库存": "4",
+        "单价": "1500",
+        "供应商": "格兰富"
+      },
+      "provenance": {
+        "document": "bom.csv",
+        "row": 12
+      }
+    },
+    {
+      "id": "SP-7001",
+      "type": "SparePart",
+      "name": "液压油滤芯",
+      "attributes": {
+        "适用型号": "HPU-40/HPU-63",
+        "总成": "液压站",
+        "规格": "10μm",
+        "库存": "15",
+        "单价": "120",
+        "供应商": "贺德克"
+      },
+      "provenance": {
+        "document": "bom.csv",
+        "row": 13
+      }
+    },
+    {
+      "id": "WO-2024-001",
+      "type": "WorkOrder",
+      "name": "WO-2024-001",
+      "attributes": {
+        "设备": "CNC-01",
+        "故障代码": "E-101",
+        "现象": "主轴运转有周期性异响",
+        "工时": "6",
+        "日期": "2024-01-12",
+        "维修人": "张伟"
+      },
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 1
+      }
+    },
+    {
+      "id": "WO-2024-002",
+      "type": "WorkOrder",
+      "name": "WO-2024-002",
+      "attributes": {
+        "设备": "CNC-03",
+        "故障代码": "E-104",
+        "现象": "工件表面出现规则振纹",
+        "工时": "2",
+        "日期": "2024-01-20",
+        "维修人": "李强"
+      },
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 2
+      }
+    },
+    {
+      "id": "WO-2024-003",
+      "type": "WorkOrder",
+      "name": "WO-2024-003",
+      "attributes": {
+        "设备": "CNC-02",
+        "故障代码": "E-103",
+        "现象": "换刀时刀套卡滞",
+        "工时": "3",
+        "日期": "2024-02-03",
+        "维修人": "王磊"
+      },
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 3
+      }
+    },
+    {
+      "id": "WO-2024-004",
+      "type": "WorkOrder",
+      "name": "WO-2024-004",
+      "attributes": {
+        "设备": "HYD-01",
+        "故障代码": "H-201",
+        "现象": "系统压力由16MPa降至11MPa",
+        "工时": "5",
+        "日期": "2024-02-15",
+        "维修人": "张伟"
+      },
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 4
+      }
+    },
+    {
+      "id": "WO-2024-005",
+      "type": "WorkOrder",
+      "name": "WO-2024-005",
+      "attributes": {
+        "设备": "CNC-04",
+        "故障代码": "E-102",
+        "现象": "主轴振动值达4.5mm/s",
+        "工时": "8",
+        "日期": "2024-03-01",
+        "维修人": "李强"
+      },
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 5
+      }
+    },
+    {
+      "id": "WO-2024-006",
+      "type": "WorkOrder",
+      "name": "WO-2024-006",
+      "attributes": {
+        "设备": "CNC-03",
+        "故障代码": "E-101",
+        "现象": "主轴异响并伴随温升",
+        "工时": "6",
+        "日期": "2024-03-12",
+        "维修人": "王磊"
+      },
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 6
+      }
+    },
+    {
+      "id": "WO-2024-007",
+      "type": "WorkOrder",
+      "name": "WO-2024-007",
+      "attributes": {
+        "设备": "HYD-02",
+        "故障代码": "H-202",
+        "现象": "油温升至68℃报警",
+        "工时": "4",
+        "日期": "2024-03-25",
+        "维修人": "张伟"
+      },
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 7
+      }
+    },
+    {
+      "id": "WO-2024-008",
+      "type": "WorkOrder",
+      "name": "WO-2024-008",
+      "attributes": {
+        "设备": "CNC-01",
+        "故障代码": "E-104",
+        "现象": "精加工面振纹Ra1.8",
+        "工时": "1",
+        "日期": "2024-04-02",
+        "维修人": "李强"
+      },
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 8
+      }
+    },
+    {
+      "id": "WO-2024-009",
+      "type": "WorkOrder",
+      "name": "WO-2024-009",
+      "attributes": {
+        "设备": "HYD-01",
+        "故障代码": "H-203",
+        "现象": "油缸低速爬行",
+        "工时": "3",
+        "日期": "2024-04-10",
+        "维修人": "王磊"
+      },
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 9
+      }
+    },
+    {
+      "id": "WO-2024-010",
+      "type": "WorkOrder",
+      "name": "WO-2024-010",
+      "attributes": {
+        "设备": "CNC-02",
+        "故障代码": "E-102",
+        "现象": "主轴振动超标",
+        "工时": "8",
+        "日期": "2024-04-18",
+        "维修人": "张伟"
+      },
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 10
+      }
+    },
+    {
+      "id": "WO-2024-011",
+      "type": "WorkOrder",
+      "name": "WO-2024-011",
+      "attributes": {
+        "设备": "CNC-05",
+        "故障代码": "E-105",
+        "现象": "主轴温升报警",
+        "工时": "4",
+        "日期": "2024-05-06",
+        "维修人": "李强"
+      },
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 11
+      }
+    },
+    {
+      "id": "WO-2024-012",
+      "type": "WorkOrder",
+      "name": "WO-2024-012",
+      "attributes": {
+        "设备": "CNC-06",
+        "故障代码": "E-106",
+        "现象": "进给轴低速爬行",
+        "工时": "6",
+        "日期": "2024-05-15",
+        "维修人": "王磊"
+      },
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 12
+      }
+    },
+    {
+      "id": "WO-2024-013",
+      "type": "WorkOrder",
+      "name": "WO-2024-013",
+      "attributes": {
+        "设备": "CNC-01",
+        "故障代码": "E-107",
+        "现象": "冷却液压力不足",
+        "工时": "5",
+        "日期": "2024-05-22",
+        "维修人": "张伟"
+      },
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 13
+      }
+    },
+    {
+      "id": "WO-2024-014",
+      "type": "WorkOrder",
+      "name": "WO-2024-014",
+      "attributes": {
+        "设备": "CNC-04",
+        "故障代码": "E-108",
+        "现象": "换刀定位出现偏差",
+        "工时": "4",
+        "日期": "2024-06-03",
+        "维修人": "李强"
+      },
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 14
+      }
+    },
+    {
+      "id": "WO-2024-015",
+      "type": "WorkOrder",
+      "name": "WO-2024-015",
+      "attributes": {
+        "设备": "HYD-03",
+        "故障代码": "H-204",
+        "现象": "油缸接头处外泄漏",
+        "工时": "3",
+        "日期": "2024-06-10",
+        "维修人": "王磊"
+      },
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 15
+      }
+    },
+    {
+      "id": "WO-2024-016",
+      "type": "WorkOrder",
+      "name": "WO-2024-016",
+      "attributes": {
+        "设备": "HYD-02",
+        "故障代码": "H-205",
+        "现象": "蓄能器保压能力下降",
+        "工时": "4",
+        "日期": "2024-06-18",
+        "维修人": "张伟"
+      },
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 16
+      }
+    },
+    {
+      "id": "WO-2024-017",
+      "type": "WorkOrder",
+      "name": "WO-2024-017",
+      "attributes": {
+        "设备": "CNC-03",
+        "故障代码": "E-103",
+        "现象": "刀库卡滞报警",
+        "工时": "3",
+        "日期": "2024-07-01",
+        "维修人": "李强"
+      },
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 17
+      }
+    },
+    {
+      "id": "WO-2024-018",
+      "type": "WorkOrder",
+      "name": "WO-2024-018",
+      "attributes": {
+        "设备": "CNC-05",
+        "故障代码": "E-101",
+        "现象": "主轴异响",
+        "工时": "6",
+        "日期": "2024-07-09",
+        "维修人": "王磊"
+      },
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 18
+      }
+    },
+    {
+      "id": "WO-2024-019",
+      "type": "WorkOrder",
+      "name": "WO-2024-019",
+      "attributes": {
+        "设备": "CNC-06",
+        "故障代码": "E-102",
+        "现象": "主轴振动4.2mm/s",
+        "工时": "8",
+        "日期": "2024-07-20",
+        "维修人": "张伟"
+      },
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 19
+      }
+    },
+    {
+      "id": "WO-2024-020",
+      "type": "WorkOrder",
+      "name": "WO-2024-020",
+      "attributes": {
+        "设备": "HYD-01",
+        "故障代码": "H-201",
+        "现象": "系统压力不足",
+        "工时": "5",
+        "日期": "2024-08-02",
+        "维修人": "李强"
+      },
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 20
+      }
+    },
+    {
+      "id": "WO-2024-021",
+      "type": "WorkOrder",
+      "name": "WO-2024-021",
+      "attributes": {
+        "设备": "CNC-02",
+        "故障代码": "E-105",
+        "现象": "主轴温度偏高",
+        "工时": "2",
+        "日期": "2024-08-12",
+        "维修人": "王磊"
+      },
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 21
+      }
+    },
+    {
+      "id": "WO-2024-022",
+      "type": "WorkOrder",
+      "name": "WO-2024-022",
+      "attributes": {
+        "设备": "CNC-01",
+        "故障代码": "E-106",
+        "现象": "进给轴爬行",
+        "工时": "2",
+        "日期": "2024-08-20",
+        "维修人": "张伟"
+      },
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 22
+      }
+    },
+    {
+      "id": "WO-2024-023",
+      "type": "WorkOrder",
+      "name": "WO-2024-023",
+      "attributes": {
+        "设备": "CNC-04",
+        "故障代码": "E-107",
+        "现象": "冷却液压力偏低",
+        "工时": "5",
+        "日期": "2024-09-02",
+        "维修人": "李强"
+      },
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 23
+      }
+    },
+    {
+      "id": "WO-2024-024",
+      "type": "WorkOrder",
+      "name": "WO-2024-024",
+      "attributes": {
+        "设备": "HYD-03",
+        "故障代码": "H-202",
+        "现象": "油温达70℃",
+        "工时": "4",
+        "日期": "2024-09-10",
+        "维修人": "王磊"
+      },
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 24
+      }
+    },
+    {
+      "id": "WO-2024-025",
+      "type": "WorkOrder",
+      "name": "WO-2024-025",
+      "attributes": {
+        "设备": "CNC-03",
+        "故障代码": "E-104",
+        "现象": "加工面振纹Ra1.9",
+        "工时": "2",
+        "日期": "2024-09-18",
+        "维修人": "张伟"
+      },
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 25
+      }
+    },
+    {
+      "id": "WO-2024-026",
+      "type": "WorkOrder",
+      "name": "WO-2024-026",
+      "attributes": {
+        "设备": "CNC-05",
+        "故障代码": "E-108",
+        "现象": "换刀位置偏移",
+        "工时": "2",
+        "日期": "2024-10-08",
+        "维修人": "李强"
+      },
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 26
+      }
+    },
+    {
+      "id": "WO-2024-027",
+      "type": "WorkOrder",
+      "name": "WO-2024-027",
+      "attributes": {
+        "设备": "HYD-02",
+        "故障代码": "H-203",
+        "现象": "油缸爬行",
+        "工时": "3",
+        "日期": "2024-10-15",
+        "维修人": "王磊"
+      },
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 27
+      }
+    },
+    {
+      "id": "WO-2024-028",
+      "type": "WorkOrder",
+      "name": "WO-2024-028",
+      "attributes": {
+        "设备": "CNC-06",
+        "故障代码": "E-103",
+        "现象": "刀套卡滞",
+        "工时": "3",
+        "日期": "2024-10-22",
+        "维修人": "张伟"
+      },
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 28
+      }
+    },
+    {
+      "id": "WO-2024-029",
+      "type": "WorkOrder",
+      "name": "WO-2024-029",
+      "attributes": {
+        "设备": "CNC-01",
+        "故障代码": "E-102",
+        "现象": "主轴振动超标",
+        "工时": "8",
+        "日期": "2024-11-05",
+        "维修人": "李强"
+      },
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 29
+      }
+    },
+    {
+      "id": "WO-2024-030",
+      "type": "WorkOrder",
+      "name": "WO-2024-030",
+      "attributes": {
+        "设备": "HYD-01",
+        "故障代码": "H-204",
+        "现象": "管路接头渗油",
+        "工时": "2",
+        "日期": "2024-11-12",
+        "维修人": "王磊"
+      },
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 30
+      }
+    },
+    {
+      "id": "WO-2024-031",
+      "type": "WorkOrder",
+      "name": "WO-2024-031",
+      "attributes": {
+        "设备": "CNC-02",
+        "故障代码": "E-101",
+        "现象": "主轴异响",
+        "工时": "6",
+        "日期": "2024-11-20",
+        "维修人": "张伟"
+      },
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 31
+      }
+    },
+    {
+      "id": "WO-2024-032",
+      "type": "WorkOrder",
+      "name": "WO-2024-032",
+      "attributes": {
+        "设备": "CNC-04",
+        "故障代码": "E-106",
+        "现象": "进给爬行并伴有异响",
+        "工时": "8",
+        "日期": "2024-12-02",
+        "维修人": "李强"
+      },
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 32
+      }
+    },
+    {
+      "id": "WO-2024-033",
+      "type": "WorkOrder",
+      "name": "WO-2024-033",
+      "attributes": {
+        "设备": "HYD-03",
+        "故障代码": "H-205",
+        "现象": "蓄能器压力低",
+        "工时": "4",
+        "日期": "2024-12-10",
+        "维修人": "王磊"
+      },
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 33
+      }
+    },
+    {
+      "id": "WO-2024-034",
+      "type": "WorkOrder",
+      "name": "WO-2024-034",
+      "attributes": {
+        "设备": "CNC-03",
+        "故障代码": "E-107",
+        "现象": "冷却泵异响且压力低",
+        "工时": "5",
+        "日期": "2024-12-18",
+        "维修人": "张伟"
+      },
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 34
+      }
+    },
+    {
+      "id": "WO-2024-035",
+      "type": "WorkOrder",
+      "name": "WO-2024-035",
+      "attributes": {
+        "设备": "CNC-05",
+        "故障代码": "E-102",
+        "现象": "主轴振动超标",
+        "工时": "8",
+        "日期": "2025-01-08",
+        "维修人": "李强"
+      },
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 35
+      }
+    },
+    {
+      "id": "WO-2024-036",
+      "type": "WorkOrder",
+      "name": "WO-2024-036",
+      "attributes": {
+        "设备": "HYD-02",
+        "故障代码": "H-201",
+        "现象": "压力持续下降",
+        "工时": "5",
+        "日期": "2025-01-15",
+        "维修人": "王磊"
+      },
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 36
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "CLG-01",
+      "relation": "hasModel",
+      "target": "CU-20",
+      "provenance": {
+        "document": "equipment_ledger.csv",
+        "row": 10
+      }
+    },
+    {
+      "source": "CLG-02",
+      "relation": "hasModel",
+      "target": "CU-20",
+      "provenance": {
+        "document": "equipment_ledger.csv",
+        "row": 11
+      }
+    },
+    {
+      "source": "CMP-主轴冷却单元",
+      "relation": "usesPart",
+      "target": "SP-1003",
+      "provenance": {
+        "document": "equipment_structure_notes.txt",
+        "line": 29
+      }
+    },
+    {
+      "source": "CMP-主轴轴承组",
+      "relation": "usesPart",
+      "target": "SP-1001",
+      "provenance": {
+        "document": "equipment_structure_notes.txt",
+        "line": 28
+      }
+    },
+    {
+      "source": "CMP-冷却泵",
+      "relation": "usesPart",
+      "target": "SP-6001",
+      "provenance": {
+        "document": "equipment_structure_notes.txt",
+        "line": 38
+      }
+    },
+    {
+      "source": "CMP-刀套",
+      "relation": "usesPart",
+      "target": "SP-2002",
+      "provenance": {
+        "document": "equipment_structure_notes.txt",
+        "line": 31
+      }
+    },
+    {
+      "source": "CMP-刀库定位销",
+      "relation": "usesPart",
+      "target": "SP-2001",
+      "provenance": {
+        "document": "equipment_structure_notes.txt",
+        "line": 30
+      }
+    },
+    {
+      "source": "CMP-导轨滑块",
+      "relation": "usesPart",
+      "target": "SP-5001",
+      "provenance": {
+        "document": "equipment_structure_notes.txt",
+        "line": 36
+      }
+    },
+    {
+      "source": "CMP-油缸密封圈",
+      "relation": "usesPart",
+      "target": "SP-4001",
+      "provenance": {
+        "document": "equipment_structure_notes.txt",
+        "line": 34
+      }
+    },
+    {
+      "source": "CMP-液压油泵",
+      "relation": "usesPart",
+      "target": "SP-3001",
+      "provenance": {
+        "document": "equipment_structure_notes.txt",
+        "line": 32
+      }
+    },
+    {
+      "source": "CMP-液压油滤芯",
+      "relation": "usesPart",
+      "target": "SP-7001",
+      "provenance": {
+        "document": "equipment_structure_notes.txt",
+        "line": 39
+      }
+    },
+    {
+      "source": "CMP-溢流阀",
+      "relation": "usesPart",
+      "target": "SP-3002",
+      "provenance": {
+        "document": "equipment_structure_notes.txt",
+        "line": 33
+      }
+    },
+    {
+      "source": "CMP-滚珠丝杠",
+      "relation": "usesPart",
+      "target": "SP-5002",
+      "provenance": {
+        "document": "equipment_structure_notes.txt",
+        "line": 37
+      }
+    },
+    {
+      "source": "CMP-蓄能器皮囊",
+      "relation": "usesPart",
+      "target": "SP-4002",
+      "provenance": {
+        "document": "equipment_structure_notes.txt",
+        "line": 35
+      }
+    },
+    {
+      "source": "CNC-01",
+      "relation": "hasModel",
+      "target": "VMC850",
+      "provenance": {
+        "document": "equipment_ledger.csv",
+        "row": 1
+      }
+    },
+    {
+      "source": "CNC-01",
+      "relation": "inspectedBy",
+      "target": "QC-2024-004",
+      "provenance": {
+        "document": "quality_inspection.csv",
+        "row": 4
+      }
+    },
+    {
+      "source": "CNC-01",
+      "relation": "inspectedBy",
+      "target": "QC-2024-005",
+      "provenance": {
+        "document": "quality_inspection.csv",
+        "row": 5
+      }
+    },
+    {
+      "source": "CNC-01",
+      "relation": "inspectedBy",
+      "target": "QC-2024-011",
+      "provenance": {
+        "document": "quality_inspection.csv",
+        "row": 11
+      }
+    },
+    {
+      "source": "CNC-01",
+      "relation": "inspectedBy",
+      "target": "QC-2024-017",
+      "provenance": {
+        "document": "quality_inspection.csv",
+        "row": 17
+      }
+    },
+    {
+      "source": "CNC-01",
+      "relation": "inspectedBy",
+      "target": "QC-2025-003",
+      "provenance": {
+        "document": "quality_inspection.csv",
+        "row": 23
+      }
+    },
+    {
+      "source": "CNC-02",
+      "relation": "hasModel",
+      "target": "VMC850",
+      "provenance": {
+        "document": "equipment_ledger.csv",
+        "row": 2
+      }
+    },
+    {
+      "source": "CNC-02",
+      "relation": "inspectedBy",
+      "target": "QC-2024-006",
+      "provenance": {
+        "document": "quality_inspection.csv",
+        "row": 6
+      }
+    },
+    {
+      "source": "CNC-02",
+      "relation": "inspectedBy",
+      "target": "QC-2024-012",
+      "provenance": {
+        "document": "quality_inspection.csv",
+        "row": 12
+      }
+    },
+    {
+      "source": "CNC-02",
+      "relation": "inspectedBy",
+      "target": "QC-2024-018",
+      "provenance": {
+        "document": "quality_inspection.csv",
+        "row": 18
+      }
+    },
+    {
+      "source": "CNC-03",
+      "relation": "hasModel",
+      "target": "VMC1160",
+      "provenance": {
+        "document": "equipment_ledger.csv",
+        "row": 3
+      }
+    },
+    {
+      "source": "CNC-03",
+      "relation": "inspectedBy",
+      "target": "QC-2024-001",
+      "provenance": {
+        "document": "quality_inspection.csv",
+        "row": 1
+      }
+    },
+    {
+      "source": "CNC-03",
+      "relation": "inspectedBy",
+      "target": "QC-2024-002",
+      "provenance": {
+        "document": "quality_inspection.csv",
+        "row": 2
+      }
+    },
+    {
+      "source": "CNC-03",
+      "relation": "inspectedBy",
+      "target": "QC-2024-013",
+      "provenance": {
+        "document": "quality_inspection.csv",
+        "row": 13
+      }
+    },
+    {
+      "source": "CNC-03",
+      "relation": "inspectedBy",
+      "target": "QC-2024-019",
+      "provenance": {
+        "document": "quality_inspection.csv",
+        "row": 19
+      }
+    },
+    {
+      "source": "CNC-03",
+      "relation": "inspectedBy",
+      "target": "QC-2025-004",
+      "provenance": {
+        "document": "quality_inspection.csv",
+        "row": 24
+      }
+    },
+    {
+      "source": "CNC-04",
+      "relation": "hasModel",
+      "target": "HMC630",
+      "provenance": {
+        "document": "equipment_ledger.csv",
+        "row": 4
+      }
+    },
+    {
+      "source": "CNC-04",
+      "relation": "inspectedBy",
+      "target": "QC-2024-003",
+      "provenance": {
+        "document": "quality_inspection.csv",
+        "row": 3
+      }
+    },
+    {
+      "source": "CNC-04",
+      "relation": "inspectedBy",
+      "target": "QC-2024-014",
+      "provenance": {
+        "document": "quality_inspection.csv",
+        "row": 14
+      }
+    },
+    {
+      "source": "CNC-04",
+      "relation": "inspectedBy",
+      "target": "QC-2024-020",
+      "provenance": {
+        "document": "quality_inspection.csv",
+        "row": 20
+      }
+    },
+    {
+      "source": "CNC-05",
+      "relation": "hasModel",
+      "target": "VMC1160",
+      "provenance": {
+        "document": "equipment_ledger.csv",
+        "row": 5
+      }
+    },
+    {
+      "source": "CNC-05",
+      "relation": "inspectedBy",
+      "target": "QC-2024-007",
+      "provenance": {
+        "document": "quality_inspection.csv",
+        "row": 7
+      }
+    },
+    {
+      "source": "CNC-05",
+      "relation": "inspectedBy",
+      "target": "QC-2024-008",
+      "provenance": {
+        "document": "quality_inspection.csv",
+        "row": 8
+      }
+    },
+    {
+      "source": "CNC-05",
+      "relation": "inspectedBy",
+      "target": "QC-2024-015",
+      "provenance": {
+        "document": "quality_inspection.csv",
+        "row": 15
+      }
+    },
+    {
+      "source": "CNC-05",
+      "relation": "inspectedBy",
+      "target": "QC-2025-001",
+      "provenance": {
+        "document": "quality_inspection.csv",
+        "row": 21
+      }
+    },
+    {
+      "source": "CNC-06",
+      "relation": "hasModel",
+      "target": "HMC630",
+      "provenance": {
+        "document": "equipment_ledger.csv",
+        "row": 6
+      }
+    },
+    {
+      "source": "CNC-06",
+      "relation": "inspectedBy",
+      "target": "QC-2024-009",
+      "provenance": {
+        "document": "quality_inspection.csv",
+        "row": 9
+      }
+    },
+    {
+      "source": "CNC-06",
+      "relation": "inspectedBy",
+      "target": "QC-2024-010",
+      "provenance": {
+        "document": "quality_inspection.csv",
+        "row": 10
+      }
+    },
+    {
+      "source": "CNC-06",
+      "relation": "inspectedBy",
+      "target": "QC-2024-016",
+      "provenance": {
+        "document": "quality_inspection.csv",
+        "row": 16
+      }
+    },
+    {
+      "source": "CNC-06",
+      "relation": "inspectedBy",
+      "target": "QC-2025-002",
+      "provenance": {
+        "document": "quality_inspection.csv",
+        "row": 22
+      }
+    },
+    {
+      "source": "E-101",
+      "relation": "causedBy",
+      "target": "CMP-主轴轴承",
+      "provenance": {
+        "document": "fault_code_dictionary.csv",
+        "row": 1
+      }
+    },
+    {
+      "source": "E-101",
+      "relation": "references",
+      "target": "SEC-3.2.1",
+      "provenance": {
+        "document": "fault_code_dictionary.csv",
+        "row": 1
+      }
+    },
+    {
+      "source": "E-102",
+      "relation": "causedBy",
+      "target": "CMP-主轴轴承",
+      "provenance": {
+        "document": "fault_code_dictionary.csv",
+        "row": 2
+      }
+    },
+    {
+      "source": "E-102",
+      "relation": "references",
+      "target": "SEC-3.2.2",
+      "provenance": {
+        "document": "fault_code_dictionary.csv",
+        "row": 2
+      }
+    },
+    {
+      "source": "E-103",
+      "relation": "causedBy",
+      "target": "CMP-刀库定位销",
+      "provenance": {
+        "document": "fault_code_dictionary.csv",
+        "row": 3
+      }
+    },
+    {
+      "source": "E-103",
+      "relation": "references",
+      "target": "SEC-4.1.1",
+      "provenance": {
+        "document": "fault_code_dictionary.csv",
+        "row": 3
+      }
+    },
+    {
+      "source": "E-104",
+      "relation": "causedBy",
+      "target": "CMP-主轴轴承",
+      "provenance": {
+        "document": "fault_code_dictionary.csv",
+        "row": 4
+      }
+    },
+    {
+      "source": "E-104",
+      "relation": "references",
+      "target": "SEC-3.2.2",
+      "provenance": {
+        "document": "fault_code_dictionary.csv",
+        "row": 4
+      }
+    },
+    {
+      "source": "E-105",
+      "relation": "causedBy",
+      "target": "CMP-主轴冷却单元",
+      "provenance": {
+        "document": "fault_code_dictionary.csv",
+        "row": 5
+      }
+    },
+    {
+      "source": "E-105",
+      "relation": "references",
+      "target": "SEC-3.3.1",
+      "provenance": {
+        "document": "fault_code_dictionary.csv",
+        "row": 5
+      }
+    },
+    {
+      "source": "E-106",
+      "relation": "causedBy",
+      "target": "CMP-导轨滑块",
+      "provenance": {
+        "document": "fault_code_dictionary.csv",
+        "row": 6
+      }
+    },
+    {
+      "source": "E-106",
+      "relation": "references",
+      "target": "SEC-3.4.1",
+      "provenance": {
+        "document": "fault_code_dictionary.csv",
+        "row": 6
+      }
+    },
+    {
+      "source": "E-107",
+      "relation": "causedBy",
+      "target": "CMP-冷却泵",
+      "provenance": {
+        "document": "fault_code_dictionary.csv",
+        "row": 7
+      }
+    },
+    {
+      "source": "E-107",
+      "relation": "references",
+      "target": "SEC-6.1.1",
+      "provenance": {
+        "document": "fault_code_dictionary.csv",
+        "row": 7
+      }
+    },
+    {
+      "source": "E-108",
+      "relation": "causedBy",
+      "target": "CMP-刀库定位销",
+      "provenance": {
+        "document": "fault_code_dictionary.csv",
+        "row": 8
+      }
+    },
+    {
+      "source": "E-108",
+      "relation": "references",
+      "target": "SEC-4.1.2",
+      "provenance": {
+        "document": "fault_code_dictionary.csv",
+        "row": 8
+      }
+    },
+    {
+      "source": "ELE-01",
+      "relation": "hasModel",
+      "target": "EC-800",
+      "provenance": {
+        "document": "equipment_ledger.csv",
+        "row": 12
+      }
+    },
+    {
+      "source": "H-201",
+      "relation": "causedBy",
+      "target": "CMP-液压油泵",
+      "provenance": {
+        "document": "fault_code_dictionary.csv",
+        "row": 9
+      }
+    },
+    {
+      "source": "H-201",
+      "relation": "references",
+      "target": "SEC-5.1.1",
+      "provenance": {
+        "document": "fault_code_dictionary.csv",
+        "row": 9
+      }
+    },
+    {
+      "source": "H-202",
+      "relation": "causedBy",
+      "target": "CMP-冷却器",
+      "provenance": {
+        "document": "fault_code_dictionary.csv",
+        "row": 10
+      }
+    },
+    {
+      "source": "H-202",
+      "relation": "references",
+      "target": "SEC-5.2.1",
+      "provenance": {
+        "document": "fault_code_dictionary.csv",
+        "row": 10
+      }
+    },
+    {
+      "source": "H-203",
+      "relation": "causedBy",
+      "target": "CMP-油缸密封圈",
+      "provenance": {
+        "document": "fault_code_dictionary.csv",
+        "row": 11
+      }
+    },
+    {
+      "source": "H-203",
+      "relation": "references",
+      "target": "SEC-5.3.1",
+      "provenance": {
+        "document": "fault_code_dictionary.csv",
+        "row": 11
+      }
+    },
+    {
+      "source": "H-204",
+      "relation": "causedBy",
+      "target": "CMP-油缸密封圈",
+      "provenance": {
+        "document": "fault_code_dictionary.csv",
+        "row": 12
+      }
+    },
+    {
+      "source": "H-204",
+      "relation": "references",
+      "target": "SEC-5.4.1",
+      "provenance": {
+        "document": "fault_code_dictionary.csv",
+        "row": 12
+      }
+    },
+    {
+      "source": "H-205",
+      "relation": "causedBy",
+      "target": "CMP-蓄能器皮囊",
+      "provenance": {
+        "document": "fault_code_dictionary.csv",
+        "row": 13
+      }
+    },
+    {
+      "source": "H-205",
+      "relation": "references",
+      "target": "SEC-5.5.1",
+      "provenance": {
+        "document": "fault_code_dictionary.csv",
+        "row": 13
+      }
+    },
+    {
+      "source": "HYD-01",
+      "relation": "hasModel",
+      "target": "HPU-40",
+      "provenance": {
+        "document": "equipment_ledger.csv",
+        "row": 7
+      }
+    },
+    {
+      "source": "HYD-02",
+      "relation": "hasModel",
+      "target": "HPU-40",
+      "provenance": {
+        "document": "equipment_ledger.csv",
+        "row": 8
+      }
+    },
+    {
+      "source": "HYD-03",
+      "relation": "hasModel",
+      "target": "HPU-63",
+      "provenance": {
+        "document": "equipment_ledger.csv",
+        "row": 9
+      }
+    },
+    {
+      "source": "SP-1001",
+      "relation": "appliesTo",
+      "target": "VMC1160",
+      "provenance": {
+        "document": "bom.csv",
+        "row": 1
+      }
+    },
+    {
+      "source": "SP-1001",
+      "relation": "appliesTo",
+      "target": "VMC850",
+      "provenance": {
+        "document": "bom.csv",
+        "row": 1
+      }
+    },
+    {
+      "source": "SP-1002",
+      "relation": "appliesTo",
+      "target": "HMC630",
+      "provenance": {
+        "document": "bom.csv",
+        "row": 2
+      }
+    },
+    {
+      "source": "SP-1003",
+      "relation": "appliesTo",
+      "target": "HMC630",
+      "provenance": {
+        "document": "bom.csv",
+        "row": 3
+      }
+    },
+    {
+      "source": "SP-1003",
+      "relation": "appliesTo",
+      "target": "VMC1160",
+      "provenance": {
+        "document": "bom.csv",
+        "row": 3
+      }
+    },
+    {
+      "source": "SP-1003",
+      "relation": "appliesTo",
+      "target": "VMC850",
+      "provenance": {
+        "document": "bom.csv",
+        "row": 3
+      }
+    },
+    {
+      "source": "SP-2001",
+      "relation": "appliesTo",
+      "target": "VMC1160",
+      "provenance": {
+        "document": "bom.csv",
+        "row": 4
+      }
+    },
+    {
+      "source": "SP-2001",
+      "relation": "appliesTo",
+      "target": "VMC850",
+      "provenance": {
+        "document": "bom.csv",
+        "row": 4
+      }
+    },
+    {
+      "source": "SP-2002",
+      "relation": "appliesTo",
+      "target": "VMC1160",
+      "provenance": {
+        "document": "bom.csv",
+        "row": 5
+      }
+    },
+    {
+      "source": "SP-2002",
+      "relation": "appliesTo",
+      "target": "VMC850",
+      "provenance": {
+        "document": "bom.csv",
+        "row": 5
+      }
+    },
+    {
+      "source": "SP-3001",
+      "relation": "appliesTo",
+      "target": "HPU-40",
+      "provenance": {
+        "document": "bom.csv",
+        "row": 6
+      }
+    },
+    {
+      "source": "SP-3002",
+      "relation": "appliesTo",
+      "target": "HPU-40",
+      "provenance": {
+        "document": "bom.csv",
+        "row": 7
+      }
+    },
+    {
+      "source": "SP-3002",
+      "relation": "appliesTo",
+      "target": "HPU-63",
+      "provenance": {
+        "document": "bom.csv",
+        "row": 7
+      }
+    },
+    {
+      "source": "SP-4001",
+      "relation": "appliesTo",
+      "target": "HPU-40",
+      "provenance": {
+        "document": "bom.csv",
+        "row": 8
+      }
+    },
+    {
+      "source": "SP-4002",
+      "relation": "appliesTo",
+      "target": "HPU-40",
+      "provenance": {
+        "document": "bom.csv",
+        "row": 9
+      }
+    },
+    {
+      "source": "SP-4002",
+      "relation": "appliesTo",
+      "target": "HPU-63",
+      "provenance": {
+        "document": "bom.csv",
+        "row": 9
+      }
+    },
+    {
+      "source": "SP-5001",
+      "relation": "appliesTo",
+      "target": "HMC630",
+      "provenance": {
+        "document": "bom.csv",
+        "row": 10
+      }
+    },
+    {
+      "source": "SP-5002",
+      "relation": "appliesTo",
+      "target": "HMC630",
+      "provenance": {
+        "document": "bom.csv",
+        "row": 11
+      }
+    },
+    {
+      "source": "SP-6001",
+      "relation": "appliesTo",
+      "target": "VMC1160",
+      "provenance": {
+        "document": "bom.csv",
+        "row": 12
+      }
+    },
+    {
+      "source": "SP-6001",
+      "relation": "appliesTo",
+      "target": "VMC850",
+      "provenance": {
+        "document": "bom.csv",
+        "row": 12
+      }
+    },
+    {
+      "source": "SP-7001",
+      "relation": "appliesTo",
+      "target": "HPU-40",
+      "provenance": {
+        "document": "bom.csv",
+        "row": 13
+      }
+    },
+    {
+      "source": "SP-7001",
+      "relation": "appliesTo",
+      "target": "HPU-63",
+      "provenance": {
+        "document": "bom.csv",
+        "row": 13
+      }
+    },
+    {
+      "source": "WO-2024-001",
+      "relation": "belongsTo",
+      "target": "CNC-01",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 1
+      }
+    },
+    {
+      "source": "WO-2024-001",
+      "relation": "hasFault",
+      "target": "E-101",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 1
+      }
+    },
+    {
+      "source": "WO-2024-001",
+      "relation": "resolvedBy",
+      "target": "ACT-WO-2024-001",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 1
+      }
+    },
+    {
+      "source": "WO-2024-001",
+      "relation": "usesPart",
+      "target": "SP-1001",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 1
+      }
+    },
+    {
+      "source": "WO-2024-002",
+      "relation": "belongsTo",
+      "target": "CNC-03",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 2
+      }
+    },
+    {
+      "source": "WO-2024-002",
+      "relation": "hasFault",
+      "target": "E-104",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 2
+      }
+    },
+    {
+      "source": "WO-2024-002",
+      "relation": "resolvedBy",
+      "target": "ACT-WO-2024-002",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 2
+      }
+    },
+    {
+      "source": "WO-2024-003",
+      "relation": "belongsTo",
+      "target": "CNC-02",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 3
+      }
+    },
+    {
+      "source": "WO-2024-003",
+      "relation": "hasFault",
+      "target": "E-103",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 3
+      }
+    },
+    {
+      "source": "WO-2024-003",
+      "relation": "resolvedBy",
+      "target": "ACT-WO-2024-003",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 3
+      }
+    },
+    {
+      "source": "WO-2024-003",
+      "relation": "usesPart",
+      "target": "SP-2001",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 3
+      }
+    },
+    {
+      "source": "WO-2024-004",
+      "relation": "belongsTo",
+      "target": "HYD-01",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 4
+      }
+    },
+    {
+      "source": "WO-2024-004",
+      "relation": "hasFault",
+      "target": "H-201",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 4
+      }
+    },
+    {
+      "source": "WO-2024-004",
+      "relation": "resolvedBy",
+      "target": "ACT-WO-2024-004",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 4
+      }
+    },
+    {
+      "source": "WO-2024-004",
+      "relation": "usesPart",
+      "target": "SP-3001",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 4
+      }
+    },
+    {
+      "source": "WO-2024-005",
+      "relation": "belongsTo",
+      "target": "CNC-04",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 5
+      }
+    },
+    {
+      "source": "WO-2024-005",
+      "relation": "hasFault",
+      "target": "E-102",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 5
+      }
+    },
+    {
+      "source": "WO-2024-005",
+      "relation": "resolvedBy",
+      "target": "ACT-WO-2024-005",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 5
+      }
+    },
+    {
+      "source": "WO-2024-005",
+      "relation": "usesPart",
+      "target": "SP-1002",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 5
+      }
+    },
+    {
+      "source": "WO-2024-006",
+      "relation": "belongsTo",
+      "target": "CNC-03",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 6
+      }
+    },
+    {
+      "source": "WO-2024-006",
+      "relation": "hasFault",
+      "target": "E-101",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 6
+      }
+    },
+    {
+      "source": "WO-2024-006",
+      "relation": "resolvedBy",
+      "target": "ACT-WO-2024-006",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 6
+      }
+    },
+    {
+      "source": "WO-2024-006",
+      "relation": "usesPart",
+      "target": "SP-1001",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 6
+      }
+    },
+    {
+      "source": "WO-2024-007",
+      "relation": "belongsTo",
+      "target": "HYD-02",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 7
+      }
+    },
+    {
+      "source": "WO-2024-007",
+      "relation": "hasFault",
+      "target": "H-202",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 7
+      }
+    },
+    {
+      "source": "WO-2024-007",
+      "relation": "resolvedBy",
+      "target": "ACT-WO-2024-007",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 7
+      }
+    },
+    {
+      "source": "WO-2024-008",
+      "relation": "belongsTo",
+      "target": "CNC-01",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 8
+      }
+    },
+    {
+      "source": "WO-2024-008",
+      "relation": "hasFault",
+      "target": "E-104",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 8
+      }
+    },
+    {
+      "source": "WO-2024-008",
+      "relation": "resolvedBy",
+      "target": "ACT-WO-2024-008",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 8
+      }
+    },
+    {
+      "source": "WO-2024-009",
+      "relation": "belongsTo",
+      "target": "HYD-01",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 9
+      }
+    },
+    {
+      "source": "WO-2024-009",
+      "relation": "hasFault",
+      "target": "H-203",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 9
+      }
+    },
+    {
+      "source": "WO-2024-009",
+      "relation": "resolvedBy",
+      "target": "ACT-WO-2024-009",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 9
+      }
+    },
+    {
+      "source": "WO-2024-009",
+      "relation": "usesPart",
+      "target": "SP-4001",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 9
+      }
+    },
+    {
+      "source": "WO-2024-010",
+      "relation": "belongsTo",
+      "target": "CNC-02",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 10
+      }
+    },
+    {
+      "source": "WO-2024-010",
+      "relation": "hasFault",
+      "target": "E-102",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 10
+      }
+    },
+    {
+      "source": "WO-2024-010",
+      "relation": "resolvedBy",
+      "target": "ACT-WO-2024-010",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 10
+      }
+    },
+    {
+      "source": "WO-2024-010",
+      "relation": "usesPart",
+      "target": "SP-1002",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 10
+      }
+    },
+    {
+      "source": "WO-2024-011",
+      "relation": "belongsTo",
+      "target": "CNC-05",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 11
+      }
+    },
+    {
+      "source": "WO-2024-011",
+      "relation": "hasFault",
+      "target": "E-105",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 11
+      }
+    },
+    {
+      "source": "WO-2024-011",
+      "relation": "resolvedBy",
+      "target": "ACT-WO-2024-011",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 11
+      }
+    },
+    {
+      "source": "WO-2024-011",
+      "relation": "usesPart",
+      "target": "SP-1003",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 11
+      }
+    },
+    {
+      "source": "WO-2024-012",
+      "relation": "belongsTo",
+      "target": "CNC-06",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 12
+      }
+    },
+    {
+      "source": "WO-2024-012",
+      "relation": "hasFault",
+      "target": "E-106",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 12
+      }
+    },
+    {
+      "source": "WO-2024-012",
+      "relation": "resolvedBy",
+      "target": "ACT-WO-2024-012",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 12
+      }
+    },
+    {
+      "source": "WO-2024-012",
+      "relation": "usesPart",
+      "target": "SP-5001",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 12
+      }
+    },
+    {
+      "source": "WO-2024-013",
+      "relation": "belongsTo",
+      "target": "CNC-01",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 13
+      }
+    },
+    {
+      "source": "WO-2024-013",
+      "relation": "hasFault",
+      "target": "E-107",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 13
+      }
+    },
+    {
+      "source": "WO-2024-013",
+      "relation": "resolvedBy",
+      "target": "ACT-WO-2024-013",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 13
+      }
+    },
+    {
+      "source": "WO-2024-013",
+      "relation": "usesPart",
+      "target": "SP-6001",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 13
+      }
+    },
+    {
+      "source": "WO-2024-014",
+      "relation": "belongsTo",
+      "target": "CNC-04",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 14
+      }
+    },
+    {
+      "source": "WO-2024-014",
+      "relation": "hasFault",
+      "target": "E-108",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 14
+      }
+    },
+    {
+      "source": "WO-2024-014",
+      "relation": "resolvedBy",
+      "target": "ACT-WO-2024-014",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 14
+      }
+    },
+    {
+      "source": "WO-2024-014",
+      "relation": "usesPart",
+      "target": "SP-2001",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 14
+      }
+    },
+    {
+      "source": "WO-2024-015",
+      "relation": "belongsTo",
+      "target": "HYD-03",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 15
+      }
+    },
+    {
+      "source": "WO-2024-015",
+      "relation": "hasFault",
+      "target": "H-204",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 15
+      }
+    },
+    {
+      "source": "WO-2024-015",
+      "relation": "resolvedBy",
+      "target": "ACT-WO-2024-015",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 15
+      }
+    },
+    {
+      "source": "WO-2024-015",
+      "relation": "usesPart",
+      "target": "SP-4001",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 15
+      }
+    },
+    {
+      "source": "WO-2024-016",
+      "relation": "belongsTo",
+      "target": "HYD-02",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 16
+      }
+    },
+    {
+      "source": "WO-2024-016",
+      "relation": "hasFault",
+      "target": "H-205",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 16
+      }
+    },
+    {
+      "source": "WO-2024-016",
+      "relation": "resolvedBy",
+      "target": "ACT-WO-2024-016",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 16
+      }
+    },
+    {
+      "source": "WO-2024-016",
+      "relation": "usesPart",
+      "target": "SP-4002",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 16
+      }
+    },
+    {
+      "source": "WO-2024-017",
+      "relation": "belongsTo",
+      "target": "CNC-03",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 17
+      }
+    },
+    {
+      "source": "WO-2024-017",
+      "relation": "hasFault",
+      "target": "E-103",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 17
+      }
+    },
+    {
+      "source": "WO-2024-017",
+      "relation": "resolvedBy",
+      "target": "ACT-WO-2024-017",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 17
+      }
+    },
+    {
+      "source": "WO-2024-017",
+      "relation": "usesPart",
+      "target": "SP-2001",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 17
+      }
+    },
+    {
+      "source": "WO-2024-018",
+      "relation": "belongsTo",
+      "target": "CNC-05",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 18
+      }
+    },
+    {
+      "source": "WO-2024-018",
+      "relation": "hasFault",
+      "target": "E-101",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 18
+      }
+    },
+    {
+      "source": "WO-2024-018",
+      "relation": "resolvedBy",
+      "target": "ACT-WO-2024-018",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 18
+      }
+    },
+    {
+      "source": "WO-2024-018",
+      "relation": "usesPart",
+      "target": "SP-1001",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 18
+      }
+    },
+    {
+      "source": "WO-2024-019",
+      "relation": "belongsTo",
+      "target": "CNC-06",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 19
+      }
+    },
+    {
+      "source": "WO-2024-019",
+      "relation": "hasFault",
+      "target": "E-102",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 19
+      }
+    },
+    {
+      "source": "WO-2024-019",
+      "relation": "resolvedBy",
+      "target": "ACT-WO-2024-019",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 19
+      }
+    },
+    {
+      "source": "WO-2024-019",
+      "relation": "usesPart",
+      "target": "SP-1002",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 19
+      }
+    },
+    {
+      "source": "WO-2024-020",
+      "relation": "belongsTo",
+      "target": "HYD-01",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 20
+      }
+    },
+    {
+      "source": "WO-2024-020",
+      "relation": "hasFault",
+      "target": "H-201",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 20
+      }
+    },
+    {
+      "source": "WO-2024-020",
+      "relation": "resolvedBy",
+      "target": "ACT-WO-2024-020",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 20
+      }
+    },
+    {
+      "source": "WO-2024-020",
+      "relation": "usesPart",
+      "target": "SP-3001",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 20
+      }
+    },
+    {
+      "source": "WO-2024-021",
+      "relation": "belongsTo",
+      "target": "CNC-02",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 21
+      }
+    },
+    {
+      "source": "WO-2024-021",
+      "relation": "hasFault",
+      "target": "E-105",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 21
+      }
+    },
+    {
+      "source": "WO-2024-021",
+      "relation": "resolvedBy",
+      "target": "ACT-WO-2024-021",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 21
+      }
+    },
+    {
+      "source": "WO-2024-022",
+      "relation": "belongsTo",
+      "target": "CNC-01",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 22
+      }
+    },
+    {
+      "source": "WO-2024-022",
+      "relation": "hasFault",
+      "target": "E-106",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 22
+      }
+    },
+    {
+      "source": "WO-2024-022",
+      "relation": "resolvedBy",
+      "target": "ACT-WO-2024-022",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 22
+      }
+    },
+    {
+      "source": "WO-2024-023",
+      "relation": "belongsTo",
+      "target": "CNC-04",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 23
+      }
+    },
+    {
+      "source": "WO-2024-023",
+      "relation": "hasFault",
+      "target": "E-107",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 23
+      }
+    },
+    {
+      "source": "WO-2024-023",
+      "relation": "resolvedBy",
+      "target": "ACT-WO-2024-023",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 23
+      }
+    },
+    {
+      "source": "WO-2024-023",
+      "relation": "usesPart",
+      "target": "SP-6001",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 23
+      }
+    },
+    {
+      "source": "WO-2024-024",
+      "relation": "belongsTo",
+      "target": "HYD-03",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 24
+      }
+    },
+    {
+      "source": "WO-2024-024",
+      "relation": "hasFault",
+      "target": "H-202",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 24
+      }
+    },
+    {
+      "source": "WO-2024-024",
+      "relation": "resolvedBy",
+      "target": "ACT-WO-2024-024",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 24
+      }
+    },
+    {
+      "source": "WO-2024-025",
+      "relation": "belongsTo",
+      "target": "CNC-03",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 25
+      }
+    },
+    {
+      "source": "WO-2024-025",
+      "relation": "hasFault",
+      "target": "E-104",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 25
+      }
+    },
+    {
+      "source": "WO-2024-025",
+      "relation": "resolvedBy",
+      "target": "ACT-WO-2024-025",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 25
+      }
+    },
+    {
+      "source": "WO-2024-026",
+      "relation": "belongsTo",
+      "target": "CNC-05",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 26
+      }
+    },
+    {
+      "source": "WO-2024-026",
+      "relation": "hasFault",
+      "target": "E-108",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 26
+      }
+    },
+    {
+      "source": "WO-2024-026",
+      "relation": "resolvedBy",
+      "target": "ACT-WO-2024-026",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 26
+      }
+    },
+    {
+      "source": "WO-2024-027",
+      "relation": "belongsTo",
+      "target": "HYD-02",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 27
+      }
+    },
+    {
+      "source": "WO-2024-027",
+      "relation": "hasFault",
+      "target": "H-203",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 27
+      }
+    },
+    {
+      "source": "WO-2024-027",
+      "relation": "resolvedBy",
+      "target": "ACT-WO-2024-027",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 27
+      }
+    },
+    {
+      "source": "WO-2024-027",
+      "relation": "usesPart",
+      "target": "SP-4001",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 27
+      }
+    },
+    {
+      "source": "WO-2024-028",
+      "relation": "belongsTo",
+      "target": "CNC-06",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 28
+      }
+    },
+    {
+      "source": "WO-2024-028",
+      "relation": "hasFault",
+      "target": "E-103",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 28
+      }
+    },
+    {
+      "source": "WO-2024-028",
+      "relation": "resolvedBy",
+      "target": "ACT-WO-2024-028",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 28
+      }
+    },
+    {
+      "source": "WO-2024-028",
+      "relation": "usesPart",
+      "target": "SP-2002",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 28
+      }
+    },
+    {
+      "source": "WO-2024-029",
+      "relation": "belongsTo",
+      "target": "CNC-01",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 29
+      }
+    },
+    {
+      "source": "WO-2024-029",
+      "relation": "hasFault",
+      "target": "E-102",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 29
+      }
+    },
+    {
+      "source": "WO-2024-029",
+      "relation": "resolvedBy",
+      "target": "ACT-WO-2024-029",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 29
+      }
+    },
+    {
+      "source": "WO-2024-029",
+      "relation": "usesPart",
+      "target": "SP-1002",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 29
+      }
+    },
+    {
+      "source": "WO-2024-030",
+      "relation": "belongsTo",
+      "target": "HYD-01",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 30
+      }
+    },
+    {
+      "source": "WO-2024-030",
+      "relation": "hasFault",
+      "target": "H-204",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 30
+      }
+    },
+    {
+      "source": "WO-2024-030",
+      "relation": "resolvedBy",
+      "target": "ACT-WO-2024-030",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 30
+      }
+    },
+    {
+      "source": "WO-2024-031",
+      "relation": "belongsTo",
+      "target": "CNC-02",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 31
+      }
+    },
+    {
+      "source": "WO-2024-031",
+      "relation": "hasFault",
+      "target": "E-101",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 31
+      }
+    },
+    {
+      "source": "WO-2024-031",
+      "relation": "resolvedBy",
+      "target": "ACT-WO-2024-031",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 31
+      }
+    },
+    {
+      "source": "WO-2024-031",
+      "relation": "usesPart",
+      "target": "SP-1001",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 31
+      }
+    },
+    {
+      "source": "WO-2024-032",
+      "relation": "belongsTo",
+      "target": "CNC-04",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 32
+      }
+    },
+    {
+      "source": "WO-2024-032",
+      "relation": "hasFault",
+      "target": "E-106",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 32
+      }
+    },
+    {
+      "source": "WO-2024-032",
+      "relation": "resolvedBy",
+      "target": "ACT-WO-2024-032",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 32
+      }
+    },
+    {
+      "source": "WO-2024-032",
+      "relation": "usesPart",
+      "target": "SP-5002",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 32
+      }
+    },
+    {
+      "source": "WO-2024-033",
+      "relation": "belongsTo",
+      "target": "HYD-03",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 33
+      }
+    },
+    {
+      "source": "WO-2024-033",
+      "relation": "hasFault",
+      "target": "H-205",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 33
+      }
+    },
+    {
+      "source": "WO-2024-033",
+      "relation": "resolvedBy",
+      "target": "ACT-WO-2024-033",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 33
+      }
+    },
+    {
+      "source": "WO-2024-033",
+      "relation": "usesPart",
+      "target": "SP-4002",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 33
+      }
+    },
+    {
+      "source": "WO-2024-034",
+      "relation": "belongsTo",
+      "target": "CNC-03",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 34
+      }
+    },
+    {
+      "source": "WO-2024-034",
+      "relation": "hasFault",
+      "target": "E-107",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 34
+      }
+    },
+    {
+      "source": "WO-2024-034",
+      "relation": "resolvedBy",
+      "target": "ACT-WO-2024-034",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 34
+      }
+    },
+    {
+      "source": "WO-2024-034",
+      "relation": "usesPart",
+      "target": "SP-6001",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 34
+      }
+    },
+    {
+      "source": "WO-2024-035",
+      "relation": "belongsTo",
+      "target": "CNC-05",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 35
+      }
+    },
+    {
+      "source": "WO-2024-035",
+      "relation": "hasFault",
+      "target": "E-102",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 35
+      }
+    },
+    {
+      "source": "WO-2024-035",
+      "relation": "resolvedBy",
+      "target": "ACT-WO-2024-035",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 35
+      }
+    },
+    {
+      "source": "WO-2024-035",
+      "relation": "usesPart",
+      "target": "SP-1002",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 35
+      }
+    },
+    {
+      "source": "WO-2024-036",
+      "relation": "belongsTo",
+      "target": "HYD-02",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 36
+      }
+    },
+    {
+      "source": "WO-2024-036",
+      "relation": "hasFault",
+      "target": "H-201",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 36
+      }
+    },
+    {
+      "source": "WO-2024-036",
+      "relation": "resolvedBy",
+      "target": "ACT-WO-2024-036",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 36
+      }
+    },
+    {
+      "source": "WO-2024-036",
+      "relation": "usesPart",
+      "target": "SP-3001",
+      "provenance": {
+        "document": "maintenance_work_orders.csv",
+        "row": 36
+      }
+    }
+  ]
+}

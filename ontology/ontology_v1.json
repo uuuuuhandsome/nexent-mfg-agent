@@ -488,6 +488,20 @@
         "confidence": 0.88,
         "status": "auto_new"
       }
+    },
+    {
+      "id": "MaintenanceAction",
+      "name": "处置动作",
+      "definition": "工单中实际采取的维修措施",
+      "examples": [
+        "更换主轴轴承并重新预紧"
+      ],
+      "standard": "企业维修作业规范",
+      "provenance": {
+        "source": "ontology 扩展（C）",
+        "status": "schema_extension",
+        "reason": "原种子本体缺失处置动作，导致故障无法连到备件"
+      }
     }
   ],
   "relations": [
@@ -2259,6 +2273,16 @@
         "sentence": "5.5.1 蓄能器压力低（对应故障代码 H-205）",
         "confidence": 0.92,
         "status": "auto_new"
+      }
+    },
+    {
+      "id": "resolvedBy",
+      "head": "WorkOrder",
+      "tail": "MaintenanceAction",
+      "description": "工单采取的处置动作",
+      "provenance": {
+        "source": "ontology 扩展（C）",
+        "status": "schema_extension"
       }
     }
   ],
